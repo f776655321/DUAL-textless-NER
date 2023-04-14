@@ -17,8 +17,8 @@ class ApplyKmeans(object):
         self.C = torch.from_numpy(self.C_np)
         self.Cnorm = torch.from_numpy(self.Cnorm_np)
         if torch.cuda.is_available():
-            self.C = self.C.cuda()
-            self.Cnorm = self.Cnorm.cuda()
+            self.C = self.C.cuda(6)
+            self.Cnorm = self.Cnorm.cuda(6)
 
     def __call__(self, x):
         if isinstance(x, torch.Tensor):
@@ -51,22 +51,25 @@ def reader(fname):
 
 
 # train
-df = pd.read_csv('/home/daniel094144/data/lxt_sqa/script.csv')
-audio_file_dir = '/home/daniel094144/data/lxt_sqa/audio'
+df = pd.read_csv('/tmp2/b09902111/slue-voxpopuli/slue-voxpopuli_test_blind.tsv',sep='\t')
+audio_file_dir = '/tmp2/b09902111/slue-voxpopuli/test'
 
-output_dir = '/home/daniel094144/data/SQA_code/hubert_large_128/lxt_code'
-extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')    
+output_dir = '/tmp2/b09902111/data/test'
+extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
 extractor.eval()
 
 if torch.cuda.is_available():
-        extractor = extractor.cuda()
+        extractor = extractor.cuda(6)
 
-apply_kmeans = ApplyKmeans('/home/daniel094144/Daniel/DUAL-textless-SQA/hubert-cluster-code/km_100h_c128/km_feat_layer_22')
+count_prefix = 0
+count_latefix = 0
+apply_kmeans = ApplyKmeans('/tmp2/b09902111/DUAL-textless-SQA/speeech-content-encoder/km_100h_c128/km_feat_layer_22')
 
-for file in tqdm(df['utterance_id'].values, desc='transforming lxt data to discrete code'):
-    audio_file = os.path.join(audio_file_dir, file+'.wav')
+for file in tqdm(df['id'].values, desc='transforming lxt data to discrete code'):
+    output_file = f"context-{count_prefix}_{count_latefix}"
+    audio_file = os.path.join(audio_file_dir, file+'.ogg')
     wavs = reader(audio_file)
-    wavs = wavs.cuda()  
+    wavs = wavs.cuda(6)  
 
     if len(wavs) > 20 * SAMPLE_RATE: 
         print(f'{file} too long')
@@ -80,15 +83,20 @@ for file in tqdm(df['utterance_id'].values, desc='transforming lxt data to discr
             else: 
                 feature = torch.cat([feature, feat], dim = 0)
 
-        code = apply_kmeans(feature.cuda()) 
+        code = apply_kmeans(feature.cuda(6)) 
     else:
         feature = extractor([wavs])    
 
         
-        code = apply_kmeans(feature['hidden_state_22'].squeeze().cuda())
+        code = apply_kmeans(feature['hidden_state_22'].squeeze().cuda(6))
 
     code = torch.tensor(code)
 
     merged_code, counts = torch.unique_consecutive(code, return_counts=True)
-    np.savetxt(os.path.join(output_dir, file+'.code'), merged_code.long(), fmt='%i')    
-    np.savetxt(os.path.join(output_dir, file+'.cnt'), counts.long(), fmt='%i')
+    np.savetxt(os.path.join(output_dir, output_file+'.code'), merged_code.long(), fmt='%i')    
+    np.savetxt(os.path.join(output_dir, output_file+'.cnt'), counts.long(), fmt='%i')
+    if(count_latefix < 53):
+        count_latefix += 1
+    else:
+        count_prefix += 1
+        count_latefix = 0
