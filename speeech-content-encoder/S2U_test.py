@@ -51,10 +51,10 @@ def reader(fname):
 
 
 # train
-df = pd.read_csv('/tmp2/b09902111/slue-voxpopuli/slue-voxpopuli_test_blind.tsv',sep='\t')
-audio_file_dir = '/tmp2/b09902111/slue-voxpopuli/test'
+df = pd.read_csv('/tmp2/b09902111/slue-voxpopuli/slue-voxpopuli_fine-tune.tsv',sep='\t')
+audio_file_dir = '/tmp2/b09902111/slue-voxpopuli/fine-tune'
 
-output_dir = '/tmp2/b09902111/data/test'
+output_dir = '/tmp2/b09902111/data/fine-tune'
 extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
 extractor.eval()
 

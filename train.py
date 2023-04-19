@@ -16,24 +16,19 @@ from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import DataLoader, Dataset
 
 class SQADataset(Dataset):
-    def __init__(self, data_dir, mode='train', idx_offset=5):
-        df = pd.read_csv(os.path.join(data_dir, mode+'_code_answer.csv'))
-        with open(os.path.join(data_dir, mode+'-hash2question.json')) as f:
-            h2q = json.load(f)      
+    def __init__(self, data_dir, mode='fine-tune', idx_offset=5):
+        df = pd.read_csv(os.path.join(data_dir, mode+'_code_answer.csv'))     
             
-        df['question'] = df['hash'].apply(lambda x: h2q[x])
-        
         code_dir = os.path.join(data_dir, mode+'-hubert-128-22')
         code_passage_dir = os.path.join(data_dir, mode+'-hubert-128-22')
         context_id = df['context_id'].values
-        question = df['question'].values
         code_start = df['code_start'].values
         code_end = df['code_end'].values
-        
+        label = df['label'].values
         self.encodings = []
-        for context_id, question_id, start_idx, end_idx in tqdm(zip(context_id, question, code_start, code_end), total=len(context_id)):
-            context = np.loadtxt(os.path.join(code_passage_dir, 'context-'+context_id+'.code')).astype(int)
-            question = np.loadtxt(os.path.join(code_dir, question_id+'.code')).astype(int)
+        for context_id, label, start_idx, end_idx in tqdm(zip(context_id, label, code_start, code_end), total=len(context_id)):
+            context = np.loadtxt(os.path.join(code_passage_dir, context_id+'.code')).astype(int)
+            question = np.loadtxt(os.path.join(code_dir, label+'.code')).astype(int)
             if context.shape == ():
                 context = np.expand_dims(context, axis=-1)
             if question.shape == ():

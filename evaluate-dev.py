@@ -95,11 +95,7 @@ def post_process_prediction(start_prob, end_prob,context_offset, n_best_size=10,
 
 class SQADevDataset(Dataset):
     def __init__(self, data_dir):
-        df = pd.read_csv(os.path.join(data_dir, 'dev_code_answer.csv'))
-        with open(os.path.join(data_dir, 'dev-hash2question.json')) as f:
-            h2q = json.load(f)      
-            
-        df['question'] = df['hash'].apply(lambda x: h2q[x])
+        df = pd.read_csv(os.path.join(data_dir, 'dev_code_answer.csv'))  
         
         code_dir = os.path.join(data_dir, 'dev-hubert-128-22')
         code_passage_dir = os.path.join(data_dir, 'dev-hubert-128-22')
@@ -130,6 +126,7 @@ class SQADevDataset(Dataset):
             
             start_positions = 1 + len(question) + 1 + 1 + start_idx
             end_positions = 1 + len(question) + 1 + 1 + end_idx
+            
             if end_positions > 4096:
                 print('end position: ', end_positions)
                 start_positions, end_positions = 0, 0
