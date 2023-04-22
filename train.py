@@ -10,17 +10,16 @@ from tqdm import tqdm
 import argparse
 import yaml 
 import json
-
-
+import wandb
 from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import DataLoader, Dataset
 
 class SQADataset(Dataset):
     def __init__(self, data_dir, mode='fine-tune', idx_offset=5):
-        df = pd.read_csv(os.path.join(data_dir, mode+'_code_answer.csv'))     
+        df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_without_n_without_r.csv'))     
             
-        code_dir = os.path.join(data_dir, mode+'-hubert-128-22')
-        code_passage_dir = os.path.join(data_dir, mode+'-hubert-128-22')
+        code_dir = os.path.join(data_dir, 'question-code/')
+        code_passage_dir = os.path.join(data_dir, 'code/' + mode + '/')
         context_id = df['context_id'].values
         code_start = df['code_start'].values
         code_end = df['code_end'].values
@@ -152,7 +151,8 @@ def main():
     # See all possible arguments in src/transformers/training_args.py
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
 
-    # we will load the arguments from a json file, 
+    # we will load the arguments from a json file,
+    json_file=os.path.abspath('args.json')
     model_args, data_args, training_args = parser.parse_json_file(json_file=os.path.abspath('args.json'))
  
     if (
@@ -203,7 +203,7 @@ def main():
     # Get datasets
     print('[INFO]    loading data')
     
-    train_dataset = SQADataset(data_dir, mode='train')
+    train_dataset = SQADataset(data_dir, mode='fine-tune')
     dev_dataset = SQADataset(data_dir, mode='dev')
 
     print('[INFO]    loading done')
@@ -240,7 +240,7 @@ def main():
     
     return results
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', default='baseline.yaml', type=str)
     parser.add_argument('--exp_name', default='test', type=str)
@@ -248,9 +248,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     config = yaml.load(open(args.config, 'r'), Loader=yaml.FullLoader)
     
-    with open('args.json', 'w') as f:
-        json.dump(config['Trainer'], f)
-
     print('[INFO]    Using config {}'.format(args.config))
     
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')

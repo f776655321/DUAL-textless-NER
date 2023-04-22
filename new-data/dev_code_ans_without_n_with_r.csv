@@ -1,0 +1,2627 @@
+context_id,label,start,end,label_text,code_start,code_end
+context-0_0,ORG,0.0,0.0,none,-1,-1
+context-0_1,WHEN,0.0,0.0,none,-1,-1
+context-0_2,PLACE,2.085,2.666,strasbourg,54,70
+context-0_3,WHEN,0.0,0.0,none,-1,-1
+context-0_4,QUANT,0.884,1.607,thousands of euros,28,56
+context-0_5,ORG,0.0,0.0,none,-1,-1
+context-0_6,WHEN,0.0,0.0,none,-1,-1
+context-0_7,PLACE,8.212,8.472,europe,257,263
+context-0_8,PLACE,3.083,3.763,addis ababa,94,115
+context-0_9,ORG,0.0,0.0,none,-1,-1
+context-0_10,PLACE,0.0,0.0,none,-1,-1
+context-0_11,WHEN,0.0,0.0,none,-1,-1
+context-0_12,PERSON,0.0,0.0,none,-1,-1
+context-0_13,QUANT,13.917,14.237,first,382,390
+context-0_14,LAW,0.0,0.0,none,-1,-1
+context-0_15,QUANT,0.804,0.904,one,18,21
+context-0_16,ORG,0.0,0.0,none,-1,-1
+context-0_17,WHEN,0.0,0.0,none,-1,-1
+context-0_18,ORG,12.836,14.799,european investment advisory hub,360,418
+context-0_18,ORG,0.38,0.721,efsi,9,18
+context-0_18,ORG,7.77,8.09,efsi,220,232
+context-0_19,NORP,0.0,0.0,none,-1,-1
+context-0_20,WHEN,0.0,0.0,none,-1,-1
+context-0_21,LAW,0.0,0.0,none,-1,-1
+context-0_22,WHEN,7.131,8.413,two thousand and fourteen,183,228
+context-0_22,PLACE,2.985,3.225,eu,68,73
+context-0_22,WHEN,1.863,2.604,three years ago,43,61
+context-0_23,ORG,0.0,0.0,none,-1,-1
+context-0_24,ORG,0.34,0.741,parliament,12,26
+context-0_25,PLACE,0.641,1.102,eu,19,27
+context-0_26,PERSON,0.0,0.0,none,-1,-1
+context-0_27,PLACE,5.258,5.539,eu,169,174
+context-0_27,NORP,0.341,0.582,irish,11,18
+context-0_28,PLACE,8.418,8.719,german,246,254
+context-0_28,PLACE,7.596,8.077,new york,225,235
+context-0_28,PLACE,7.196,7.536,london,211,223
+context-0_28,PLACE,0.14,0.481,ireland,3,14
+context-0_28,PLACE,5.672,5.993,ireland,170,179
+context-0_29,PLACE,8.059,8.34,ireland,253,259
+context-0_30,PLACE,8.554,8.835,europe,261,269
+context-0_30,PLACE,1.903,2.164,eu,59,65
+context-0_30,PLACE,6.531,6.791,eu,205,212
+context-0_31,WHEN,0.0,0.0,none,-1,-1
+context-0_32,ORG,0.0,0.0,none,-1,-1
+context-0_33,NORP,0.0,0.0,none,-1,-1
+context-0_34,PERSON,0.0,0.0,none,-1,-1
+context-0_35,WHEN,3.323,3.964,one month,44,56
+context-0_36,QUANT,0.0,0.0,none,-1,-1
+context-0_37,ORG,7.287,7.667,council,208,219
+context-0_37,ORG,13.573,14.033,council,375,389
+context-0_37,QUANT,6.366,6.706,first,182,191
+context-0_37,ORG,2.622,3.123,parliament,67,80
+context-0_38,NORP,0.0,0.0,none,-1,-1
+context-0_39,WHEN,1.907,2.429,last week,61,78
+context-0_39,PLACE,1.566,1.867,us,49,60
+context-0_40,WHEN,2.39,2.913,today,61,70
+context-0_41,ORG,0.0,0.0,none,-1,-1
+context-0_42,PERSON,1.492,1.895,almunia,42,54
+context-0_42,QUANT,0.242,0.343,first,8,9
+context-0_43,PLACE,0.0,0.0,none,-1,-1
+context-0_44,NORP,6.617,6.938,european,161,174
+context-0_44,WHEN,0.02,2.346,two thousand and thirteen,0,39
+context-0_45,PLACE,5.086,5.968,european union,122,145
+context-0_45,ORG,3.965,4.025,eib,101,102
+context-0_46,ORG,7.031,7.632,eib,197,212
+context-0_46,ORG,6.25,6.771,ebrd,172,191
+context-0_46,PLACE,3.325,4.087,european union,87,111
+context-0_46,QUANT,0.341,0.821,second,8,19
+context-0_47,ORG,2.842,3.243,ec,83,93
+context-0_48,PLACE,19.479,19.86,georgia,484,493
+context-0_48,WHEN,15.155,15.896,last august,365,387
+context-0_49,WHEN,16.839,17.019,may,387,390
+context-0_49,PLACE,15.597,16.138,zagreb,359,376
+context-0_49,QUANT,8.269,8.63,fourth,194,200
+context-0_49,ORG,7.108,7.929,ebrd,167,187
+context-0_49,ORG,1.422,2.523,european parliament,32,61
+context-0_49,QUANT,0.34,0.601,third,7,13
+context-0_50,PLACE,18.478,19.939,central and eastern europe,446,484
+context-0_50,ORG,7.407,7.948,world bank,184,200
+context-0_51,LAW,0.0,0.0,none,-1,-1
+context-0_52,ORG,9.955,10.596,eib,266,279
+context-0_52,ORG,8.993,9.674,ebrd,241,259
+context-0_52,QUANT,0.36,0.781,first,8,20
+context-0_53,QUANT,0.08,0.822,twenty,3,25
+context-1_0,WHEN,18.078,19.179,two thousand and nine,424,450
+context-1_0,QUANT,16.156,17.858,eur seven billion,376,416
+context-1_0,ORG,2.843,3.343,ebrd,47,62
+context-1_0,WHEN,0.02,0.961,two thousand and ten,0,27
+context-1_1,WHEN,0.0,0.0,none,-1,-1
+context-1_2,LAW,0.0,0.0,none,-1,-1
+context-1_3,LAW,0.0,0.0,none,-1,-1
+context-1_4,PERSON,0.0,0.0,none,-1,-1
+context-1_5,WHEN,12.629,13.57,recent days,309,331
+context-1_5,ORG,11.489,12.449,european council,272,304
+context-1_5,PLACE,2.082,3.042,western balkans,51,81
+context-1_6,PLACE,6.146,6.486,europe,156,169
+context-1_7,PLACE,12.193,12.493,europe,324,331
+context-1_7,ORG,4.285,5.486,european investment bank,112,152
+context-1_8,LAW,0.0,0.0,none,-1,-1
+context-1_9,QUANT,3.009,3.55,thirty five,77,93
+context-1_9,ORG,0.521,1.304,eib,14,30
+context-1_10,ORG,7.81,8.551,eib,202,219
+context-1_11,PLACE,0.0,0.0,none,-1,-1
+context-1_12,ORG,0.0,0.0,none,-1,-1
+context-1_13,QUANT,10.854,11.455,eighty,293,307
+context-1_14,ORG,0.0,0.0,none,-1,-1
+context-1_15,LAW,0.0,0.0,none,-1,-1
+context-1_16,ORG,2.388,2.909,parliament,70,86
+context-1_17,QUANT,6.899,7.139,half,197,203
+context-1_17,QUANT,6.578,6.818,second,186,195
+context-1_17,NORP,5.134,5.374,polish,142,150
+context-1_17,QUANT,0.501,0.722,first,13,18
+context-1_18,WHEN,4.869,5.49,the first months,124,140
+context-1_19,PLACE,11.298,11.739,baltic sea,272,288
+context-1_20,LAW,0.0,0.0,none,-1,-1
+context-1_21,ORG,10.199,10.48,council,275,285
+context-1_21,QUANT,0.721,0.842,one,20,23
+context-1_22,QUANT,7.669,7.849,first,209,214
+context-1_22,ORG,5.106,5.907,european commission,142,169
+context-1_22,LAW,0.521,1.542,baltic sea strategy,12,43
+context-1_23,ORG,0.0,15.098,nordic investment bank,-1,415
+context-1_23,ORG,14.076,15.098,european investment bank,380,415
+context-1_23,PLACE,4.245,4.325,eu,101,104
+context-1_24,WHEN,0.0,0.0,none,-1,-1
+context-1_25,WHEN,8.579,8.979,next year,190,200
+context-1_25,LAW,5.873,6.955,baltic sea strategy,121,154
+context-1_25,QUANT,4.45,4.69,first,88,94
+context-1_25,WHEN,0.0,0.581,two thousand and eleven,-1,13
+context-1_26,QUANT,0.0,0.0,none,-1,-1
+context-1_27,WHEN,8.619,8.96,october,235,247
+context-1_27,ORG,4.57,5.011,council,133,149
+context-1_27,NORP,0.501,0.822,swedish,11,23
+context-1_28,NORP,0.0,0.0,none,-1,-1
+context-1_29,QUANT,0.0,0.0,none,-1,-1
+context-1_30,PLACE,0.0,0.0,none,-1,-1
+context-1_31,WHEN,0.0,0.0,none,-1,-1
+context-1_32,PLACE,0.0,0.0,none,-1,-1
+context-1_33,PLACE,1.491,1.793,europe,34,43
+context-1_34,QUANT,0.0,0.0,none,-1,-1
+context-1_35,PLACE,11.25,11.61,europe,292,303
+context-1_36,PLACE,10.637,11.138,hungary,276,288
+context-1_36,PLACE,6.49,6.891,europe,168,182
+context-1_37,QUANT,0.0,0.0,none,-1,-1
+context-1_38,PLACE,0.0,0.0,none,-1,-1
+context-1_39,QUANT,10.249,10.97,five,269,292
+context-1_39,QUANT,9.929,10.089,four,261,264
+context-1_39,QUANT,7.487,7.927,thirteen,196,209
+context-1_39,QUANT,7.086,7.366,twelve,188,195
+context-1_40,PERSON,0.0,0.0,none,-1,-1
+context-1_41,WHEN,3.211,3.833,twenty years,107,127
+context-1_42,NORP,10.932,11.532,european,314,332
+context-1_43,QUANT,0.0,0.0,none,-1,-1
+context-1_44,PLACE,2.174,2.919,european union,64,87
+context-1_45,PERSON,0.0,0.0,none,-1,-1
+context-1_46,ORG,15.039,15.299,un,416,426
+context-1_47,PERSON,0.0,0.0,none,-1,-1
+context-1_48,PLACE,11.652,12.473,european union,321,347
+context-1_48,ORG,5.306,6.207,united nations,141,172
+context-1_49,PLACE,0.0,0.0,none,-1,-1
+context-1_50,PLACE,5.872,6.413,japan,159,171
+context-1_50,PLACE,5.211,5.792,usa,141,156
+context-1_50,PLACE,3.968,4.87,european union,106,132
+context-1_50,ORG,1.744,2.124,council,44,59
+context-1_51,ORG,24.179,24.64,ecosoc,590,608
+context-1_51,PLACE,15.492,15.853,eu,371,380
+context-1_51,ORG,10.368,12.09,economic and social council,258,309
+context-1_52,ORG,0.0,5.427,un security council,-1,147
+context-1_52,ORG,9.732,11.735,un economic council,256,310
+context-1_52,WHEN,6.668,7.67,two thousand and nine,184,209
+context-1_52,PLACE,6.028,6.448,davos,161,177
+context-1_52,ORG,4.025,5.427,world economic council,106,147
+context-1_52,PERSON,1.462,2.423,angela merkel,27,57
+context-1_53,ORG,14.439,14.619,un,383,388
+context-1_53,ORG,10.133,11.075,united nations,261,288
+context-2_0,WHEN,0.0,0.0,none,-1,-1
+context-2_1,PERSON,8.046,8.406,juncker,224,236
+context-2_1,ORG,2.582,3.322,united nations,72,93
+context-2_2,PERSON,0.381,1.004,oleg sentsov,7,33
+context-2_3,PERSON,0.0,0.0,none,-1,-1
+context-2_4,QUANT,0.0,0.0,none,-1,-1
+context-2_5,PLACE,14.058,15.1,european union,425,456
+context-2_5,QUANT,11.735,12.877,ninety five,352,388
+context-2_6,ORG,4.486,5.207,oecd,128,148
+context-2_7,PLACE,0.0,0.0,none,-1,-1
+context-2_8,PLACE,7.197,8.24,european union,197,226
+context-2_8,PLACE,1.143,1.624,africa,39,54
+context-2_9,PERSON,0.0,0.0,none,-1,-1
+context-2_10,PERSON,0.0,0.0,none,-1,-1
+context-2_11,QUANT,0.0,0.0,none,-1,-1
+context-2_12,ORG,8.473,9.434,european parliament,237,269
+context-2_12,WHEN,5.628,6.069,tomorrow,158,172
+context-2_12,QUANT,1.222,1.362,one,28,31
+context-2_13,QUANT,7.218,7.399,first,204,211
+context-2_14,QUANT,1.266,1.929,one million,39,57
+context-2_15,QUANT,0.0,0.0,none,-1,-1
+context-2_16,LAW,0.0,0.0,none,-1,-1
+context-2_17,QUANT,4.191,4.351,one,99,103
+context-2_18,PLACE,0.0,0.0,none,-1,-1
+context-2_19,LAW,0.0,0.0,none,-1,-1
+context-2_20,WHEN,0.343,0.828,next year,9,24
+context-2_21,WHEN,0.0,0.0,none,-1,-1
+context-2_22,WHEN,0.0,0.0,none,-1,-1
+context-2_23,PLACE,7.667,7.967,europe,164,172
+context-2_23,PLACE,9.609,9.889,europe,207,217
+context-2_23,PLACE,12.552,12.852,europe,277,289
+context-2_23,WHEN,1.842,3.844,twenty three,64,84
+context-2_23,WHEN,0.0,0.32,twenty two,-1,11
+context-2_23,WHEN,0.2,1.441,two thousand and twenty one,7,47
+context-2_24,ORG,2.284,3.065,regi committee,57,80
+context-2_25,QUANT,0.341,0.661,second,7,20
+context-2_26,WHEN,6.196,7.058,two thousand and fourteen,162,191
+context-2_26,WHEN,4.672,5.735,two thousand and thirteen,115,148
+context-2_27,WHEN,7.328,8.369,two thousand and nineteen,170,206
+context-2_27,WHEN,2.062,5.226,two thousand and eighteen,71,122
+context-2_27,WHEN,1.101,2.042,two thousand and seventeen,43,71
+context-2_27,QUANT,0.641,1.041,sixteen,25,41
+context-2_28,QUANT,0.0,0.0,none,-1,-1
+context-2_29,PLACE,23.699,24.08,brazil,684,695
+context-2_29,PLACE,0.0,5.164,south africa,-1,163
+context-2_29,PLACE,16.974,17.434,us,494,506
+context-2_29,PLACE,11.67,11.93,eu,347,352
+context-2_29,PLACE,4.744,5.164,africa,149,163
+context-2_29,PLACE,3.503,4.364,latin america,109,137
+context-2_30,WHEN,0.0,0.0,none,-1,-1
+context-2_31,ORG,0.946,1.73,european council,24,52
+context-2_32,PLACE,5.295,5.756,croatia,143,155
+context-2_32,PLACE,3.951,4.573,european union,102,123
+context-2_32,WHEN,2.607,3.47,forty five years,67,90
+context-2_32,PLACE,1.143,1.584,ireland,31,41
+context-2_32,QUANT,0.221,0.421,first,6,13
+context-2_33,PLACE,3.205,3.805,european union,87,109
+context-2_33,PLACE,2.363,2.764,europe,68,77
+context-2_34,PLACE,5.53,5.971,eurozone,116,130
+context-2_34,NORP,3.466,3.827,european,74,85
+context-2_35,PLACE,0.0,0.0,none,-1,-1
+context-2_36,WHEN,4.835,5.798,two thousand and sixteen,145,179
+context-2_36,WHEN,0.0,0.642,two thousand and fourteen,-1,22
+context-2_36,WHEN,0.662,1.504,two thousand and twenty,23,53
+context-2_36,WHEN,3.511,4.794,two thousand and fourteen,100,143
+context-2_37,NORP,6.677,7.138,european,150,164
+context-2_38,WHEN,8.798,9.78,years until,207,238
+context-2_38,ORG,4.589,5.491,n three,107,135
+context-2_38,WHEN,3.948,4.569,next years,92,106
+context-2_39,PLACE,0.0,0.0,none,-1,-1
+context-2_40,QUANT,0.0,0.0,none,-1,-1
+context-2_41,ORG,0.0,0.0,none,-1,-1
+context-2_42,PERSON,0.0,0.0,none,-1,-1
+context-2_43,QUANT,1.182,1.442,three,46,52
+context-2_43,WHEN,0.0,1.442,two thousand and twenty three,-1,52
+context-2_44,ORG,0.0,0.0,none,-1,-1
+context-2_45,QUANT,8.989,10.01,three fourths,222,243
+context-2_45,NORP,3.764,4.184,european,90,104
+context-2_46,WHEN,0.0,0.322,tomorrow,-1,5
+context-2_47,WHEN,6.111,6.351,today,158,164
+context-2_48,WHEN,5.256,5.918,three years,143,161
+context-2_49,NORP,0.0,0.0,none,-1,-1
+context-2_50,ORG,3.124,3.665,council,47,60
+context-2_50,WHEN,0.0,0.701,two thousand and sixteen,-1,22
+context-2_51,QUANT,18.257,19.999,eur one hundred and ninety nine million,485,541
+context-2_51,ORG,12.271,12.572,council,317,330
+context-2_51,PLACE,7.147,7.927,european union,198,221
+context-2_51,QUANT,1.661,2.142,one,48,57
+context-2_52,QUANT,15.414,17.515,eur five hundred and thirty million,386,453
+context-2_52,ORG,3.243,3.563,council,49,60
+context-2_52,WHEN,0.0,0.901,two thousand and sixteen,-1,29
+context-2_53,ORG,1.481,1.902,council,35,49
+context-2_53,ORG,10.369,10.75,council,249,262
+context-2_53,QUANT,0.38,0.48,five,3,6
+context-3_0,PLACE,0.0,0.0,none,-1,-1
+context-3_1,PERSON,3.349,3.67,european,94,107
+context-3_1,ORG,1.925,2.246,council,50,63
+context-3_2,PLACE,9.235,9.716,turkey,240,252
+context-3_2,WHEN,0.04,0.901,two thousand and sixteen,1,32
+context-3_3,WHEN,3.169,4.213,by the end of this year,81,113
+context-3_4,WHEN,11.013,12.014,two thousand and seventeen,295,324
+context-3_4,ORG,2.263,2.563,council,48,61
+context-3_5,ORG,4.592,4.932,council,122,137
+context-3_6,PLACE,13.53,13.83,europe,321,331
+context-3_7,WHEN,0.0,0.0,none,-1,-1
+context-3_8,ORG,8.63,8.931,council,240,252
+context-3_8,LAW,0.42,1.302,subheading one a,8,30
+context-3_9,NORP,10.358,10.719,european,293,308
+context-3_10,WHEN,0.522,1.404,two thousand and seventeen,14,46
+context-3_10,WHEN,4.835,5.577,two thousand and seventeen,152,181
+context-3_11,PLACE,0.462,0.683,europe,7,16
+context-3_12,QUANT,0.0,0.0,none,-1,-1
+context-3_13,PERSON,0.0,0.0,none,-1,-1
+context-3_14,QUANT,0.401,0.501,one,13,15
+context-3_15,NORP,0.0,0.0,none,-1,-1
+context-3_16,LAW,0.0,0.0,none,-1,-1
+context-3_17,ORG,0.0,0.0,none,-1,-1
+context-3_18,PLACE,1.813,2.075,europe,54,63
+context-3_19,WHEN,1.923,5.307,ten september two thousand and nine,25,112
+context-3_19,WHEN,1.302,1.642,last week,14,19
+context-3_20,LAW,0.0,0.0,none,-1,-1
+context-3_21,QUANT,0.601,2.604,two hundred and fifty,14,71
+context-3_22,QUANT,0.0,0.0,none,-1,-1
+context-3_23,PERSON,0.0,0.0,none,-1,-1
+context-3_24,ORG,0.0,0.0,none,-1,-1
+context-3_25,WHEN,5.091,6.173,the coming months,142,173
+context-3_26,QUANT,9.856,10.577,fifteen,270,296
+context-3_27,PLACE,0.0,0.0,none,-1,-1
+context-3_28,ORG,0.0,0.0,none,-1,-1
+context-3_29,QUANT,25.899,26.199,millions,731,743
+context-3_29,PLACE,19.935,20.295,china,552,561
+context-3_29,QUANT,14.751,15.071,zero,428,435
+context-3_30,QUANT,0.322,1.007,three million,7,26
+context-3_31,PLACE,3.634,3.875,europe,100,109
+context-3_32,PLACE,2.766,3.007,eu,79,84
+context-3_33,NORP,0.0,0.0,none,-1,-1
+context-3_34,LAW,1.245,3.715,stabilisation and association agreement,40,116
+context-3_34,WHEN,0.361,1.144,ten weeks ago,11,37
+context-3_35,QUANT,0.401,0.561,one,8,12
+context-3_36,QUANT,0.0,0.0,none,-1,-1
+context-3_37,PERSON,0.0,0.0,none,-1,-1
+context-3_38,PERSON,0.0,0.0,none,-1,-1
+context-3_39,WHEN,0.0,0.0,none,-1,-1
+context-3_40,PLACE,0.0,0.0,none,-1,-1
+context-3_41,ORG,0.0,0.0,none,-1,-1
+context-3_42,PLACE,0.0,0.0,none,-1,-1
+context-3_43,NORP,0.0,0.0,none,-1,-1
+context-3_44,NORP,0.0,0.0,none,-1,-1
+context-3_45,ORG,0.0,0.0,none,-1,-1
+context-3_46,QUANT,0.0,0.0,none,-1,-1
+context-3_47,PLACE,0.0,0.0,none,-1,-1
+context-3_48,QUANT,0.0,0.0,none,-1,-1
+context-3_49,NORP,10.437,10.937,european,299,315
+context-3_49,PLACE,8.513,9.335,western balkan,238,266
+context-3_50,ORG,0.0,0.0,none,-1,-1
+context-3_51,PLACE,9.356,9.857,montenegro,269,288
+context-3_51,PLACE,8.675,9.176,serbia,250,263
+context-3_52,PLACE,0.0,0.0,none,-1,-1
+context-3_53,QUANT,17.757,17.957,first,494,499
+context-3_53,PLACE,12.652,13.032,eu,365,371
+context-3_53,PLACE,11.151,11.971,western balkans,327,353
+context-3_53,PLACE,3.563,4.304,european union,116,140
+context-4_0,NORP,0.0,0.0,none,-1,-1
+context-4_1,LAW,0.0,0.0,none,-1,-1
+context-4_2,NORP,10.957,11.317,european,275,288
+context-4_2,PLACE,4.407,5.569,republic of macedonia,111,149
+context-4_2,WHEN,3.846,4.287,last year,93,106
+context-4_3,PLACE,3.93,4.211,egypt,120,131
+context-4_4,LAW,0.0,0.0,none,-1,-1
+context-4_5,LAW,0.0,0.0,none,-1,-1
+context-4_6,WHEN,0.562,0.803,today,13,20
+context-4_7,QUANT,0.0,0.0,none,-1,-1
+context-4_8,LAW,0.0,0.0,none,-1,-1
+context-4_9,NORP,7.278,7.399,arab,212,215
+context-4_9,QUANT,0.962,1.143,first,27,33
+context-4_9,WHEN,3.589,4.251,seven years,109,125
+context-4_9,PLACE,2.627,2.988,egypt,77,90
+context-4_9,QUANT,5.354,5.574,first,153,160
+context-4_10,ORG,2.063,2.503,ecr group,54,66
+context-4_11,WHEN,12.177,12.818,a third of a century,324,340
+context-4_12,NORP,14.418,15.019,european,379,398
+context-4_13,WHEN,0.0,0.0,none,-1,-1
+context-4_14,PERSON,0.0,0.0,none,-1,-1
+context-4_15,LAW,5.106,5.967,schengen,128,145
+context-4_15,PLACE,10.011,11.013,european union,259,286
+context-4_15,QUANT,8.149,8.269,one,200,204
+context-4_15,PLACE,5.106,6.527,schengen area,128,154
+context-4_16,NORP,4.471,4.812,european,137,151
+context-4_17,LAW,8.913,9.654,schengen agreement,270,296
+context-4_18,PLACE,9.53,9.811,union,263,276
+context-4_18,LAW,11.393,12.434,treaty of maastricht,318,354
+context-4_18,PLACE,15.938,16.218,union,450,459
+context-4_18,QUANT,7.088,7.548,twentieth,189,203
+context-4_19,PLACE,4.523,4.803,eu,138,143
+context-4_19,PLACE,18.993,19.193,eu,557,563
+context-4_19,PLACE,14.95,15.471,brussels,438,458
+context-4_19,PLACE,23.596,23.857,eu,692,700
+context-4_19,ORG,1.281,2.422,european parliament,35,72
+context-4_20,QUANT,6.098,6.398,third,193,203
+context-4_21,LAW,0.0,6.511,charter of fundamental rights,-1,175
+context-4_21,PLACE,8.194,8.555,union,220,230
+context-4_21,PLACE,0.801,1.082,eu,17,25
+context-4_22,NORP,13.037,13.377,eu,370,378
+context-4_22,ORG,6.328,7.43,european parliament,188,227
+context-4_22,NORP,1.522,1.962,european,40,55
+context-4_23,LAW,21.113,21.914,lisbon treaty,586,612
+context-4_23,PLACE,1.921,2.341,union,57,67
+context-4_24,PLACE,8.83,9.291,union,257,270
+context-4_24,WHEN,4.465,5.807,twenty months before,140,179
+context-4_25,ORG,1.23,2.339,european parliament,36,73
+context-4_26,ORG,1.544,2.086,easo,43,56
+context-4_27,QUANT,7.351,7.491,one,237,241
+context-4_27,QUANT,0.381,0.661,second,12,22
+context-4_28,QUANT,0.0,0.0,none,-1,-1
+context-4_29,ORG,5.797,6.219,easo,160,172
+context-4_29,ORG,1.605,2.167,europol,37,56
+context-4_30,NORP,0.0,0.0,none,-1,-1
+context-4_31,WHEN,0.0,0.0,none,-1,-1
+context-4_32,QUANT,0.0,0.0,none,-1,-1
+context-4_33,PLACE,3.947,4.868,united states,119,141
+context-4_34,LAW,0.0,0.0,none,-1,-1
+context-4_35,WHEN,0.0,0.0,none,-1,-1
+context-4_36,PLACE,0.0,0.0,none,-1,-1
+context-4_37,PERSON,3.886,4.307,trump,102,112
+context-4_37,WHEN,0.381,0.621,today,7,13
+context-4_38,PERSON,0.0,0.0,none,-1,-1
+context-4_39,WHEN,0.0,0.0,none,-1,-1
+context-4_40,WHEN,0.0,0.0,none,-1,-1
+context-4_41,WHEN,3.331,4.335,two thousand and seventeen,110,148
+context-4_42,PLACE,0.0,0.0,none,-1,-1
+context-4_43,PLACE,0.0,0.0,none,-1,-1
+context-4_44,NORP,10.638,10.959,islam,297,307
+context-4_44,NORP,9.937,10.478,christianity,272,291
+context-4_44,QUANT,3.085,4.568,one hundred and forty million,103,139
+context-4_44,QUANT,2.364,3.005,one hundred and thirty,78,99
+context-4_45,ORG,0.0,0.0,none,-1,-1
+context-4_46,PLACE,0.0,0.0,none,-1,-1
+context-4_47,WHEN,0.0,0.0,none,-1,-1
+context-4_48,WHEN,0.641,1.363,past years,21,37
+context-4_49,LAW,0.0,0.0,none,-1,-1
+context-4_50,QUANT,11.415,11.956,number one,289,304
+context-4_50,PLACE,9.713,10.053,europe,243,254
+context-4_51,QUANT,0.0,0.0,none,-1,-1
+context-4_52,QUANT,0.0,0.0,none,-1,-1
+context-4_53,QUANT,0.0,0.0,none,-1,-1
+context-5_0,PLACE,0.0,0.0,none,-1,-1
+context-5_1,ORG,3.406,3.827,parliament,92,107
+context-5_2,QUANT,0.0,0.0,none,-1,-1
+context-5_3,PLACE,9.473,9.513,eu,181,183
+context-5_4,PLACE,2.264,3.146,european union,58,82
+context-5_5,PERSON,0.0,0.0,none,-1,-1
+context-5_6,PLACE,8.318,8.959,eastern europe,217,235
+context-5_6,PLACE,5.151,6.053,euro zone,130,160
+context-5_7,WHEN,16.638,17.539,two thousand and twenty,471,503
+context-5_7,PLACE,12.694,12.974,europe,355,364
+context-5_8,PLACE,17.479,17.72,europe,468,477
+context-5_8,WHEN,5.366,5.746,last week,146,160
+context-5_8,WHEN,3.964,4.765,two thousand and ten,110,136
+context-5_9,PLACE,2.967,3.588,singapore,85,102
+context-5_10,PERSON,0.0,0.0,none,-1,-1
+context-5_11,PLACE,0.0,0.0,none,-1,-1
+context-5_12,PERSON,0.0,0.0,none,-1,-1
+context-5_13,LAW,0.0,0.0,none,-1,-1
+context-5_14,ORG,4.029,4.51,council,104,118
+context-5_14,PLACE,0.722,0.862,eu,13,16
+context-5_15,QUANT,7.336,7.536,one,213,220
+context-5_16,LAW,0.0,0.0,none,-1,-1
+context-5_17,LAW,0.0,0.0,none,-1,-1
+context-5_18,ORG,0.0,0.0,none,-1,-1
+context-5_19,LAW,0.0,0.0,none,-1,-1
+context-5_20,PLACE,1.485,2.067,eu,43,51
+context-5_21,NORP,2.829,3.31,european,73,89
+context-5_22,PLACE,0.0,0.0,none,-1,-1
+context-5_23,LAW,6.575,8.38,ec turkey association agreement,223,284
+context-5_23,PLACE,5.453,5.733,turkey,182,194
+context-5_23,WHEN,2.105,4.009,twenty six april two thousand and four,74,136
+context-5_23,ORG,1.243,1.544,council,43,55
+context-5_24,WHEN,13.169,13.27,today,335,336
+context-5_25,LAW,0.0,0.0,none,-1,-1
+context-5_26,ORG,0.0,0.0,none,-1,-1
+context-5_27,LAW,0.0,0.0,none,-1,-1
+context-5_28,NORP,0.0,0.0,none,-1,-1
+context-5_29,PLACE,11.457,11.958,middle east,326,337
+context-5_29,PLACE,8.112,8.613,palmyra,223,239
+context-5_29,NORP,3.505,3.926,daesh,101,110
+context-5_30,NORP,4.204,4.645,islamic,114,128
+context-5_31,PLACE,2.467,2.828,london,78,90
+context-5_31,PERSON,1.264,2.006,boris johnson,39,66
+context-5_32,QUANT,13.173,13.754,one zero,352,369
+context-5_32,ORG,1.001,2.583,unesco world heritage site,24,70
+context-5_33,QUANT,0.0,0.601,twenty two,-1,16
+context-5_34,QUANT,0.06,0.461,eighty two,1,7
+context-5_35,QUANT,7.13,7.892,one,200,223
+context-5_36,LAW,0.0,0.0,none,-1,-1
+context-5_37,ORG,0.0,0.0,none,-1,-1
+context-5_38,LAW,0.0,0.0,none,-1,-1
+context-5_39,NORP,0.0,0.0,none,-1,-1
+context-5_40,ORG,13.549,13.91,parliament,317,330
+context-5_40,LAW,0.0,20.374,amendment. two hundred and fifty three,-1,484
+context-5_40,ORG,24.677,25.077,parliament,567,580
+context-5_41,PLACE,5.309,6.07,european union,139,160
+context-5_42,PLACE,4.243,4.743,albania,96,110
+context-5_42,PLACE,18.552,18.973,albania,503,519
+context-5_43,NORP,0.0,0.0,none,-1,-1
+context-5_44,LAW,0.0,0.0,none,-1,-1
+context-5_45,ORG,0.0,0.0,none,-1,-1
+context-5_46,QUANT,0.0,0.0,none,-1,-1
+context-5_47,NORP,0.0,0.0,none,-1,-1
+context-5_48,ORG,0.0,0.0,none,-1,-1
+context-5_49,WHEN,2.993,4.54,nearly eleven years,70,104
+context-5_49,WHEN,0.362,2.591,four thousand days and nights,6,62
+context-5_50,PLACE,15.373,16.194,european union,364,390
+context-5_51,PLACE,7.23,7.931,mediterranean,232,258
+context-5_51,PLACE,3.264,3.385,eu,104,107
+context-5_52,PLACE,8.539,9.0,croatia,257,271
+context-5_53,ORG,0.0,0.0,none,-1,-1
+context-6_0,ORG,0.0,0.0,none,-1,-1
+context-6_1,LAW,0.541,0.981,dsa,11,21
+context-6_2,PLACE,0.0,0.0,none,-1,-1
+context-6_3,WHEN,12.132,12.673,today,304,314
+context-6_4,PERSON,0.0,0.0,none,-1,-1
+context-6_5,ORG,0.0,0.0,none,-1,-1
+context-6_6,QUANT,0.0,0.0,none,-1,-1
+context-6_7,PLACE,4.609,4.749,eu,104,105
+context-6_8,WHEN,0.541,1.623,the past decades,16,44
+context-6_9,PERSON,0.0,0.0,none,-1,-1
+context-6_10,PERSON,0.0,0.0,none,-1,-1
+context-6_11,WHEN,0.0,0.0,none,-1,-1
+context-6_12,ORG,0.0,0.0,none,-1,-1
+context-6_13,LAW,0.0,0.0,none,-1,-1
+context-6_14,QUANT,0.0,0.0,none,-1,-1
+context-6_15,ORG,0.0,0.0,none,-1,-1
+context-6_16,WHEN,0.0,0.0,none,-1,-1
+context-6_17,LAW,0.0,0.0,none,-1,-1
+context-6_18,LAW,2.967,4.19,e commerce directive,77,113
+context-6_18,QUANT,0.341,0.882,secondly,8,25
+context-6_19,ORG,6.618,7.08,parliament,173,185
+context-6_20,QUANT,0.36,0.8,thirdly,6,17
+context-6_21,LAW,7.054,7.495,dsa,195,207
+context-6_21,ORG,6.633,7.014,libe,184,194
+context-6_22,PERSON,0.0,0.0,none,-1,-1
+context-6_23,PLACE,0.0,0.0,none,-1,-1
+context-6_24,ORG,0.0,0.0,none,-1,-1
+context-6_25,NORP,4.394,4.655,eu,123,130
+context-6_26,NORP,0.0,0.0,none,-1,-1
+context-6_27,QUANT,11.931,12.051,one,366,370
+context-6_28,QUANT,22.03,22.39,eleventh,680,690
+context-6_28,PLACE,14.727,14.827,eu,449,452
+context-6_28,PLACE,3.221,3.562,angola,94,105
+context-6_29,PLACE,6.732,7.093,angola,171,184
+context-6_29,WHEN,4.769,5.109,decades,102,114
+context-6_30,ORG,9.399,9.98,arab league,231,249
+context-6_30,PLACE,8.256,8.737,turkey,203,213
+context-6_30,PLACE,7.495,7.936,us,184,194
+context-6_30,PLACE,2.966,3.307,eu,81,85
+context-6_31,ORG,1.502,1.843,facebook,44,58
+context-6_32,PLACE,0.0,0.0,none,-1,-1
+context-6_33,WHEN,0.0,0.0,none,-1,-1
+context-6_34,ORG,8.278,8.478,facebook,228,234
+context-6_35,PERSON,0.0,0.0,none,-1,-1
+context-6_36,LAW,10.378,10.819,gdpr,301,315
+context-6_36,ORG,3.406,3.847,parliament,103,117
+context-6_36,PLACE,1.923,2.504,european union,53,73
+context-6_37,LAW,8.377,8.678,gdpr,242,256
+context-6_38,ORG,23.732,24.112,facebook,641,653
+context-6_38,NORP,16.948,17.508,european,442,461
+context-6_39,NORP,1.123,1.564,european,32,46
+context-6_40,ORG,0.281,1.085,european commission,7,33
+context-6_41,PLACE,4.946,5.927,european union,141,170
+context-6_41,PLACE,15.499,16.26,european union,441,462
+context-6_42,PLACE,0.561,1.463,european union,12,42
+context-6_43,WHEN,8.575,9.637,almost sixty years,236,268
+context-6_43,PLACE,5.97,6.752,european union,170,198
+context-6_44,WHEN,0.0,0.0,none,-1,-1
+context-6_45,NORP,6.39,6.751,roma,188,201
+context-6_46,QUANT,26.099,26.399,first,732,738
+context-6_46,NORP,23.076,23.577,european,639,654
+context-6_46,WHEN,1.501,2.682,last couple of years,41,74
+context-6_47,ORG,0.0,0.0,none,-1,-1
+context-6_48,ORG,0.0,0.0,none,-1,-1
+context-6_49,ORG,6.959,7.139,eib,202,209
+context-6_50,QUANT,0.0,0.0,none,-1,-1
+context-6_51,QUANT,0.0,0.0,none,-1,-1
+context-6_52,PLACE,4.109,4.59,norway,115,126
+context-6_53,ORG,3.072,3.876,european commission,96,122
+context-6_53,NORP,1.506,1.908,european,44,56
+context-7_0,LAW,0.0,0.0,none,-1,-1
+context-7_1,WHEN,4.29,4.53,today,110,117
+context-7_2,LAW,0.0,0.0,none,-1,-1
+context-7_3,PERSON,0.0,0.0,none,-1,-1
+context-7_4,PERSON,0.0,0.0,none,-1,-1
+context-7_5,QUANT,0.562,0.863,second,17,28
+context-7_6,LAW,0.0,0.0,none,-1,-1
+context-7_7,PLACE,0.0,0.0,none,-1,-1
+context-7_8,QUANT,0.0,0.0,none,-1,-1
+context-7_9,PERSON,0.0,0.0,none,-1,-1
+context-7_10,PLACE,9.454,10.355,european union,271,296
+context-7_10,QUANT,7.151,7.631,hundreds,199,214
+context-7_10,PERSON,2.644,2.904,king,73,80
+context-7_11,PLACE,3.738,4.019,europe,107,115
+context-7_12,PLACE,12.359,12.82,gibraltar,309,324
+context-7_12,PLACE,7.271,7.752,spain,172,181
+context-7_13,PLACE,14.019,14.2,uk,376,382
+context-7_13,PLACE,2.924,3.425,gibraltar,73,91
+context-7_13,NORP,7.63,7.991,spanish,208,223
+context-7_13,PLACE,10.695,11.316,gibraltar,287,306
+context-7_14,WHEN,2.144,2.726,many many years,63,79
+context-7_15,PLACE,0.582,1.163,gibraltar,16,35
+context-7_15,PLACE,2.948,3.65,westminster,92,116
+context-7_15,PLACE,5.455,5.976,gibraltar,174,192
+context-7_16,ORG,0.0,0.0,none,-1,-1
+context-7_17,NORP,4.949,5.37,french,143,156
+context-7_17,PLACE,1.763,2.184,uk,43,55
+context-7_18,PLACE,12.035,12.476,uk,317,329
+context-7_18,PLACE,4.966,5.807,european union,130,155
+context-7_19,PLACE,18.817,19.217,spain,500,509
+context-7_19,NORP,14.173,15.073,gibraltarians,359,386
+context-7_19,QUANT,12.871,13.892,ninety nine,317,352
+context-7_19,WHEN,11.35,11.53,two thousand and two,278,280
+context-7_19,NORP,6.366,6.866,british,174,187
+context-7_19,PLACE,4.544,5.185,gibraltar,122,143
+context-7_19,WHEN,2.722,3.083,today,79,87
+context-7_20,PERSON,8.128,8.708,hamlet,207,222
+context-7_20,PERSON,9.289,10.049,horatio,237,256
+context-7_20,NORP,5.185,5.946,europeans,136,156
+context-7_20,QUANT,0.38,0.701,first,9,19
+context-7_21,QUANT,1.704,1.945,four,42,47
+context-7_22,WHEN,0.0,0.0,none,-1,-1
+context-7_23,LAW,0.0,0.0,none,-1,-1
+context-7_24,NORP,0.0,0.0,none,-1,-1
+context-7_25,PERSON,0.0,0.0,none,-1,-1
+context-7_26,PLACE,0.0,0.0,none,-1,-1
+context-7_27,NORP,6.956,7.497,european,198,217
+context-7_28,PLACE,7.636,8.378,european union,226,252
+context-7_28,QUANT,3.307,3.547,first,111,117
+context-7_29,WHEN,4.055,5.2,next six months,100,126
+context-7_29,QUANT,2.108,2.369,four,54,57
+context-7_29,PLACE,0.261,0.823,estonia,6,22
+context-7_30,QUANT,13.657,13.858,three,354,359
+context-7_30,QUANT,13.277,13.557,first,344,350
+context-7_30,QUANT,9.973,10.333,fourth,262,269
+context-7_30,PLACE,7.57,8.17,estonia,201,217
+context-7_30,PLACE,6.628,6.969,europe,175,187
+context-7_30,QUANT,1.802,1.982,four,50,54
+context-7_31,PLACE,6.559,6.819,europe,172,180
+context-7_31,QUANT,0.582,0.782,three,17,23
+context-7_32,PLACE,11.618,12.36,european union,307,326
+context-7_32,PLACE,4.687,5.569,estonia,119,142
+context-7_32,WHEN,3.486,4.667,the months to come,92,118
+context-7_33,LAW,1.463,1.683,reach,40,45
+context-7_33,QUANT,5.772,5.953,one,153,158
+context-7_33,LAW,7.416,7.696,reach,202,209
+context-7_34,WHEN,0.0,0.0,none,-1,-1
+context-7_35,PLACE,5.11,5.331,eu,139,144
+context-7_36,PLACE,3.205,3.606,russia,88,99
+context-7_37,PLACE,0.281,0.562,iran,7,16
+context-7_38,WHEN,0.0,0.0,none,-1,-1
+context-7_39,PLACE,20.398,21.218,european union,594,615
+context-7_39,PLACE,19.016,19.357,yemen,555,565
+context-7_39,PLACE,18.396,18.836,lebanon,535,551
+context-7_39,PLACE,17.335,17.855,israel,506,520
+context-7_39,PLACE,12.711,13.331,middle east,377,396
+context-7_39,NORP,11.47,11.85,chinese,338,352
+context-7_39,NORP,10.929,11.23,russian,323,330
+context-7_39,NORP,1.161,1.541,iranian,36,48
+context-7_40,WHEN,7.854,8.635,next eleven days,233,259
+context-7_40,PLACE,5.45,6.271,european union,178,199
+context-7_40,LAW,1.142,1.964,jcpoa,41,63
+context-7_41,LAW,33.717,34.517,p fifty one,905,932
+context-7_41,PLACE,21.17,21.531,iran,589,599
+context-7_41,NORP,28.154,28.614,european,746,762
+context-7_41,PLACE,24.092,24.412,europe,658,668
+context-7_41,PLACE,32.656,32.976,iran,872,882
+context-7_41,PLACE,14.687,15.047,usa,377,390
+context-7_41,PLACE,6.583,7.123,washington,178,192
+context-7_41,WHEN,4.982,5.923,beginning of next year,132,161
+context-7_42,PLACE,3.594,3.995,beijing,118,129
+context-7_43,ORG,0.0,0.0,none,-1,-1
+context-7_44,PLACE,2.686,3.227,moscow,79,95
+context-7_44,PLACE,2.125,2.525,beijing,61,74
+context-7_44,PLACE,1.483,1.784,europe,38,50
+context-7_45,PLACE,10.696,11.036,iran,289,296
+context-7_45,ORG,4.206,6.369,islamic revolutionary guard corps,132,189
+context-7_45,WHEN,2.664,3.605,eleven days from now,87,113
+context-7_45,NORP,0.541,0.901,iranian,14,28
+context-7_46,ORG,3.957,4.479,white house,121,136
+context-7_47,WHEN,0.0,0.0,none,-1,-1
+context-7_48,QUANT,0.0,0.0,none,-1,-1
+context-7_49,PLACE,10.27,10.49,eu,303,309
+context-7_49,PLACE,3.323,3.583,turkey,108,118
+context-7_50,ORG,5.297,5.999,osce,180,196
+context-7_50,PLACE,3.331,3.391,eu,109,110
+context-7_51,QUANT,0.0,0.0,none,-1,-1
+context-7_52,PLACE,6.467,6.807,eu,161,170
+context-7_53,NORP,0.0,0.0,none,-1,-1
+context-8_0,LAW,0.0,0.0,none,-1,-1
+context-8_1,PERSON,0.0,0.0,none,-1,-1
+context-8_2,QUANT,1.784,1.944,one,31,35
+context-8_3,WHEN,1.042,2.003,thirty years,23,42
+context-8_4,PLACE,0.0,0.0,none,-1,-1
+context-8_5,ORG,0.0,0.0,none,-1,-1
+context-8_6,NORP,0.0,0.0,none,-1,-1
+context-8_7,WHEN,0.0,0.0,none,-1,-1
+context-8_8,NORP,15.974,16.635,bulgarian,426,442
+context-8_8,NORP,15.094,15.774,maltese,403,419
+context-8_8,NORP,14.613,15.074,cypriot,388,403
+context-8_8,PLACE,2.162,3.023,european union,59,83
+context-8_9,WHEN,9.392,9.672,years,227,235
+context-8_9,PLACE,2.063,2.984,eu,40,58
+context-8_9,PLACE,6.728,6.969,eu,162,166
+context-8_9,QUANT,0.761,0.821,one,13,14
+context-8_10,PLACE,7.629,8.17,eu,191,203
+context-8_10,PLACE,15.318,15.558,eu,396,399
+context-8_11,QUANT,0.22,0.481,second,8,17
+context-8_12,LAW,0.0,0.0,none,-1,-1
+context-8_13,ORG,0.0,0.0,none,-1,-1
+context-8_14,PLACE,11.37,11.65,eu,335,342
+context-8_15,LAW,0.0,0.0,none,-1,-1
+context-8_16,ORG,0.0,0.0,none,-1,-1
+context-8_17,PLACE,0.0,0.0,none,-1,-1
+context-8_18,ORG,0.0,0.0,none,-1,-1
+context-8_19,WHEN,0.0,0.0,none,-1,-1
+context-8_20,NORP,12.131,12.532,european,288,304
+context-8_20,PLACE,8.568,8.868,eu,195,200
+context-8_21,PLACE,17.256,17.476,eu,474,480
+context-8_21,ORG,14.613,15.434,code of conduct group,408,437
+context-8_22,PERSON,0.0,0.0,none,-1,-1
+context-8_23,WHEN,0.0,0.0,none,-1,-1
+context-8_24,WHEN,9.239,9.6,tonight,274,282
+context-8_24,PLACE,2.405,2.505,eu,64,66
+context-8_25,PERSON,0.0,0.0,none,-1,-1
+context-8_26,PLACE,8.876,9.757,western balkans,246,273
+context-8_26,PLACE,0.501,1.062,eu,14,21
+context-8_27,PLACE,8.139,8.42,europe,236,246
+context-8_27,PLACE,3.689,4.551,western balkans,107,137
+context-8_27,PLACE,2.385,3.107,montenegro,69,91
+context-8_27,NORP,1.143,1.524,european,30,43
+context-8_28,PLACE,4.476,4.697,eu,150,156
+context-8_28,PLACE,1.546,2.088,montenegro,51,73
+context-8_29,PLACE,4.508,4.749,eu,135,140
+context-8_30,ORG,0.0,0.0,none,-1,-1
+context-8_31,NORP,16.479,16.739,roma,477,486
+context-8_32,LAW,0.0,0.0,none,-1,-1
+context-8_33,ORG,2.808,3.209,parliament,81,93
+context-8_34,ORG,3.764,4.184,parliament,112,125
+context-8_34,QUANT,0.48,0.801,second,13,24
+context-8_35,PLACE,0.0,0.0,none,-1,-1
+context-8_36,NORP,0.0,0.0,none,-1,-1
+context-8_37,QUANT,0.721,0.981,first,16,25
+context-8_38,WHEN,6.757,7.519,ten years from now,194,214
+context-8_39,ORG,0.0,0.0,none,-1,-1
+context-8_40,WHEN,6.052,6.974,eighteenth century,141,170
+context-8_41,WHEN,0.0,0.0,none,-1,-1
+context-8_42,PLACE,2.515,3.259,united states,80,100
+context-8_42,PLACE,1.308,1.75,america,39,54
+context-8_43,PLACE,0.0,0.0,none,-1,-1
+context-8_44,NORP,0.0,0.0,none,-1,-1
+context-8_45,WHEN,0.0,0.0,none,-1,-1
+context-8_46,PERSON,0.0,0.0,none,-1,-1
+context-8_47,PLACE,0.0,0.0,none,-1,-1
+context-8_48,NORP,9.213,9.574,european,252,264
+context-8_48,NORP,11.897,12.278,european,334,344
+context-8_48,QUANT,6.609,6.75,one,176,181
+context-8_49,QUANT,5.748,5.948,first,137,145
+context-8_50,ORG,0.0,0.0,none,-1,-1
+context-8_51,NORP,0.0,0.0,none,-1,-1
+context-8_52,PLACE,6.591,6.912,europe,131,140
+context-8_53,NORP,2.413,3.077,south korean,65,86
+context-8_53,PLACE,0.644,1.629,dprk,19,45
+context-9_0,PLACE,1.508,1.95,china,45,59
+context-9_1,NORP,3.368,3.91,south korean,87,105
+context-9_2,LAW,15.097,17.14,korean armistice agreement,435,494
+context-9_2,ORG,14.557,14.917,un,422,429
+context-9_2,PLACE,10.612,11.754,republic of korea,311,348
+context-9_2,PERSON,1.822,2.183,ashton,52,64
+context-9_3,PLACE,9.498,10.6,korean peninsula,273,305
+context-9_3,PLACE,1.322,1.903,dprk,36,54
+context-9_4,ORG,0.0,0.0,none,-1,-1
+context-9_5,NORP,0.0,0.0,none,-1,-1
+context-9_6,NORP,0.0,0.0,none,-1,-1
+context-9_7,LAW,0.0,0.0,none,-1,-1
+context-9_8,PLACE,32.339,32.759,europe,849,861
+context-9_8,WHEN,7.845,8.245,today,215,225
+context-9_8,WHEN,28.857,29.317,today,771,781
+context-9_8,QUANT,2.301,2.802,billions,59,74
+context-9_9,PLACE,2.677,2.939,europe,74,81
+context-9_10,NORP,0.0,0.0,none,-1,-1
+context-9_11,QUANT,1.864,2.104,one,55,60
+context-9_12,ORG,0.0,0.0,none,-1,-1
+context-9_13,PLACE,0.0,0.0,none,-1,-1
+context-9_14,ORG,15.356,15.777,epp group,435,449
+context-9_14,ORG,12.493,13.014,parliament,356,371
+context-9_14,WHEN,4.244,4.625,today,133,141
+context-9_15,LAW,0.0,0.0,none,-1,-1
+context-9_16,NORP,0.0,0.0,none,-1,-1
+context-9_17,ORG,0.0,0.0,none,-1,-1
+context-9_18,PLACE,0.0,0.0,none,-1,-1
+context-9_19,PERSON,0.0,0.0,none,-1,-1
+context-9_20,PLACE,0.0,0.0,none,-1,-1
+context-9_21,PLACE,0.401,0.821,poland,13,25
+context-9_22,LAW,0.0,0.0,none,-1,-1
+context-9_23,PLACE,0.0,0.0,none,-1,-1
+context-9_24,PLACE,5.543,5.764,eu,152,160
+context-9_25,NORP,1.927,2.228,polish,56,65
+context-9_25,NORP,3.392,3.633,polish,98,108
+context-9_25,NORP,4.375,4.596,polish,135,145
+context-9_26,PERSON,0.442,1.084,sophia in t veld,14,37
+context-9_27,WHEN,0.0,0.0,none,-1,-1
+context-9_28,WHEN,0.0,0.0,none,-1,-1
+context-9_29,PLACE,0.0,0.0,none,-1,-1
+context-9_30,PLACE,0.862,1.162,poland,26,35
+context-9_31,PLACE,13.059,13.34,europe,368,376
+context-9_31,QUANT,6.349,6.55,half,179,185
+context-9_31,QUANT,7.471,7.631,half,210,214
+context-9_31,NORP,5.608,5.869,poles,156,163
+context-9_31,QUANT,4.587,4.907,millions and millions,124,134
+context-9_32,LAW,0.0,0.0,none,-1,-1
+context-9_33,NORP,4.132,4.613,european,119,136
+context-9_33,NORP,0.682,1.143,poles,22,29
+context-9_34,NORP,3.707,4.388,european,85,105
+context-9_35,PERSON,0.0,0.0,none,-1,-1
+context-9_36,PERSON,13.63,14.391,neelie kroes,375,394
+context-9_36,PERSON,11.349,12.049,mario monti,301,321
+context-9_37,ORG,0.0,0.0,none,-1,-1
+context-9_38,ORG,0.0,0.0,none,-1,-1
+context-9_39,PERSON,0.0,0.0,none,-1,-1
+context-9_40,QUANT,3.783,3.943,one,115,119
+context-9_40,PLACE,1.901,2.682,united kingdom,56,81
+context-9_41,ORG,9.692,10.653,european parliament,235,266
+context-9_41,ORG,3.564,4.486,european commission,71,99
+context-9_42,ORG,3.312,3.673,parliament,106,118
+context-9_43,PERSON,11.789,12.069,barrot,326,333
+context-9_43,QUANT,10.088,10.168,one,267,269
+context-9_43,WHEN,6.145,7.446,two thousand and seven,159,195
+context-9_43,WHEN,4.443,5.624,two thousand and six,113,145
+context-9_44,QUANT,2.083,2.324,two,61,67
+context-9_45,QUANT,0.0,0.0,none,-1,-1
+context-9_46,LAW,0.0,0.0,none,-1,-1
+context-9_47,ORG,8.737,9.258,parliament,223,238
+context-9_48,LAW,0.0,0.0,none,-1,-1
+context-9_49,NORP,0.0,0.0,none,-1,-1
+context-9_50,PERSON,0.0,0.0,none,-1,-1
+context-9_51,PLACE,6.43,6.851,japan,183,196
+context-9_52,PLACE,9.499,9.8,japan,255,265
+context-9_52,WHEN,0.0,0.0,few more months,-1,-1
+context-9_53,PLACE,9.258,9.519,china,267,275
+context-9_53,PLACE,8.677,9.018,us,249,260
+context-9_53,QUANT,6.473,7.034,a quarter,187,206
+context-9_53,QUANT,3.968,4.288,third,114,124
+context-9_53,QUANT,1.844,2.004,two,59,63
+context-10_0,ORG,16.438,16.738,council,502,511
+context-10_0,ORG,14.836,15.737,european parliament,449,484
+context-10_0,PLACE,9.05,9.29,eu,281,290
+context-10_0,PLACE,2.723,3.063,japan,86,98
+context-10_1,PLACE,8.238,8.539,japan,254,263
+context-10_1,PLACE,7.537,7.957,us,234,246
+context-10_1,PLACE,3.828,4.089,eu,118,126
+context-10_1,QUANT,2.345,2.766,two thirds,73,85
+context-10_2,QUANT,3.648,3.808,one,88,91
+context-10_2,WHEN,0.742,1.603,two days ago,19,38
+context-10_3,QUANT,0.0,0.0,none,-1,-1
+context-10_4,QUANT,0.0,0.0,none,-1,-1
+context-10_5,PLACE,0.381,0.642,poland,7,16
+context-10_5,PLACE,5.034,5.395,poland,148,156
+context-10_6,ORG,9.134,9.314,cop,270,276
+context-10_6,WHEN,7.572,8.573,two thousand and fifteen,221,254
+context-10_6,WHEN,1.803,2.724,two thousand and twenty,52,82
+context-10_7,WHEN,5.477,5.999,a few years,148,163
+context-10_7,PLACE,1.665,1.986,eu,44,51
+context-10_8,LAW,0.0,0.0,none,-1,-1
+context-10_9,PLACE,3.716,4.338,european union,104,125
+context-10_9,QUANT,0.582,0.743,one,18,23
+context-10_10,PLACE,1.915,2.136,eu,55,59
+context-10_11,PLACE,4.53,4.931,poland,130,143
+context-10_11,PLACE,6.956,7.297,poland,197,205
+context-10_11,WHEN,3.508,3.729,today,96,102
+context-10_12,ORG,0.0,0.0,none,-1,-1
+context-10_13,NORP,0.0,0.0,none,-1,-1
+context-10_14,WHEN,0.0,0.0,none,-1,-1
+context-10_15,NORP,5.01,5.371,hungarian,137,150
+context-10_16,PLACE,0.0,0.0,none,-1,-1
+context-10_17,ORG,0.0,0.0,none,-1,-1
+context-10_18,PLACE,0.26,0.681,hungary,8,18
+context-10_19,QUANT,0.0,0.0,none,-1,-1
+context-10_20,PLACE,8.718,9.279,european union,234,252
+context-10_21,NORP,0.0,0.0,none,-1,-1
+context-10_22,PLACE,0.0,0.0,none,-1,-1
+context-10_23,WHEN,0.0,7.327,ninety five years,-1,179
+context-10_23,WHEN,6.546,7.327,seventy years,159,179
+context-10_24,WHEN,0.0,0.0,none,-1,-1
+context-10_25,NORP,0.0,0.0,none,-1,-1
+context-10_26,QUANT,0.0,0.0,none,-1,-1
+context-10_27,NORP,2.927,3.328,turkmen,87,100
+context-10_27,NORP,0.862,1.183,iraqi,21,36
+context-10_28,NORP,4.033,4.514,turkmen,118,132
+context-10_28,QUANT,2.909,3.471,forty two,84,100
+context-10_29,NORP,12.256,12.697,turkmen,350,364
+context-10_29,NORP,3.324,3.685,iraqi,76,91
+context-10_29,NORP,8.591,8.912,iraqi,236,250
+context-10_29,PLACE,1.542,1.923,eu,34,39
+context-10_30,PLACE,6.013,6.334,iraq,170,182
+context-10_30,NORP,2.606,3.287,turkmen,74,97
+context-10_31,NORP,15.554,15.954,kurdish,438,455
+context-10_31,PLACE,2.963,3.463,iraq,87,106
+context-10_31,NORP,7.146,7.547,turkmen,199,212
+context-10_31,ORG,3.823,5.385,high commission for human rights,115,153
+context-10_31,PLACE,14.473,14.833,iraq,409,418
+context-10_31,QUANT,0.0,0.961,one hundred and seventeen,-1,31
+context-10_32,LAW,0.0,0.0,none,-1,-1
+context-10_33,PLACE,6.951,7.312,eu,208,214
+context-10_33,PLACE,5.87,6.21,britain,178,190
+context-10_34,PLACE,18.818,19.078,eu,538,544
+context-10_35,PLACE,4.637,5.139,english channel,128,145
+context-10_35,PLACE,1.245,1.686,uk,33,48
+context-10_35,QUANT,0.401,0.883,one third,14,25
+context-10_36,PLACE,0.0,0.0,none,-1,-1
+context-10_37,QUANT,0.0,0.0,none,-1,-1
+context-10_38,LAW,0.0,0.0,none,-1,-1
+context-10_39,PERSON,0.0,0.0,none,-1,-1
+context-10_40,NORP,2.766,3.046,british,92,105
+context-10_40,NORP,4.71,4.99,british,161,173
+context-10_40,PLACE,0.22,0.581,eu,7,16
+context-10_41,ORG,1.423,2.666,institute of directors,43,84
+context-10_42,PLACE,13.779,14.14,britain,408,417
+context-10_43,WHEN,2.545,3.587,the last ten years,70,98
+context-10_44,PLACE,4.614,5.016,britain,137,147
+context-10_44,PLACE,3.511,3.912,eu,107,114
+context-10_45,LAW,5.144,6.565,ifrs seventeen,123,161
+context-10_45,LAW,19.114,20.435,ifrs seventeen,478,512
+context-10_46,NORP,9.789,10.21,european,310,325
+context-10_46,QUANT,7.727,7.827,one,253,256
+context-10_47,QUANT,0.0,0.0,none,-1,-1
+context-10_48,NORP,7.708,8.109,european,235,248
+context-10_49,PLACE,0.0,0.0,none,-1,-1
+context-10_50,NORP,0.0,0.0,none,-1,-1
+context-10_51,NORP,10.769,11.15,european,326,341
+context-10_52,PLACE,3.826,4.227,eu,114,119
+context-10_52,ORG,1.142,2.304,european parliament,38,73
+context-10_53,PLACE,15.399,15.559,eu,396,400
+context-11_0,PLACE,4.326,4.527,eu,110,114
+context-11_1,PLACE,0.42,1.081,pozna,7,29
+context-11_2,PLACE,13.359,13.94,copenhagen,360,379
+context-11_2,QUANT,7.931,8.792,thirty,201,230
+context-11_2,QUANT,5.808,6.75,twenty,134,169
+context-11_2,PLACE,1.101,1.342,eu,27,33
+context-11_3,QUANT,0.281,0.402,one,7,10
+context-11_4,NORP,0.0,0.0,none,-1,-1
+context-11_5,PLACE,4.893,5.254,eu,126,133
+context-11_6,NORP,6.452,6.933,indian,161,172
+context-11_6,NORP,8.957,9.478,indian,213,225
+context-11_6,PLACE,4.248,4.468,delhi,108,112
+context-11_6,PLACE,2.384,2.945,strasbourg,58,75
+context-11_7,NORP,11.156,11.697,swedish,298,314
+context-11_7,NORP,9.233,9.434,czech,237,242
+context-11_7,PERSON,7.791,8.292,dimas,210,221
+context-11_7,ORG,6.189,7.271,eu commission,169,193
+context-11_7,NORP,4.206,4.587,us,109,120
+context-11_8,PLACE,5.844,6.284,pozna,150,163
+context-11_8,WHEN,10.107,11.208,two thousand and nine,270,295
+context-11_8,WHEN,4.443,5.524,december two thousand and eight,108,145
+context-11_8,WHEN,2.402,3.342,ten months,67,89
+context-11_9,WHEN,15.471,16.611,two thousand and twelve,417,452
+context-11_9,PLACE,1.821,3.002,pozna,50,83
+context-11_10,PLACE,3.424,3.824,eu,96,103
+context-11_11,WHEN,36.417,37.198,a week ago,1012,1031
+context-11_11,PLACE,11.285,11.886,copenhagen,307,329
+context-11_11,PLACE,25.172,25.572,eu,701,707
+context-11_11,ORG,0.0,16.968,spring european council,-1,469
+context-11_11,ORG,18.229,19.629,ecofin council,496,536
+context-11_11,ORG,16.268,16.968,environment council,450,469
+context-11_11,WHEN,12.646,13.767,two march two thousand and nine,353,384
+context-11_11,WHEN,0.0,13.767,december. two thousand and nine,-1,384
+context-11_11,PLACE,33.756,34.436,copenhagen,945,966
+context-11_11,NORP,0.52,0.72,czech,11,17
+context-11_12,QUANT,17.419,17.679,third,448,454
+context-11_12,WHEN,10.211,12.393,april two thousand and seven,269,328
+context-11_12,ORG,3.364,5.666,temporary committee on climate change,88,156
+context-11_12,QUANT,0.16,0.761,firstly,3,18
+context-11_13,WHEN,13.069,13.89,two thousand and twelve,344,368
+context-11_13,ORG,3.262,5.104,climate change committee,89,137
+context-11_14,WHEN,2.002,2.884,today,45,65
+context-11_15,LAW,0.0,0.0,none,-1,-1
+context-11_16,WHEN,23.132,23.892,two years ago,546,562
+context-11_16,PERSON,9.945,10.886,andrei sakharov,251,278
+context-11_17,PERSON,0.0,0.0,none,-1,-1
+context-11_18,QUANT,0.0,0.0,none,-1,-1
+context-11_19,WHEN,0.0,0.0,none,-1,-1
+context-11_20,PERSON,0.0,0.0,none,-1,-1
+context-11_21,PERSON,17.433,18.033,damocles,436,456
+context-11_22,PLACE,13.513,13.873,iran,326,334
+context-11_22,PERSON,1.722,3.023,nasrin sotoudeh,46,66
+context-11_23,NORP,1.763,2.083,european,50,64
+context-11_24,PERSON,3.648,4.029,barnier,101,114
+context-11_25,WHEN,7.277,7.818,yesterday,220,240
+context-11_26,ORG,5.208,5.649,council,159,174
+context-11_27,PERSON,0.0,0.0,none,-1,-1
+context-11_28,PERSON,0.0,0.0,none,-1,-1
+context-11_29,QUANT,2.292,2.634,second,61,73
+context-11_29,QUANT,1.226,1.488,first,27,34
+context-11_30,PLACE,0.521,1.062,schengen,15,28
+context-11_31,PLACE,5.018,5.239,union,134,139
+context-11_32,NORP,12.175,12.896,europeans,329,346
+context-11_32,QUANT,2.943,3.805,twenty five,78,97
+context-11_32,QUANT,0.36,1.382,four hundred million,8,36
+context-11_33,PLACE,15.016,15.436,schengen,398,410
+context-11_33,QUANT,12.934,13.414,second,336,349
+context-11_33,QUANT,9.85,10.03,three,246,252
+context-11_33,QUANT,8.849,9.11,first,214,221
+context-11_34,PLACE,2.484,3.005,schengen,71,82
+context-11_35,PLACE,5.858,6.239,schengen,164,177
+context-11_35,PLACE,3.992,4.714,european union,112,134
+context-11_36,NORP,12.698,13.239,europeans,339,354
+context-11_36,NORP,6.309,6.71,european,168,184
+context-11_37,PLACE,3.392,3.733,union,93,103
+context-11_37,QUANT,0.0,0.201,first,-1,7
+context-11_38,PLACE,4.857,5.419,european union,149,166
+context-11_38,QUANT,0.341,0.702,second,9,19
+context-11_39,PLACE,8.318,8.539,union,235,241
+context-11_40,PLACE,6.838,7.419,european union,203,220
+context-11_40,NORP,3.449,3.85,european,91,105
+context-11_41,ORG,7.89,8.811,european council,204,233
+context-11_41,NORP,4.806,5.207,european,138,155
+context-11_41,QUANT,0.481,0.601,one,16,19
+context-11_42,PLACE,3.647,4.088,germany,96,108
+context-11_42,PLACE,2.926,3.427,switzerland,72,88
+context-11_42,PLACE,1.924,2.825,united states,47,70
+context-11_43,PLACE,15.259,15.64,portugal,401,411
+context-11_43,PLACE,14.678,15.019,ireland,386,393
+context-11_43,QUANT,7.509,7.79,first,179,188
+context-11_44,NORP,0.0,0.0,none,-1,-1
+context-11_45,PERSON,7.631,8.131,tusk,177,189
+context-11_45,QUANT,4.747,4.907,one,109,113
+context-11_45,QUANT,6.469,6.589,one,146,150
+context-11_45,QUANT,3.144,3.445,three,73,80
+context-11_46,ORG,5.344,5.984,council,130,145
+context-11_46,ORG,8.006,8.506,parliament,204,216
+context-11_46,ORG,7.465,8.506,european parliament,186,216
+context-11_46,ORG,16.572,17.032,council,403,417
+context-11_47,ORG,0.543,0.946,council,17,31
+context-11_48,PLACE,14.417,15.058,middle east,440,458
+context-11_48,NORP,6.207,6.968,iraqi turkmen,183,212
+context-11_48,PLACE,1.281,1.922,european union,33,54
+context-11_49,PLACE,22.757,23.117,kirkuk,675,686
+context-11_49,PLACE,21.756,22.457,tuz khurmatu,643,666
+context-11_49,PLACE,16.973,17.713,european union,501,523
+context-11_49,NORP,12.629,12.97,turkmen,375,388
+context-11_49,WHEN,8.726,9.007,today,258,266
+context-11_49,WHEN,2.702,4.423,fourteen march two thousand and thirteen,87,137
+context-11_49,ORG,0.26,1.001,european parliament,10,37
+context-11_50,LAW,0.0,0.0,none,-1,-1
+context-11_51,WHEN,0.401,1.403,over many years,9,36
+context-11_52,LAW,0.0,0.0,none,-1,-1
+context-11_53,PLACE,0.542,1.284,european union,10,32
+context-12_0,PLACE,9.057,9.878,european union,236,260
+context-12_0,QUANT,3.026,3.727,eur five billion,89,107
+context-12_1,NORP,0.0,0.0,none,-1,-1
+context-12_2,QUANT,0.0,0.0,none,-1,-1
+context-12_3,ORG,0.0,0.0,none,-1,-1
+context-12_4,ORG,1.724,2.185,council,55,69
+context-12_5,PLACE,8.695,8.735,eu,228,229
+context-12_6,LAW,0.0,0.0,none,-1,-1
+context-12_7,ORG,0.501,1.062,council,14,27
+context-12_8,ORG,2.703,3.824,european parliament,60,96
+context-12_8,WHEN,0.34,0.841,today,5,14
+context-12_9,PLACE,1.844,2.104,eu,53,57
+context-12_10,WHEN,21.339,22.1,end of june,568,585
+context-12_10,NORP,13.212,13.572,latvian,345,359
+context-12_11,PERSON,0.0,0.0,none,-1,-1
+context-12_12,PLACE,0.0,0.0,none,-1,-1
+context-12_13,PERSON,0.0,0.0,none,-1,-1
+context-12_14,PERSON,0.0,0.0,none,-1,-1
+context-12_15,ORG,0.0,0.0,none,-1,-1
+context-12_16,PLACE,0.0,0.0,none,-1,-1
+context-12_17,ORG,0.0,0.0,none,-1,-1
+context-12_18,PLACE,0.0,0.0,none,-1,-1
+context-12_19,NORP,0.0,0.0,none,-1,-1
+context-12_20,LAW,0.0,0.742,amendments thirty one and thirty two,-1,16
+context-12_20,QUANT,0.381,0.742,two,11,16
+context-12_20,QUANT,0.02,0.24,three,0,7
+context-12_21,PERSON,0.0,0.0,none,-1,-1
+context-12_22,WHEN,0.0,0.0,none,-1,-1
+context-12_23,LAW,0.0,0.0,none,-1,-1
+context-12_24,ORG,9.477,10.338,eu council,261,288
+context-12_24,PLACE,3.526,3.827,eu,99,105
+context-12_24,PLACE,5.33,5.59,eu,147,153
+context-12_25,WHEN,0.0,0.0,none,-1,-1
+context-12_26,ORG,1.906,2.407,council,46,61
+context-12_27,LAW,0.0,0.0,none,-1,-1
+context-12_28,PLACE,2.484,2.784,europe,72,80
+context-12_28,PLACE,10.376,10.657,europe,291,301
+context-12_29,LAW,0.0,0.0,none,-1,-1
+context-12_30,QUANT,0.0,0.0,none,-1,-1
+context-12_31,WHEN,0.0,0.0,none,-1,-1
+context-12_32,NORP,0.0,0.0,none,-1,-1
+context-12_33,WHEN,0.0,0.0,none,-1,-1
+context-12_34,QUANT,0.0,0.0,none,-1,-1
+context-12_35,QUANT,0.0,0.0,none,-1,-1
+context-12_36,QUANT,0.0,0.0,none,-1,-1
+context-12_37,WHEN,0.0,0.0,none,-1,-1
+context-12_38,PERSON,0.0,0.0,none,-1,-1
+context-12_39,PLACE,6.015,6.476,israel,146,156
+context-12_39,PLACE,5.493,5.814,asia,132,141
+context-12_39,PLACE,2.987,3.909,united states,77,100
+context-12_40,QUANT,4.334,4.555,ten,116,121
+context-12_40,QUANT,3.01,3.752,more than half,79,95
+context-12_40,PLACE,1.585,2.087,israel,44,55
+context-12_40,PLACE,1.003,1.344,china,25,36
+context-12_40,PLACE,0.542,0.883,us,11,21
+context-12_41,PLACE,0.582,0.822,europe,12,20
+context-12_42,PLACE,2.064,2.324,europe,57,66
+context-12_43,ORG,0.0,0.0,none,-1,-1
+context-12_44,WHEN,0.0,0.0,none,-1,-1
+context-12_45,NORP,2.307,2.728,european,71,85
+context-12_46,PERSON,0.0,0.0,none,-1,-1
+context-12_47,PERSON,0.0,0.0,none,-1,-1
+context-12_48,NORP,5.112,5.593,european,134,149
+context-12_49,WHEN,0.0,0.0,none,-1,-1
+context-12_50,WHEN,0.0,0.0,none,-1,-1
+context-12_51,PLACE,0.0,0.0,none,-1,-1
+context-12_52,LAW,0.0,0.0,none,-1,-1
+context-12_53,WHEN,0.0,0.0,none,-1,-1
+context-13_0,PERSON,0.0,0.0,none,-1,-1
+context-13_1,PERSON,0.0,0.0,none,-1,-1
+context-13_2,NORP,0.0,0.0,none,-1,-1
+context-13_3,ORG,6.671,7.111,council,201,214
+context-13_3,ORG,3.766,4.167,parliament,115,130
+context-13_4,NORP,2.247,2.708,european,71,85
+context-13_4,NORP,0.16,0.461,roma,4,16
+context-13_5,PLACE,3.997,4.158,europe,136,141
+context-13_5,WHEN,0.0,0.221,today,-1,7
+context-13_6,PERSON,0.0,0.0,none,-1,-1
+context-13_7,NORP,2.946,3.287,european,80,92
+context-13_8,PLACE,2.025,2.225,eu,59,64
+context-13_9,LAW,4.128,6.032,european accessibility act,114,173
+context-13_10,NORP,0.0,0.0,none,-1,-1
+context-13_11,LAW,0.0,0.0,none,-1,-1
+context-13_12,PLACE,1.824,2.124,europe,49,60
+context-13_12,QUANT,5.812,6.513,ten,169,193
+context-13_12,PLACE,7.075,7.335,europe,209,218
+context-13_12,QUANT,1.042,1.623,one third,32,44
+context-13_13,PLACE,5.555,5.856,europe,149,158
+context-13_14,WHEN,30.54,30.76,april,856,864
+context-13_14,ORG,28.358,28.819,imco,800,812
+context-13_14,NORP,9.626,9.986,european,282,294
+context-13_14,QUANT,0.0,2.442,one hundred and sixty seven million,-1,65
+context-13_14,WHEN,6.704,7.405,sixty five,196,217
+context-13_14,QUANT,1.741,2.442,eighty seven million,44,65
+context-13_14,QUANT,4.543,5.604,eighty million,138,168
+context-13_14,PLACE,0.6,0.841,europe,11,19
+context-13_15,PLACE,1.043,1.946,european union,24,44
+context-13_16,PLACE,5.438,5.658,eu,155,160
+context-13_17,LAW,0.0,0.0,none,-1,-1
+context-13_18,ORG,0.482,1.144,imco committee,13,39
+context-13_19,NORP,6.592,7.033,italian,187,202
+context-13_19,NORP,0.681,0.882,greek,19,24
+context-13_20,PLACE,13.779,14.0,europe,418,426
+context-13_21,QUANT,3.296,3.979,eur two billion,104,123
+context-13_22,PERSON,1.664,2.425,kroes,48,63
+context-13_23,QUANT,1.524,1.704,first,44,51
+context-13_24,LAW,0.0,0.0,none,-1,-1
+context-13_25,PERSON,0.0,0.0,none,-1,-1
+context-13_26,WHEN,2.464,2.744,year,65,70
+context-13_27,QUANT,0.0,0.0,none,-1,-1
+context-13_28,LAW,0.0,0.0,none,-1,-1
+context-13_29,PLACE,17.577,17.617,eu,514,514
+context-13_29,WHEN,5.125,5.545,tonight,157,169
+context-13_30,PLACE,6.059,6.199,greece,184,187
+context-13_30,PLACE,5.778,5.958,spain,179,184
+context-13_31,LAW,0.0,0.0,none,-1,-1
+context-13_32,ORG,8.679,9.14,parliament,237,249
+context-13_32,WHEN,4.289,4.931,two years,110,122
+context-13_32,QUANT,1.002,1.523,millions,20,33
+context-13_33,PLACE,0.0,0.0,none,-1,-1
+context-13_34,PLACE,8.268,8.728,hungary,187,197
+context-13_34,PLACE,18.517,18.978,hungary,422,433
+context-13_35,PLACE,0.0,0.0,none,-1,-1
+context-13_36,NORP,0.0,0.0,none,-1,-1
+context-13_37,PLACE,0.0,0.0,none,-1,-1
+context-13_38,QUANT,0.0,0.0,none,-1,-1
+context-13_39,PLACE,8.188,8.688,hungary,260,273
+context-13_39,PERSON,3.223,3.804,timmermans,110,134
+context-13_40,NORP,2.45,2.731,cuban,65,75
+context-13_41,WHEN,0.0,0.0,none,-1,-1
+context-13_42,PLACE,1.082,1.223,eu,33,37
+context-13_43,QUANT,0.0,0.0,none,-1,-1
+context-13_44,NORP,26.456,26.796,european,744,759
+context-13_44,PLACE,3.242,3.682,iceland,77,90
+context-13_44,QUANT,9.326,9.546,eight,232,237
+context-13_44,PLACE,5.343,5.743,iceland,136,150
+context-13_44,PLACE,23.794,24.174,iceland,665,680
+context-13_44,WHEN,0.7,2.141,two thousand and eleven,15,48
+context-13_45,PLACE,33.433,33.833,iceland,898,911
+context-13_45,PLACE,16.306,16.606,eu,463,469
+context-13_45,WHEN,25.31,25.89,last year,709,721
+context-13_45,QUANT,20.588,21.168,thirty three,585,601
+context-13_45,QUANT,18.367,19.167,sixty seven,520,545
+context-13_45,PLACE,28.271,28.471,eu,769,772
+context-13_45,NORP,14.486,15.046,icelanders,408,428
+context-13_46,QUANT,0.0,0.0,none,-1,-1
+context-13_47,QUANT,0.0,0.0,none,-1,-1
+context-13_48,WHEN,5.049,6.171,two thousand and fifteen,156,190
+context-13_48,ORG,1.362,2.344,committee on fisheries,37,67
+context-13_49,PERSON,0.0,0.0,none,-1,-1
+context-13_50,LAW,0.0,0.0,none,-1,-1
+context-13_51,PLACE,10.195,10.656,eu,304,316
+context-13_51,ORG,2.444,2.824,parliament,72,86
+context-13_52,WHEN,0.0,0.0,none,-1,-1
+context-13_53,NORP,0.0,0.0,none,-1,-1
+context-14_0,QUANT,0.0,0.0,none,-1,-1
+context-14_1,PLACE,13.217,13.998,european union,403,425
+context-14_2,WHEN,9.739,9.98,today,299,304
+context-14_2,PERSON,8.757,9.018,cadec,264,274
+context-14_2,WHEN,6.132,6.573,last year,185,196
+context-14_2,ORG,5.651,6.052,parliament,171,184
+context-14_3,WHEN,0.0,0.0,none,-1,-1
+context-14_4,WHEN,0.0,0.0,none,-1,-1
+context-14_5,WHEN,0.0,0.0,none,-1,-1
+context-14_6,QUANT,15.154,16.255,eighty,407,443
+context-14_6,QUANT,9.889,10.47,thirty two,267,284
+context-14_6,ORG,7.607,8.228,oceana,200,218
+context-14_6,PLACE,5.245,5.505,eu,145,151
+context-14_6,PLACE,3.723,4.284,brussels,103,117
+context-14_6,WHEN,1.822,2.302,last year,46,57
+context-14_7,QUANT,0.361,0.601,first,9,17
+context-14_8,PLACE,0.0,0.0,none,-1,-1
+context-14_9,PLACE,0.0,0.0,none,-1,-1
+context-14_10,LAW,0.0,0.0,none,-1,-1
+context-14_11,WHEN,0.0,0.0,none,-1,-1
+context-14_12,PLACE,0.0,0.0,none,-1,-1
+context-14_13,WHEN,0.0,0.0,none,-1,-1
+context-14_14,NORP,0.0,0.0,none,-1,-1
+context-14_15,QUANT,0.0,0.0,none,-1,-1
+context-14_16,QUANT,0.0,0.0,none,-1,-1
+context-14_17,PERSON,0.0,0.0,none,-1,-1
+context-14_18,ORG,0.0,0.0,none,-1,-1
+context-14_19,WHEN,9.615,10.657,twenty first century,282,314
+context-14_19,QUANT,5.389,5.549,one,156,160
+context-14_20,ORG,0.0,0.0,none,-1,-1
+context-14_21,PERSON,0.0,0.0,none,-1,-1
+context-14_22,LAW,4.637,4.878,mff,139,143
+context-14_23,NORP,0.0,0.0,none,-1,-1
+context-14_24,NORP,6.617,6.979,christian,223,236
+context-14_25,PLACE,17.939,18.419,brussels,503,519
+context-14_25,NORP,11.252,11.632,european,319,334
+context-14_25,QUANT,7.668,8.809,eur five billion euros,220,249
+context-14_26,QUANT,0.0,0.0,none,-1,-1
+context-14_27,ORG,0.0,0.0,none,-1,-1
+context-14_28,PLACE,9.917,10.117,hungary,300,308
+context-14_29,NORP,3.747,4.068,christian,129,141
+context-14_29,NORP,5.972,6.313,christian,199,210
+context-14_30,PLACE,6.437,6.558,eu,190,195
+context-14_30,NORP,4.091,4.452,european,119,136
+context-14_30,QUANT,1.424,2.005,one million,43,59
+context-14_31,PLACE,8.33,8.611,eu,241,250
+context-14_32,WHEN,0.201,0.321,may,4,8
+context-14_33,ORG,3.547,4.529,european parliament,104,135
+context-14_33,ORG,2.445,3.286,committee on budgets,68,96
+context-14_34,PLACE,2.845,2.945,eu,70,73
+context-14_34,WHEN,0.0,0.621,two thousand and fifteen,-1,15
+context-14_35,ORG,0.0,0.0,none,-1,-1
+context-14_36,ORG,0.0,0.0,none,-1,-1
+context-14_37,QUANT,0.0,0.0,none,-1,-1
+context-14_38,NORP,0.0,0.0,none,-1,-1
+context-14_39,PERSON,0.0,0.0,none,-1,-1
+context-14_40,WHEN,13.771,14.772,two thousand and fifteen,404,435
+context-14_40,PLACE,9.167,9.267,eu,265,268
+context-14_40,PLACE,12.47,12.75,eu,366,371
+context-14_41,ORG,0.0,0.0,none,-1,-1
+context-14_42,WHEN,0.0,0.681,two thousand and fifteen,-1,18
+context-14_42,ORG,6.992,7.413,council,207,221
+context-14_42,WHEN,0.942,1.463,last month,24,37
+context-14_42,WHEN,9.677,10.559,two thousand and fifteen,282,314
+context-14_43,WHEN,9.194,10.095,two thousand and fourteen,250,282
+context-14_44,WHEN,11.491,12.452,two thousand and fifteen,331,364
+context-14_45,NORP,0.0,0.0,none,-1,-1
+context-14_46,ORG,10.17,11.01,parliament,296,321
+context-14_46,LAW,4.104,5.906,amending letter no one,123,176
+context-14_47,LAW,0.0,0.0,none,-1,-1
+context-14_48,WHEN,3.93,4.772,two thousand and fourteen,107,136
+context-14_49,ORG,2.065,3.829,eu covenant of mayors,56,101
+context-14_50,ORG,0.0,0.0,none,-1,-1
+context-14_51,ORG,0.0,0.0,none,-1,-1
+context-14_52,QUANT,0.0,0.0,none,-1,-1
+context-14_53,ORG,0.0,0.0,none,-1,-1
+context-15_0,PLACE,5.712,6.353,brussels,150,166
+context-15_1,PLACE,0.681,1.182,uk,18,30
+context-15_2,PLACE,9.655,10.076,eu,224,232
+context-15_2,PLACE,0.0,0.0,europe,-1,-1
+context-15_3,WHEN,0.0,0.0,none,-1,-1
+context-15_4,PERSON,0.0,0.0,none,-1,-1
+context-15_5,QUANT,0.483,0.665,one,14,19
+context-15_6,PLACE,0.0,0.0,none,-1,-1
+context-15_7,QUANT,0.0,0.0,none,-1,-1
+context-15_8,QUANT,21.076,21.436,second,554,565
+context-15_8,ORG,16.212,16.553,nato,424,436
+context-15_8,NORP,9.547,10.108,european,236,253
+context-15_9,PLACE,10.378,11.039,european union,270,291
+context-15_9,PLACE,7.693,8.194,russia,212,225
+context-15_10,PLACE,0.0,0.0,none,-1,-1
+context-15_11,PLACE,0.0,0.0,none,-1,-1
+context-15_12,PERSON,0.0,0.0,none,-1,-1
+context-15_13,ORG,0.0,0.0,none,-1,-1
+context-15_14,NORP,3.267,4.089,ukrainians,80,105
+context-15_15,PLACE,4.129,4.73,ukraine,93,106
+context-15_16,WHEN,7.658,8.3,last week,193,211
+context-15_17,QUANT,3.768,5.231,eur one billion,97,133
+context-15_17,WHEN,0.0,1.623,two thousand and fourteen,-1,38
+context-15_18,QUANT,0.341,0.782,third,10,22
+context-15_19,QUANT,3.027,3.248,two,79,82
+context-15_20,LAW,0.0,0.0,none,-1,-1
+context-15_21,PLACE,0.0,0.0,none,-1,-1
+context-15_22,PLACE,5.229,5.83,ukraine,143,156
+context-15_22,QUANT,0.24,0.701,first,3,15
+context-15_23,QUANT,0.321,0.743,second,10,24
+context-15_24,PLACE,8.518,8.999,ukraine,206,217
+context-15_25,QUANT,4.275,4.576,three,110,117
+context-15_26,PLACE,20.817,21.337,ukraine,509,524
+context-15_26,QUANT,17.714,18.075,third,432,442
+context-15_27,NORP,14.115,14.916,ukrainians,348,371
+context-15_27,PLACE,6.047,6.547,ukraine,145,157
+context-15_27,WHEN,3.764,4.465,yesterday,87,103
+context-15_28,NORP,8.634,9.214,ukrainian,211,228
+context-15_28,PLACE,5.008,5.649,ukraine,128,142
+context-15_29,PERSON,0.0,0.0,none,-1,-1
+context-15_30,PLACE,13.636,14.176,ukraine,348,362
+context-15_30,QUANT,9.15,9.491,fourth,230,241
+context-15_31,PERSON,0.0,0.0,none,-1,-1
+context-15_32,PLACE,5.568,6.208,ukraine,134,147
+context-15_33,LAW,0.0,0.0,none,-1,-1
+context-15_34,QUANT,0.0,0.0,none,-1,-1
+context-15_35,WHEN,0.0,0.0,none,-1,-1
+context-15_36,PERSON,0.0,0.0,none,-1,-1
+context-15_37,PLACE,0.562,1.426,european union,13,36
+context-15_38,NORP,0.0,0.0,none,-1,-1
+context-15_39,QUANT,0.0,0.0,none,-1,-1
+context-15_40,ORG,3.866,6.35,united nations security council,104,174
+context-15_40,PLACE,1.142,2.083,united kingdom,23,55
+context-15_41,PLACE,13.356,14.217,european union,367,390
+context-15_41,NORP,11.994,12.395,uk,327,339
+context-15_42,WHEN,0.0,0.0,none,-1,-1
+context-15_43,PERSON,0.0,0.0,none,-1,-1
+context-15_44,PLACE,0.581,0.962,uk,13,25
+context-15_45,NORP,0.601,0.962,british,19,34
+context-15_46,PLACE,17.937,18.337,eu,467,477
+context-15_46,QUANT,16.816,17.296,third,448,455
+context-15_46,NORP,9.289,9.609,uk,238,250
+context-15_47,QUANT,0.0,0.0,none,-1,-1
+context-15_48,PLACE,11.112,11.493,eu,334,341
+context-15_49,PLACE,0.0,0.0,none,-1,-1
+context-15_50,PLACE,14.379,14.7,canada,464,475
+context-15_50,NORP,7.55,8.031,canadian,224,240
+context-15_51,PLACE,0.0,0.0,none,-1,-1
+context-15_52,NORP,0.0,0.0,none,-1,-1
+context-15_53,PLACE,3.377,3.919,european union,114,133
+context-16_0,NORP,10.671,11.292,syrian,283,293
+context-16_0,PLACE,1.682,2.342,hungary,43,56
+context-16_1,NORP,21.076,21.456,european,560,573
+context-16_2,QUANT,0.0,0.0,none,-1,-1
+context-16_3,PLACE,7.269,7.549,europe,177,187
+context-16_3,PLACE,10.613,10.873,europe,268,277
+context-16_4,PLACE,1.927,2.208,europe,56,65
+context-16_5,LAW,0.0,0.0,none,-1,-1
+context-16_6,QUANT,7.973,8.214,first,195,201
+context-16_7,QUANT,0.421,0.782,firstly,10,23
+context-16_8,WHEN,0.0,0.0,none,-1,-1
+context-16_9,LAW,0.0,0.0,none,-1,-1
+context-16_10,QUANT,0.0,0.0,none,-1,-1
+context-16_11,PLACE,0.721,1.521,european union,13,36
+context-16_12,ORG,2.665,3.166,parliament,54,70
+context-16_13,WHEN,0.0,0.0,none,-1,-1
+context-16_14,LAW,0.0,0.0,none,-1,-1
+context-16_15,WHEN,0.0,0.0,none,-1,-1
+context-16_16,PLACE,0.0,0.0,none,-1,-1
+context-16_17,ORG,0.0,0.0,none,-1,-1
+context-16_18,WHEN,0.0,0.0,none,-1,-1
+context-16_19,PLACE,8.488,8.808,eu,240,247
+context-16_19,PLACE,10.07,10.71,eu,281,291
+context-16_19,PLACE,16.136,16.175,eu,432,433
+context-16_19,PLACE,20.56,20.6,eu,556,557
+context-16_20,PLACE,0.0,0.0,none,-1,-1
+context-16_21,LAW,0.0,0.0,none,-1,-1
+context-16_22,LAW,0.0,0.0,none,-1,-1
+context-16_23,LAW,0.0,0.0,none,-1,-1
+context-16_24,PLACE,3.153,3.193,eu,100,101
+context-16_25,LAW,0.0,0.0,none,-1,-1
+context-16_26,WHEN,15.073,16.114,about five years,370,397
+context-16_26,ORG,4.184,5.925,international energy agency,82,131
+context-16_27,QUANT,2.511,3.113,two degree,68,86
+context-16_28,QUANT,2.031,2.634,two degrees,59,80
+context-16_29,WHEN,8.11,8.811,five years,227,243
+context-16_30,QUANT,2.249,2.49,half,72,78
+context-16_31,PLACE,5.746,6.086,durban,161,172
+context-16_32,PLACE,0.0,0.0,none,-1,-1
+context-16_33,PLACE,7.373,7.894,arctic,231,248
+context-16_34,ORG,0.0,0.0,none,-1,-1
+context-16_35,PERSON,0.0,0.0,none,-1,-1
+context-16_36,WHEN,10.698,11.259,three weeks,301,319
+context-16_36,WHEN,4.347,4.808,day one,136,148
+context-16_36,WHEN,1.543,2.003,two days,50,62
+context-16_37,PERSON,0.0,0.0,none,-1,-1
+context-16_38,QUANT,10.309,10.529,one,286,291
+context-16_38,QUANT,0.58,0.801,first,13,20
+context-16_39,WHEN,0.0,0.0,none,-1,-1
+context-16_40,QUANT,0.708,1.194,twoway,21,37
+context-16_41,PERSON,0.0,0.0,none,-1,-1
+context-16_42,PLACE,0.0,0.0,none,-1,-1
+context-16_43,PLACE,2.645,2.926,eu,75,80
+context-16_44,QUANT,0.0,0.0,none,-1,-1
+context-16_45,ORG,0.0,0.0,none,-1,-1
+context-16_46,QUANT,0.0,0.1,first,-1,1
+context-16_47,QUANT,0.0,0.0,none,-1,-1
+context-16_48,NORP,0.0,0.0,none,-1,-1
+context-16_49,PERSON,0.381,1.024,oleg sentsov,7,31
+context-16_50,PERSON,0.0,0.0,none,-1,-1
+context-16_51,PLACE,0.0,0.0,none,-1,-1
+context-16_52,ORG,0.0,0.0,none,-1,-1
+context-16_53,WHEN,1.546,1.988,two days,53,63
+context-17_0,WHEN,5.577,6.159,three weeks,157,175
+context-17_1,QUANT,0.0,0.0,none,-1,-1
+context-17_2,QUANT,0.582,0.782,first,16,21
+context-17_3,QUANT,3.504,3.704,one,109,112
+context-17_4,QUANT,0.748,1.234,twoway,25,39
+context-17_5,QUANT,0.0,0.0,none,-1,-1
+context-17_6,QUANT,0.0,0.0,none,-1,-1
+context-17_7,PLACE,2.645,2.946,eu,72,78
+context-17_8,PERSON,0.3,1.703,daphne galizia,9,42
+context-17_9,PLACE,6.957,7.939,european union,180,203
+context-17_9,QUANT,4.23,4.451,one,107,113
+context-17_9,QUANT,5.734,5.874,one,146,149
+context-17_9,PLACE,0.261,0.842,malta,6,18
+context-17_10,NORP,15.797,16.557,maltese,357,374
+context-17_11,QUANT,0.0,0.0,none,-1,-1
+context-17_12,NORP,1.704,2.306,maltese,42,59
+context-17_13,PLACE,5.706,6.467,european union,158,181
+context-17_13,PLACE,3.704,4.185,spain,114,123
+context-17_14,QUANT,0.641,0.862,five,18,23
+context-17_15,QUANT,0.0,0.101,half,-1,3
+context-17_15,QUANT,2.294,2.515,half,67,73
+context-17_16,PLACE,8.607,8.988,malta,203,215
+context-17_17,LAW,0.0,0.0,none,-1,-1
+context-17_18,PLACE,12.038,12.339,malta,305,316
+context-17_18,QUANT,7.051,7.331,first,173,179
+context-17_18,QUANT,4.707,5.088,three,112,117
+context-17_18,WHEN,3.105,3.485,today,77,86
+context-17_19,NORP,1.463,1.944,maltese,42,61
+context-17_19,QUANT,0.361,0.761,second,9,21
+context-17_20,PLACE,10.413,10.733,europe,296,304
+context-17_20,PERSON,5.467,7.309,daphne caruana galizia,173,226
+context-17_20,QUANT,0.32,0.641,thirdly,10,19
+context-17_21,PLACE,0.241,0.582,europe,6,17
+context-17_22,PERSON,0.0,0.0,none,-1,-1
+context-17_23,PLACE,0.322,0.603,europe,12,23
+context-17_24,ORG,3.83,4.271,parliament,122,137
+context-17_25,QUANT,0.0,0.0,none,-1,-1
+context-17_26,NORP,0.0,0.0,none,-1,-1
+context-17_27,NORP,8.377,8.557,dutch,253,261
+context-17_28,LAW,0.0,0.0,none,-1,-1
+context-17_29,PERSON,0.0,0.0,none,-1,-1
+context-17_30,PLACE,0.0,0.0,none,-1,-1
+context-17_31,WHEN,3.649,4.832,the last ten to fifteen years,108,143
+context-17_31,QUANT,1.805,2.968,hundreds of millions,56,86
+context-17_32,ORG,0.0,0.0,none,-1,-1
+context-17_33,PLACE,3.486,4.047,united states,102,121
+context-17_34,WHEN,0.0,0.0,none,-1,-1
+context-17_35,PERSON,0.0,0.0,none,-1,-1
+context-17_36,ORG,0.0,0.0,none,-1,-1
+context-17_37,WHEN,2.709,3.151,those days,79,94
+context-17_37,NORP,0.0,0.161,dutch,-1,2
+context-17_38,PLACE,6.65,6.95,italy,145,153
+context-17_38,WHEN,3.806,4.186,today,79,87
+context-17_38,QUANT,0.36,0.821,secondly,9,24
+context-17_39,PLACE,0.0,0.0,none,-1,-1
+context-17_40,QUANT,0.0,0.0,none,-1,-1
+context-17_41,QUANT,6.075,6.476,four,165,170
+context-17_42,PERSON,1.664,2.085,bashir,55,68
+context-17_43,WHEN,22.539,22.839,years,600,607
+context-17_43,PLACE,17.074,17.835,european union,447,470
+context-17_43,NORP,3.943,4.344,italian,93,109
+context-17_44,PLACE,0.22,0.401,europe,4,8
+context-17_44,PLACE,8.675,9.075,europe,227,239
+context-17_45,ORG,0.0,0.0,none,-1,-1
+context-17_46,PLACE,6.835,7.256,spain,171,179
+context-17_46,ORG,1.243,1.744,council,34,49
+context-17_47,QUANT,0.221,0.883,number two,9,30
+context-17_48,QUANT,0.0,0.0,none,-1,-1
+context-17_49,PLACE,7.251,8.453,european union,184,208
+context-17_49,PLACE,11.918,12.92,european union,280,300
+context-17_50,NORP,0.0,0.0,none,-1,-1
+context-17_51,NORP,17.739,18.179,european,402,414
+context-17_51,QUANT,6.987,8.169,one per cent,149,180
+context-17_51,QUANT,9.67,10.691,one per cent,217,241
+context-17_52,NORP,0.0,0.0,none,-1,-1
+context-17_53,QUANT,0.0,6.692,one hundred zero,-1,226
+context-17_53,QUANT,5.911,6.692,four hundred zero,198,226
+context-17_53,PLACE,5.35,5.61,dublin,178,188
+context-17_53,PLACE,2.044,2.625,european union,68,86
+context-17_53,QUANT,0.541,1.042,eighty,19,37
+context-18_0,WHEN,10.657,11.278,the years ahead,320,338
+context-18_1,PLACE,0.0,0.0,none,-1,-1
+context-18_2,PLACE,7.05,7.751,european union,198,221
+context-18_3,PLACE,0.0,0.0,none,-1,-1
+context-18_4,WHEN,0.0,0.0,none,-1,-1
+context-18_5,WHEN,8.298,8.699,this year,233,244
+context-18_5,QUANT,4.209,4.43,four,114,119
+context-18_5,WHEN,1.864,3.047,two thousand and sixteen,48,87
+context-18_5,WHEN,0.0,0.822,two thousand and fifteen,-1,24
+context-18_6,PLACE,0.461,0.822,eu,14,20
+context-18_7,PLACE,8.691,8.972,eu,246,252
+context-18_8,LAW,0.0,0.0,none,-1,-1
+context-18_9,PLACE,0.281,0.862,hungary,7,21
+context-18_10,WHEN,20.716,21.557,end of last year,557,575
+context-18_10,NORP,18.275,18.715,iranian,494,506
+context-18_10,QUANT,8.226,8.667,second,222,235
+context-18_10,QUANT,0.36,0.781,first,6,16
+context-18_11,LAW,0.0,0.0,none,-1,-1
+context-18_12,PLACE,1.77,2.072,greece,59,68
+context-18_13,PLACE,5.226,5.547,turkey,150,160
+context-18_13,PLACE,3.885,4.185,union,109,116
+context-18_14,NORP,0.0,0.0,none,-1,-1
+context-18_15,NORP,1.845,2.246,european,49,62
+context-18_15,PLACE,4.512,4.873,dublin,129,139
+context-18_15,NORP,6.657,7.058,european,178,193
+context-18_16,QUANT,0.0,0.0,none,-1,-1
+context-18_17,PLACE,9.777,9.997,turkey,305,313
+context-18_18,LAW,0.0,0.0,none,-1,-1
+context-18_19,PERSON,0.0,0.0,none,-1,-1
+context-18_20,NORP,0.1,0.261,greek,3,10
+context-18_21,QUANT,0.0,0.0,none,-1,-1
+context-18_22,PLACE,7.052,7.433,greece,172,181
+context-18_22,QUANT,0.861,0.982,one,24,28
+context-18_23,LAW,3.891,5.777,article two hundred and eighteen,117,165
+context-18_24,WHEN,6.469,6.869,last year,167,178
+context-18_25,NORP,0.0,0.0,none,-1,-1
+context-18_26,PERSON,0.0,0.0,none,-1,-1
+context-18_27,PLACE,10.519,10.8,turkey,290,299
+context-18_27,NORP,6.572,6.953,european,169,183
+context-18_28,WHEN,0.0,0.0,none,-1,-1
+context-18_29,PLACE,14.694,15.014,turkey,414,425
+context-18_29,QUANT,7.587,7.948,millions,210,220
+context-18_29,NORP,3.303,3.623,turkish,92,101
+context-18_30,ORG,5.333,5.634,council,144,155
+context-18_31,WHEN,0.0,0.0,none,-1,-1
+context-18_32,PERSON,0.0,0.0,none,-1,-1
+context-18_33,QUANT,0.0,0.0,none,-1,-1
+context-18_34,LAW,0.0,0.0,none,-1,-1
+context-18_36,PLACE,5.506,5.867,europe,125,136
+context-18_36,PLACE,11.974,12.295,europe,304,315
+context-18_37,NORP,0.0,0.0,none,-1,-1
+context-18_38,PLACE,2.809,3.17,europe,93,104
+context-18_39,PLACE,21.7,21.96,union,628,635
+context-18_39,NORP,12.691,13.092,european,366,379
+context-18_39,ORG,6.085,6.546,parliament,175,192
+context-18_39,WHEN,1.281,1.661,nine years,38,51
+context-18_40,ORG,0.0,0.0,none,-1,-1
+context-18_41,PLACE,6.69,6.93,union,204,211
+context-18_42,NORP,0.0,0.0,none,-1,-1
+context-18_43,PLACE,0.964,1.225,europe,23,33
+context-18_44,NORP,0.0,0.0,none,-1,-1
+context-18_45,NORP,0.0,0.0,europeans,-1,-1
+context-18_46,PLACE,4.337,4.598,europe,119,127
+context-18_47,NORP,14.738,15.178,european,389,406
+context-18_47,PLACE,9.331,9.691,union,242,250
+context-18_48,PLACE,6.037,6.338,union,172,181
+context-18_49,PLACE,6.219,6.499,europe,164,173
+context-18_49,PLACE,2.548,2.849,union,79,85
+context-18_50,PLACE,0.0,0.0,none,-1,-1
+context-18_51,WHEN,10.037,10.418,today,267,281
+context-18_51,PLACE,5.009,5.65,strasbourg,115,135
+context-18_51,PLACE,2.645,3.145,brussels,58,72
+context-18_51,PLACE,0.601,1.503,european union,9,31
+context-18_52,PLACE,0.0,0.0,none,-1,-1
+context-18_53,PLACE,6.298,6.939,european union,188,209
+context-18_53,PLACE,3.169,3.51,turkey,97,110
+context-18_53,PLACE,2.266,2.507,europe,70,78
+context-19_0,WHEN,0.0,0.0,none,-1,-1
+context-19_1,PERSON,0.0,0.0,none,-1,-1
+context-19_2,ORG,0.0,0.0,none,-1,-1
+context-19_3,WHEN,13.853,14.293,next week,372,388
+context-19_3,WHEN,21.459,21.82,next week,606,619
+context-19_3,LAW,6.706,7.847,treaty of rome,187,212
+context-19_3,PLACE,4.184,4.644,eu,131,137
+context-19_4,PLACE,12.498,12.918,sweden,331,342
+context-19_4,PERSON,0.581,1.282,dawit isaak,16,41
+context-19_4,ORG,5.227,5.688,parliament,151,165
+context-19_4,PERSON,10.134,11.136,dawit isaak,268,297
+context-19_5,NORP,0.0,0.0,none,-1,-1
+context-19_6,WHEN,0.622,1.304,nineteen years,13,34
+context-19_7,QUANT,0.0,0.0,none,-1,-1
+context-19_8,QUANT,0.881,1.081,first,22,28
+context-19_9,PERSON,0.341,1.403,martin luther king,8,37
+context-19_10,ORG,2.084,2.785,legal service,58,86
+context-19_10,ORG,1.723,2.044,council,44,57
+context-19_11,ORG,0.0,0.0,none,-1,-1
+context-19_12,ORG,5.958,6.259,council,180,189
+context-19_12,QUANT,0.361,0.662,three,8,15
+context-19_13,WHEN,0.0,0.0,none,-1,-1
+context-19_14,QUANT,0.401,0.742,first,9,19
+context-19_15,PLACE,0.0,0.0,none,-1,-1
+context-19_16,PLACE,0.0,0.0,none,-1,-1
+context-19_17,PLACE,0.0,0.0,none,-1,-1
+context-19_18,NORP,0.0,0.0,none,-1,-1
+context-19_19,NORP,0.0,0.0,none,-1,-1
+context-19_20,ORG,0.0,0.0,none,-1,-1
+context-19_21,LAW,0.0,0.0,none,-1,-1
+context-19_22,ORG,0.0,0.0,none,-1,-1
+context-19_23,PLACE,14.537,14.777,europe,414,422
+context-19_23,ORG,5.206,5.566,ecb,152,165
+context-19_24,ORG,4.785,5.326,parliament,113,130
+context-19_24,WHEN,2.703,4.725,may two thousand and ten,54,110
+context-19_25,PLACE,0.0,0.0,none,-1,-1
+context-19_26,PLACE,0.0,0.0,none,-1,-1
+context-19_27,PLACE,7.21,7.571,eu,177,185
+context-19_27,QUANT,5.568,5.969,billions,128,139
+context-19_28,PLACE,5.071,5.552,eu,133,143
+context-19_28,QUANT,2.646,4.189,gbp forty billion,72,110
+context-19_28,ORG,0.561,0.982,tories,15,30
+context-19_29,PLACE,7.116,7.517,britain,197,207
+context-19_29,WHEN,1.363,1.864,two years,39,48
+context-19_29,NORP,0.521,0.902,tories,12,24
+context-19_30,PLACE,3.493,3.895,uk,102,117
+context-19_31,QUANT,20.739,21.039,twenty,567,579
+context-19_31,NORP,8.908,9.289,european,251,265
+context-19_32,QUANT,4.567,4.868,twenty,135,149
+context-19_33,PLACE,12.098,12.358,eu,344,350
+context-19_34,WHEN,0.0,0.0,a month or two later,-1,-1
+context-19_35,PLACE,17.999,18.439,kasai,398,410
+context-19_35,PLACE,1.281,1.802,drc,35,53
+context-19_36,LAW,0.0,0.0,none,-1,-1
+context-19_37,PERSON,0.0,0.0,none,-1,-1
+context-19_38,PLACE,0.0,0.0,none,-1,-1
+context-19_39,PERSON,21.958,22.058,hogan,528,532
+context-19_39,QUANT,8.407,9.868,eur four hundred and twenty million,197,238
+context-19_39,WHEN,4.644,6.025,september two thousand and fifteen,81,128
+context-19_40,ORG,8.714,9.616,european commission,236,263
+context-19_40,ORG,7.352,8.293,european parliament,194,226
+context-19_40,ORG,6.29,6.771,council,168,183
+context-19_41,ORG,10.01,10.49,council,260,271
+context-19_42,ORG,3.288,3.709,council,79,93
+context-19_43,NORP,0.0,0.0,none,-1,-1
+context-19_44,ORG,6.026,6.466,council,162,175
+context-19_44,QUANT,1.982,2.462,sixteen,46,62
+context-19_44,WHEN,0.52,0.881,march,11,20
+context-19_45,QUANT,0.0,0.0,none,-1,-1
+context-19_46,NORP,11.371,11.731,european,308,322
+context-19_46,QUANT,5.265,5.946,six,148,170
+context-19_46,QUANT,4.864,5.085,five,136,140
+context-19_47,WHEN,15.614,15.914,june,424,430
+context-19_47,ORG,15.113,15.454,council,408,419
+context-19_47,ORG,5.345,5.845,parliament,137,152
+context-19_48,ORG,5.894,6.396,council,161,176
+context-19_48,PERSON,3.889,4.33,hogan,105,114
+context-19_49,WHEN,4.085,4.446,march,115,122
+context-19_49,WHEN,2.643,3.104,september,74,91
+context-19_50,NORP,2.995,3.357,european,84,97
+context-19_51,PERSON,8.351,8.892,huitema,236,253
+context-19_51,ORG,1.101,1.382,council,35,46
+context-19_52,LAW,0.0,0.0,none,-1,-1
+context-19_53,QUANT,8.452,8.712,first,234,242
+context-19_53,ORG,3.986,4.747,european commission,110,135
+context-20_0,WHEN,0.0,0.0,none,-1,-1
+context-20_1,NORP,1.182,1.362,dutch,35,43
+context-20_1,NORP,1.963,2.123,dutch,60,67
+context-20_1,NORP,3.405,3.586,dutch,107,113
+context-20_1,NORP,4.888,5.168,dutch,147,155
+context-20_2,WHEN,12.193,12.394,june,341,346
+context-20_2,ORG,10.992,11.473,council,309,321
+context-20_2,PLACE,7.668,8.169,netherlands,213,223
+context-20_3,WHEN,0.0,0.0,none,-1,-1
+context-20_4,QUANT,4.966,5.186,third,145,153
+context-20_4,QUANT,4.466,4.766,second,126,137
+context-20_5,QUANT,14.174,14.394,third,397,403
+context-20_5,ORG,7.267,7.888,eurojust,197,219
+context-20_5,ORG,6.546,7.007,europol,175,192
+context-20_5,QUANT,0.641,0.801,one,13,18
+context-20_6,WHEN,0.0,0.0,none,-1,-1
+context-20_7,LAW,0.0,0.0,none,-1,-1
+context-20_8,ORG,6.188,6.768,green group,160,173
+context-20_9,LAW,3.688,4.51,lisbon treaty,95,121
+context-20_10,NORP,0.0,0.0,none,-1,-1
+context-20_11,PLACE,19.336,19.957,european union,512,535
+context-20_11,QUANT,0.34,0.941,secondly,8,23
+context-20_12,NORP,8.092,8.492,european,205,221
+context-20_13,ORG,0.0,0.0,none,-1,-1
+context-20_14,WHEN,0.0,0.0,none,-1,-1
+context-20_15,ORG,8.376,9.217,united nations,254,278
+context-20_16,LAW,0.0,0.0,none,-1,-1
+context-20_17,WHEN,0.0,0.0,none,-1,-1
+context-20_18,PERSON,0.0,0.0,none,-1,-1
+context-20_19,PLACE,7.106,7.347,eu,203,206
+context-20_20,ORG,0.0,0.0,none,-1,-1
+context-20_21,QUANT,0.0,6.15,four billion,-1,182
+context-20_21,QUANT,5.529,6.15,six billion,161,182
+context-20_22,PERSON,0.0,0.0,none,-1,-1
+context-20_23,PERSON,0.0,0.0,none,-1,-1
+context-20_24,ORG,0.0,0.0,none,-1,-1
+context-20_25,LAW,0.0,0.0,none,-1,-1
+context-20_26,WHEN,0.0,0.0,none,-1,-1
+context-20_27,LAW,0.0,0.0,none,-1,-1
+context-20_28,ORG,0.0,0.0,none,-1,-1
+context-20_29,PERSON,0.0,0.0,none,-1,-1
+context-20_30,QUANT,7.309,8.01,twenty million,180,203
+context-20_31,NORP,0.0,0.0,none,-1,-1
+context-20_32,PLACE,0.0,0.0,none,-1,-1
+context-20_33,PLACE,4.876,5.217,germany,134,144
+context-20_33,NORP,4.153,4.514,muslim,111,123
+context-20_33,WHEN,2.428,3.692,forty year old,75,103
+context-20_33,QUANT,1.826,2.307,eighteen,53,71
+context-20_33,NORP,0.522,0.883,german,13,23
+context-20_34,ORG,0.16,0.481,council,5,16
+context-20_35,PLACE,3.445,3.806,europe,102,111
+context-20_36,LAW,0.0,0.0,none,-1,-1
+context-20_37,ORG,0.0,0.0,none,-1,-1
+context-20_38,PERSON,1.026,1.529,jensen,31,42
+context-20_39,PLACE,10.519,11.16,united kingdom,221,236
+context-20_40,NORP,0.57,1.018,chinese,5,8
+context-20_41,LAW,0.0,0.0,none,-1,-1
+context-20_42,NORP,0.0,0.0,none,-1,-1
+context-20_43,QUANT,0.0,0.0,none,-1,-1
+context-20_44,WHEN,0.0,0.0,none,-1,-1
+context-20_45,PERSON,0.0,0.0,none,-1,-1
+context-20_46,PERSON,0.0,0.0,none,-1,-1
+context-20_47,PLACE,0.0,0.0,none,-1,-1
+context-20_48,ORG,0.842,1.222,nato,23,34
+context-20_48,ORG,4.148,4.629,nato,118,132
+context-20_48,ORG,9.618,9.919,nato,280,290
+context-20_49,PLACE,3.83,3.991,eu,119,124
+context-20_50,PLACE,4.565,4.785,eu,109,117
+context-20_51,ORG,0.0,0.0,none,-1,-1
+context-20_52,NORP,13.337,13.858,european,383,399
+context-20_52,PLACE,7.93,8.271,eu,221,228
+context-20_52,NORP,2.163,2.303,greek,61,67
+context-20_53,NORP,3.626,3.786,greek,98,104
+context-21_0,WHEN,7.773,8.854,two thousand and sixteen,218,256
+context-21_0,WHEN,5.93,6.991,two thousand and seventeen,159,196
+context-21_1,WHEN,8.977,9.338,today,253,262
+context-21_2,WHEN,0.0,0.0,none,-1,-1
+context-21_3,QUANT,0.0,0.0,none,-1,-1
+context-21_4,WHEN,4.349,5.812,from two thousand and nine,117,158
+context-21_4,PLACE,3.467,4.189,eurozone,96,114
+context-21_5,QUANT,0.321,0.863,secondly,8,22
+context-21_6,WHEN,8.337,8.778,this year,211,222
+context-21_6,PLACE,8.037,8.297,eu,206,211
+context-21_6,QUANT,5.592,5.812,one,127,134
+context-21_7,PLACE,4.35,5.091,western balkan,116,144
+context-21_7,QUANT,1.644,1.804,one,47,51
+context-21_8,NORP,0.0,0.0,none,-1,-1
+context-21_9,ORG,5.491,6.373,united nations,169,197
+context-21_9,NORP,2.545,2.866,syrian,81,89
+context-21_10,PLACE,3.925,4.526,netherlands,116,133
+context-21_10,PLACE,2.363,3.284,united kingdom,73,98
+context-21_11,QUANT,7.913,8.194,third,227,234
+context-21_11,QUANT,5.99,6.952,billions of euros,169,197
+context-21_11,PLACE,5.289,5.469,eu,150,154
+context-21_11,ORG,2.624,4.748,european development fund,84,138
+context-21_12,PLACE,5.477,6.179,european union,160,180
+context-21_13,PLACE,7.57,7.61,eu,209,210
+context-21_13,QUANT,0.28,0.481,first,7,14
+context-21_14,QUANT,0.341,0.802,secondly,8,23
+context-21_15,PLACE,7.468,7.768,eu,215,222
+context-21_16,QUANT,9.874,10.114,third,306,313
+context-21_16,PLACE,7.37,7.871,netherlands,230,247
+context-21_16,PLACE,6.289,7.05,united kingdom,193,220
+context-21_17,NORP,0.0,0.0,none,-1,-1
+context-21_18,PERSON,0.0,0.0,none,-1,-1
+context-21_19,QUANT,2.555,2.837,five,77,84
+context-21_20,PERSON,0.0,0.0,none,-1,-1
+context-21_21,QUANT,0.0,0.0,none,-1,-1
+context-21_22,WHEN,0.0,0.0,none,-1,-1
+context-21_23,LAW,0.0,0.0,none,-1,-1
+context-21_24,WHEN,0.0,0.0,none,-1,-1
+context-21_25,PLACE,1.984,2.205,europe,57,67
+context-21_26,PLACE,0.0,0.0,none,-1,-1
+context-21_27,PERSON,0.0,0.0,none,-1,-1
+context-21_28,ORG,0.0,0.0,none,-1,-1
+context-21_29,QUANT,5.586,6.207,two degrees,158,178
+context-21_30,PLACE,9.314,10.036,western balkans,276,304
+context-21_30,NORP,2.444,2.824,european,69,82
+context-21_31,PLACE,2.166,2.427,eu,63,68
+context-21_32,NORP,5.466,5.887,european,145,161
+context-21_32,PLACE,9.451,9.792,europe,257,270
+context-21_33,WHEN,0.0,0.0,none,-1,-1
+context-21_34,WHEN,2.025,2.967,seven years ago,58,84
+context-21_35,PERSON,0.0,0.0,none,-1,-1
+context-21_36,WHEN,0.0,0.0,none,-1,-1
+context-21_37,PLACE,13.428,13.928,turkey,247,257
+context-21_37,PLACE,28.537,28.837,turkey,625,633
+context-21_38,NORP,0.0,0.0,none,-1,-1
+context-21_39,NORP,3.373,3.956,europeans,91,113
+context-21_40,PERSON,0.0,0.0,none,-1,-1
+context-21_41,WHEN,0.0,0.0,none,-1,-1
+context-21_42,PLACE,0.902,1.503,brussels,23,39
+context-21_43,NORP,0.0,0.0,none,-1,-1
+context-21_44,LAW,0.0,0.0,none,-1,-1
+context-21_45,PLACE,5.252,5.553,europe,136,144
+context-21_45,PLACE,7.237,7.458,europe,194,200
+context-21_46,LAW,0.0,0.0,none,-1,-1
+context-21_47,PLACE,1.583,1.844,europe,51,59
+context-21_48,PLACE,9.373,9.694,europe,261,271
+context-21_48,PLACE,12.057,12.277,europe,338,346
+context-21_48,ORG,4.887,5.207,parliament,150,164
+context-21_49,PERSON,0.0,0.0,none,-1,-1
+context-21_50,PLACE,0.0,0.0,none,-1,-1
+context-21_51,WHEN,0.0,0.0,none,-1,-1
+context-21_52,NORP,0.0,0.0,none,-1,-1
+context-21_53,QUANT,3.488,3.768,five,97,102
+context-22_0,NORP,0.0,0.0,none,-1,-1
+context-22_1,PLACE,5.351,5.731,union,144,152
+context-22_2,PERSON,1.645,2.086,juncker,44,56
+context-22_3,PLACE,0.0,0.0,none,-1,-1
+context-22_4,PLACE,0.423,0.726,europe,7,17
+context-22_5,LAW,0.0,0.0,none,-1,-1
+context-22_6,PLACE,0.0,0.0,none,-1,-1
+context-22_7,PLACE,3.567,3.908,europe,88,99
+context-22_7,PLACE,5.411,5.752,europe,126,135
+context-22_8,NORP,0.0,0.0,none,-1,-1
+context-22_9,NORP,18.535,19.315,europeans,463,483
+context-22_9,PLACE,19.575,19.916,europe,490,502
+context-22_9,NORP,21.277,21.997,europeans,536,555
+context-22_9,NORP,15.772,16.793,antieuropean,399,426
+context-22_10,PLACE,16.014,16.974,european union,433,456
+context-22_11,ORG,1.165,1.908,epp group,29,56
+context-22_12,LAW,0.0,0.0,none,-1,-1
+context-22_13,PERSON,0.0,0.0,none,-1,-1
+context-22_14,WHEN,18.655,19.056,today,555,565
+context-22_14,PLACE,14.672,15.413,european union,438,460
+context-22_15,ORG,0.0,0.0,none,-1,-1
+context-22_16,PLACE,0.0,0.0,none,-1,-1
+context-22_17,NORP,0.0,0.0,none,-1,-1
+context-22_18,PLACE,6.349,6.87,north west,164,179
+context-22_19,NORP,0.0,0.0,none,-1,-1
+context-22_20,PLACE,11.855,11.975,eu,310,312
+context-22_20,QUANT,5.106,5.487,thirdly,114,122
+context-22_20,QUANT,0.04,0.461,secondly,0,5
+context-22_21,WHEN,9.099,9.38,today,232,239
+context-22_21,LAW,7.235,8.177,ippc,176,202
+context-22_22,PLACE,3.616,4.379,european union,108,133
+context-22_23,PLACE,0.0,0.0,none,-1,-1
+context-22_24,PERSON,0.0,0.0,none,-1,-1
+context-22_25,LAW,0.0,0.0,none,-1,-1
+context-22_26,ORG,0.0,0.0,none,-1,-1
+context-22_27,PLACE,11.875,12.316,europe,294,303
+context-22_28,PLACE,19.336,19.676,europe,475,484
+context-22_28,WHEN,2.502,3.383,last october,65,91
+context-22_29,WHEN,0.0,0.0,none,-1,-1
+context-22_30,WHEN,0.0,0.0,none,-1,-1
+context-22_31,LAW,0.0,0.0,none,-1,-1
+context-22_32,LAW,0.0,0.0,none,-1,-1
+context-22_33,WHEN,0.0,0.0,none,-1,-1
+context-22_34,NORP,0.0,0.0,none,-1,-1
+context-22_35,NORP,17.618,18.118,european,479,492
+context-22_35,ORG,1.882,2.282,council,55,68
+context-22_35,ORG,4.044,4.484,council,113,127
+context-22_36,PERSON,0.0,0.0,none,-1,-1
+context-22_37,ORG,4.152,4.693,council,108,124
+context-22_37,WHEN,0.842,1.143,days and days,21,27
+context-22_38,QUANT,2.256,2.638,two thousand,79,93
+context-22_39,LAW,0.0,0.0,none,-1,-1
+context-22_40,ORG,6.332,7.194,federal government,175,206
+context-22_40,PLACE,4.088,4.869,united states,114,139
+context-22_41,PLACE,8.415,9.257,european union,205,231
+context-22_41,PERSON,6.532,6.772,trump,159,166
+context-22_42,LAW,0.0,0.0,none,-1,-1
+context-22_43,LAW,5.737,6.46,paris agreement,175,197
+context-22_43,PLACE,2.808,3.089,europe,83,90
+context-22_44,PERSON,0.0,0.0,none,-1,-1
+context-22_45,WHEN,0.0,0.0,none,-1,-1
+context-22_46,PLACE,5.628,6.168,geneva,110,124
+context-22_46,PLACE,4.746,4.846,eu,85,88
+context-22_47,ORG,3.187,4.349,un human rights council,87,124
+context-22_47,PLACE,2.184,2.365,eu,58,63
+context-22_48,LAW,6.189,9.353,binding treaty on business and human rights,160,249
+context-22_48,ORG,5.788,6.088,un,149,157
+context-22_48,ORG,2.984,3.365,council,75,88
+context-22_49,PLACE,11.797,12.058,un,336,343
+context-22_49,ORG,7.271,8.412,european parliament,201,238
+context-22_49,PLACE,0.901,1.082,eu,23,27
+context-22_49,PLACE,4.987,5.107,eu,144,146
+context-22_50,PLACE,8.335,8.735,europe,227,239
+context-22_50,PERSON,5.109,5.73,muscat,131,149
+context-22_50,NORP,2.504,3.166,maltese,65,81
+context-22_51,PLACE,2.73,3.191,italy,86,96
+context-22_51,PLACE,1.947,2.308,libya,59,73
+context-22_52,PLACE,9.87,10.771,mediterranean,257,283
+context-22_52,PLACE,4.945,5.266,europe,131,139
+context-22_53,PLACE,12.256,12.697,eu,294,300
+context-22_53,PLACE,6.228,7.009,australia,152,173
+context-22_53,NORP,2.483,2.964,european,51,66
+context-22_53,QUANT,1.862,2.303,six,36,47
+context-23_0,PLACE,12.055,12.455,europe,316,327
+context-23_0,NORP,4.385,4.946,jihadis,115,133
+context-23_0,NORP,2.263,2.743,italian,61,77
+context-23_0,WHEN,0.661,0.981,today,18,26
+context-23_1,ORG,0.0,0.0,none,-1,-1
+context-23_2,WHEN,0.0,0.0,none,-1,-1
+context-23_3,LAW,0.0,0.0,none,-1,-1
+context-23_4,PLACE,0.628,0.972,canada,24,36
+context-23_5,QUANT,0.0,0.0,none,-1,-1
+context-23_7,LAW,0.14,0.461,ceta,4,15
+context-23_8,PLACE,4.935,5.296,latvia,162,174
+context-23_9,QUANT,0.461,0.642,first,14,19
+context-23_10,QUANT,0.0,0.0,none,-1,-1
+context-23_11,PLACE,17.216,17.477,europe,471,480
+context-23_11,LAW,10.57,10.95,ceta,292,307
+context-23_11,PLACE,1.902,2.803,european union,52,77
+context-23_12,QUANT,0.0,0.0,none,-1,-1
+context-23_13,LAW,1.764,2.105,ceta,39,50
+context-23_14,PLACE,1.286,2.05,european union,35,57
+context-23_15,PLACE,15.619,15.86,europe,436,442
+context-23_15,NORP,11.654,12.195,canadian,317,334
+context-23_15,PLACE,6.949,7.75,european union,178,199
+context-23_16,PLACE,0.0,0.0,none,-1,-1
+context-23_17,PLACE,15.519,16.52,european continent,420,452
+context-23_17,PLACE,12.095,12.435,union,326,334
+context-23_17,QUANT,0.521,0.821,second,14,24
+context-23_18,LAW,0.0,0.0,none,-1,-1
+context-23_19,QUANT,12.033,12.533,eighteen,292,304
+context-23_19,ORG,9.33,10.791,european parliament,222,267
+context-23_19,WHEN,4.905,6.547,two thousand and sixteen,111,154
+context-23_20,WHEN,0.0,0.0,none,-1,-1
+context-23_21,ORG,0.0,0.0,none,-1,-1
+context-23_22,PERSON,0.0,0.0,none,-1,-1
+context-23_23,PLACE,0.0,0.0,none,-1,-1
+context-23_24,LAW,1.644,1.924,ceta,51,60
+context-23_25,LAW,8.147,8.488,ceta,284,295
+context-23_25,LAW,10.049,10.309,ceta,344,353
+context-23_25,LAW,12.632,12.992,ceta,418,430
+context-23_25,ORG,0.641,1.121,sd group,19,40
+context-23_26,WHEN,10.738,11.139,february,316,325
+context-23_26,QUANT,8.735,9.055,second,248,260
+context-23_26,WHEN,0.0,1.402,two thousand and fourteen,-1,27
+context-23_27,LAW,2.517,2.758,ceta,88,96
+context-23_27,ORG,0.503,0.987,sd group,15,35
+context-23_28,LAW,0.0,0.0,none,-1,-1
+context-23_29,PLACE,10.233,10.673,canada,345,360
+context-23_29,ORG,6.228,6.708,council,210,226
+context-23_29,PLACE,4.245,4.285,eu,135,136
+context-23_30,NORP,8.487,8.927,canadian,247,262
+context-23_31,NORP,1.082,1.703,europeans,34,54
+context-23_31,QUANT,0.0,1.022,five million,-1,33
+context-23_31,NORP,4.088,4.669,europeans,116,136
+context-23_31,QUANT,3.386,4.027,twelve million,98,115
+context-23_31,NORP,8.456,9.057,europeans,239,257
+context-23_31,QUANT,0.26,1.022,twenty four million,7,33
+context-23_32,PLACE,3.069,3.35,europe,82,89
+context-23_33,NORP,6.871,7.292,european,186,198
+context-23_33,WHEN,3.546,4.467,twenty first century,89,115
+context-23_33,NORP,1.763,2.324,europeans,39,57
+context-23_33,PLACE,1.102,1.422,europe,23,31
+context-23_34,ORG,0.0,0.0,none,-1,-1
+context-23_35,NORP,3.232,3.874,europeans,88,108
+context-23_36,WHEN,0.0,0.0,none,-1,-1
+context-23_37,NORP,0.0,0.0,none,-1,-1
+context-23_38,WHEN,0.0,0.0,none,-1,-1
+context-23_39,PLACE,1.506,1.787,europe,43,51
+context-23_40,NORP,2.527,2.928,european,56,69
+context-23_40,NORP,5.796,6.297,european,158,173
+context-23_41,ORG,0.0,0.0,none,-1,-1
+context-23_42,LAW,0.0,0.0,none,-1,-1
+context-23_43,WHEN,0.441,1.142,in recent weeks,8,28
+context-23_44,PLACE,1.566,1.927,rio,41,46
+context-23_45,WHEN,4.296,5.34,after twenty years,127,158
+context-23_45,PERSON,0.783,1.385,hoppenstedt,23,45
+context-23_46,PLACE,4.767,5.128,eu,106,112
+context-23_47,QUANT,0.321,0.861,secondly,12,28
+context-23_48,ORG,0.482,1.224,budget committee,15,42
+context-23_49,ORG,2.226,2.908,budget committee,56,83
+context-23_50,LAW,0.0,0.0,none,-1,-1
+context-23_51,WHEN,0.0,0.0,none,-1,-1
+context-23_52,PERSON,3.623,4.123,telika,79,98
+context-23_53,NORP,9.299,9.98,europeans,243,259
+context-23_53,PLACE,7.014,7.355,eu,189,194
+context-24_0,WHEN,10.189,11.75,twenty two november,301,351
+context-24_1,PERSON,0.0,0.0,none,-1,-1
+context-24_2,QUANT,0.0,0.0,none,-1,-1
+context-24_3,PERSON,0.0,0.0,none,-1,-1
+context-24_4,LAW,0.0,0.0,none,-1,-1
+context-24_5,PLACE,16.515,17.936,virunga national park,459,496
+context-24_5,PERSON,6.346,6.986,mogherini,184,203
+context-24_5,WHEN,0.38,0.941,yesterday,9,26
+context-24_6,NORP,0.0,0.0,none,-1,-1
+context-24_7,ORG,6.475,7.096,unesco,176,192
+context-24_8,PLACE,8.438,9.2,european union,234,256
+context-24_8,QUANT,4.79,5.291,one third,129,142
+context-24_8,PLACE,5.572,6.013,germany,150,162
+context-24_8,QUANT,6.153,6.614,one third,166,180
+context-24_8,PLACE,3.247,3.628,europe,90,99
+context-24_8,QUANT,1.183,1.704,zero,33,46
+context-24_8,QUANT,0.301,1.102,twenty five,9,30
+context-24_9,PLACE,1.234,1.558,syria,32,38
+context-24_10,PLACE,0.51,0.796,syria,5,6
+context-24_11,NORP,0.0,0.0,none,-1,-1
+context-24_12,ORG,0.0,0.0,none,-1,-1
+context-24_13,NORP,0.0,0.0,none,-1,-1
+context-24_14,QUANT,0.0,0.0,none,-1,-1
+context-24_15,WHEN,18.638,20.0,late hour of the day,466,501
+context-24_16,ORG,0.0,0.0,none,-1,-1
+context-24_17,QUANT,24.558,24.738,eight,671,678
+context-24_17,QUANT,23.778,24.038,seven,639,649
+context-24_17,QUANT,9.567,9.707,one,248,252
+context-24_18,QUANT,0.0,0.0,none,-1,-1
+context-24_19,PERSON,0.0,0.0,none,-1,-1
+context-24_20,QUANT,0.0,0.0,none,-1,-1
+context-24_21,ORG,0.0,0.0,none,-1,-1
+context-24_22,LAW,0.0,0.0,none,-1,-1
+context-24_23,NORP,0.0,0.0,none,-1,-1
+context-24_24,LAW,0.0,0.0,none,-1,-1
+context-24_25,ORG,4.069,5.332,court of first instance,89,127
+context-24_26,WHEN,11.354,11.935,twelve months,295,313
+context-24_27,LAW,0.0,0.0,none,-1,-1
+context-24_28,QUANT,1.112,1.335,ten,36,42
+context-24_29,PERSON,0.0,0.0,none,-1,-1
+context-24_30,WHEN,0.0,0.0,none,-1,-1
+context-24_31,QUANT,0.0,0.0,none,-1,-1
+context-24_32,QUANT,0.301,2.565,two thousand eight hundred,7,57
+context-24_33,ORG,0.0,0.0,none,-1,-1
+context-24_34,PLACE,17.138,17.398,europe,441,447
+context-24_34,LAW,9.87,10.891,single market act,280,311
+context-24_34,NORP,2.342,2.643,german,65,75
+context-24_35,WHEN,0.0,0.0,none,-1,-1
+context-24_36,ORG,0.0,0.0,none,-1,-1
+context-24_37,LAW,0.0,0.0,none,-1,-1
+context-24_38,LAW,3.45,3.972,emas,82,95
+context-24_39,PLACE,0.0,0.0,none,-1,-1
+context-24_40,PLACE,0.0,0.0,none,-1,-1
+context-24_41,NORP,1.783,2.303,european,49,62
+context-24_42,PLACE,0.0,0.0,none,-1,-1
+context-24_43,PLACE,2.125,2.205,eu,61,63
+context-24_44,ORG,1.869,2.271,emas,45,59
+context-24_44,QUANT,0.382,0.744,first,8,16
+context-24_45,PLACE,0.0,0.0,none,-1,-1
+context-24_46,ORG,0.0,0.0,none,-1,-1
+context-24_47,PERSON,0.0,0.0,none,-1,-1
+context-24_48,QUANT,0.341,1.422,fourteen thousand and one,9,41
+context-24_49,PLACE,0.0,0.0,none,-1,-1
+context-24_50,PLACE,0.481,2.346,people's republic of china,14,74
+context-24_51,WHEN,9.878,10.659,twenty years ago,286,312
+context-24_51,PLACE,1.563,2.144,hong kong,53,68
+context-24_51,WHEN,0.661,0.982,today,23,31
+context-24_52,NORP,2.264,2.645,chinese,73,87
+context-24_53,WHEN,3.415,4.439,sixteen years old,106,132
+context-25_0,PLACE,15.535,16.275,european union,451,475
+context-25_1,PLACE,4.848,5.428,hong kong,148,165
+context-25_2,PLACE,8.054,8.956,european union,243,270
+context-25_3,NORP,3.626,3.967,chinese,105,113
+context-25_4,PLACE,5.549,5.589,eu,146,146
+context-25_4,ORG,2.484,3.085,minsk group,74,95
+context-25_4,QUANT,0.341,0.781,second,9,22
+context-25_5,NORP,0.0,0.0,none,-1,-1
+context-25_6,NORP,0.0,0.0,none,-1,-1
+context-25_7,QUANT,0.0,0.0,none,-1,-1
+context-25_8,ORG,0.0,0.0,none,-1,-1
+context-25_9,PLACE,14.314,15.135,european union,390,415
+context-25_9,QUANT,13.613,13.753,one,373,375
+context-25_9,PERSON,7.327,7.828,verheugen,218,232
+context-25_9,ORG,5.085,6.386,european investment bank,152,193
+context-25_10,QUANT,0.0,0.0,none,-1,-1
+context-25_11,PLACE,0.0,0.0,none,-1,-1
+context-25_12,NORP,0.0,0.0,none,-1,-1
+context-25_13,WHEN,0.0,0.0,none,-1,-1
+context-25_14,PLACE,6.872,7.312,ukraine,203,218
+context-25_14,ORG,2.644,3.245,parliament,75,88
+context-25_15,LAW,11.198,12.32,dcfta,308,337
+context-25_15,QUANT,5.008,5.248,first,140,146
+context-25_15,PLACE,2.965,3.506,ukraine,86,97
+context-25_16,ORG,6.747,7.228,parliament,189,202
+context-25_17,NORP,7.853,8.354,european,207,221
+context-25_18,PLACE,15.315,15.816,ukraine,408,419
+context-25_18,WHEN,9.73,11.652,end of two thousand and fifteen,245,299
+context-25_18,WHEN,2.002,3.303,twelve september,42,80
+context-25_19,ORG,0.0,0.0,none,-1,-1
+context-25_20,LAW,19.858,20.819,dcfta,548,574
+context-25_20,NORP,15.815,16.115,russian,425,434
+context-25_20,PLACE,4.784,5.325,ukraine,130,143
+context-25_21,LAW,0.0,0.0,none,-1,-1
+context-25_22,WHEN,6.532,8.255,fifteen additional months,176,218
+context-25_23,PLACE,15.675,16.256,ukraine,435,446
+context-25_23,PLACE,19.459,20.119,ukraine,546,568
+context-25_23,PLACE,7.167,7.447,eu,201,208
+context-25_24,NORP,4.155,4.818,ukrainian,108,126
+context-25_24,PLACE,0.341,0.763,eu,8,13
+context-25_25,PLACE,0.0,0.0,none,-1,-1
+context-25_26,PLACE,2.904,3.365,ukraine,72,84
+context-25_27,PLACE,9.859,10.28,ukraine,275,286
+context-25_28,WHEN,0.0,0.0,none,-1,-1
+context-25_29,PLACE,0.0,0.0,none,-1,-1
+context-25_30,QUANT,0.0,0.0,none,-1,-1
+context-25_31,LAW,0.0,0.0,none,-1,-1
+context-25_32,PLACE,3.833,3.873,eu,126,127
+context-25_33,ORG,0.0,0.0,none,-1,-1
+context-25_34,LAW,11.118,11.539,cfp,311,323
+context-25_34,PLACE,4.567,4.908,uk,123,136
+context-25_35,QUANT,4.673,4.933,fifth,124,131
+context-25_36,QUANT,6.39,6.61,half,190,197
+context-25_36,PLACE,5.128,5.528,uk,152,164
+context-25_36,LAW,2.043,3.005,great repeal bill,62,93
+context-25_37,ORG,5.897,6.299,parliament,188,197
+context-25_38,ORG,0.0,0.0,none,-1,-1
+context-25_39,PLACE,21.119,21.4,europe,508,516
+context-25_39,QUANT,18.477,18.957,millions and millions,430,444
+context-25_39,WHEN,3.944,6.406,the last couple of months,120,177
+context-25_39,NORP,2.162,2.783,maltese,66,81
+context-25_40,PLACE,0.0,0.0,none,-1,-1
+context-25_41,PLACE,11.092,11.733,hungary,287,300
+context-25_41,NORP,4.725,5.586,maltese,113,137
+context-25_41,PLACE,2.102,3.123,european union,45,74
+context-25_42,LAW,0.0,0.0,none,-1,-1
+context-25_43,PLACE,1.562,1.803,eu,40,46
+context-25_44,ORG,3.004,3.945,epp group,85,110
+context-25_45,WHEN,0.0,0.0,none,-1,-1
+context-25_46,PERSON,0.0,0.0,none,-1,-1
+context-25_47,WHEN,0.0,0.0,none,-1,-1
+context-25_48,PERSON,0.0,0.0,none,-1,-1
+context-25_49,PLACE,4.149,4.75,ukraine,97,110
+context-25_50,NORP,13.476,14.076,ukrainian,327,347
+context-25_50,PLACE,9.851,10.472,ukraine,241,255
+context-25_51,QUANT,9.909,10.229,first,260,266
+context-25_52,QUANT,0.341,0.742,third,9,20
+context-25_53,QUANT,3.027,3.228,two,77,80
+context-26_0,WHEN,7.638,8.26,last week,196,213
+context-26_1,QUANT,4.295,4.596,three,114,121
+context-26_2,PLACE,8.499,8.98,ukraine,209,220
+context-26_3,NORP,14.116,14.917,ukrainians,352,376
+context-26_3,PLACE,6.047,6.567,ukraine,142,154
+context-26_3,WHEN,3.784,4.465,yesterday,84,100
+context-26_4,QUANT,11.674,12.135,second,313,327
+context-26_4,PLACE,5.206,5.807,ukraine,148,161
+context-26_4,QUANT,0.22,0.661,first,5,16
+context-26_5,PERSON,0.0,0.0,none,-1,-1
+context-26_6,NORP,3.267,4.069,ukrainians,79,104
+context-26_7,PLACE,20.798,21.338,ukraine,500,516
+context-26_7,QUANT,17.715,18.075,third,426,434
+context-26_8,QUANT,20.779,21.6,eur one billion,547,568
+context-26_8,WHEN,16.635,17.836,two thousand and fourteen,428,463
+context-26_8,PLACE,13.633,14.193,ukraine,346,361
+context-26_8,QUANT,9.168,9.509,fourth,229,238
+context-26_9,PLACE,0.0,0.0,none,-1,-1
+context-26_10,PLACE,0.0,0.0,none,-1,-1
+context-26_11,PLACE,5.367,6.228,ukraine,122,139
+context-26_12,QUANT,0.0,0.0,none,-1,-1
+context-26_13,QUANT,0.0,0.0,none,-1,-1
+context-26_14,NORP,0.0,0.0,none,-1,-1
+context-26_15,PLACE,9.867,11.348,belarus,286,321
+context-26_15,PLACE,6.265,6.725,vilnius,182,195
+context-26_15,NORP,2.542,3.322,lithuanian,72,92
+context-26_16,QUANT,22.498,23.219,twenty five,563,581
+context-26_16,PLACE,6.865,7.046,eu,183,187
+context-26_16,PLACE,4.804,5.364,belarus,126,141
+context-26_16,QUANT,2.542,2.802,first,70,76
+context-26_17,PLACE,2.042,2.603,belarus,47,61
+context-26_18,QUANT,0.0,0.0,none,-1,-1
+context-26_19,ORG,0.0,0.0,none,-1,-1
+context-26_20,LAW,0.0,0.0,none,-1,-1
+context-26_21,PLACE,5.818,6.079,eu,157,161
+context-26_21,PLACE,4.334,4.855,belarus,116,134
+context-26_21,NORP,1.605,2.127,european,39,58
+context-26_22,PERSON,0.0,0.0,none,-1,-1
+context-26_23,NORP,4.263,4.744,european,100,115
+context-26_23,NORP,13.271,13.751,european,286,301
+context-26_23,PLACE,4.263,5.324,european union,100,124
+context-26_24,ORG,0.0,0.0,none,-1,-1
+context-26_25,QUANT,1.364,1.745,second,34,45
+context-26_25,QUANT,3.229,3.59,second,81,92
+context-26_26,QUANT,0.0,0.0,none,-1,-1
+context-26_27,ORG,0.0,1.322,formula one,-1,35
+context-26_27,ORG,1.923,2.644,manor racing,48,69
+context-26_27,QUANT,1.122,1.322,one,31,35
+context-26_27,WHEN,0.2,1.001,a few weeks ago,5,28
+context-26_29,NORP,9.357,9.778,european,262,276
+context-26_29,ORG,7.073,7.373,yelp,207,216
+context-26_29,QUANT,2.404,2.565,first,62,67
+context-26_29,ORG,1.342,1.984,foundem,38,51
+context-26_29,WHEN,0.381,1.022,last december,9,32
+context-26_30,ORG,8.354,8.574,google,201,209
+context-26_31,PLACE,0.0,0.0,none,-1,-1
+context-26_32,WHEN,0.0,0.0,none,-1,-1
+context-26_33,PLACE,15.916,16.217,us,418,427
+context-26_33,ORG,10.391,11.051,ppe group,278,295
+context-26_34,QUANT,8.818,8.898,two,242,243
+context-26_34,ORG,5.03,5.732,wto,139,161
+context-26_35,ORG,3.912,4.996,efdd,93,116
+context-26_36,WHEN,0.0,0.0,none,-1,-1
+context-26_37,QUANT,6.493,7.214,a quarter,180,198
+context-26_37,QUANT,2.505,2.745,one,66,71
+context-26_38,LAW,0.0,0.0,none,-1,-1
+context-26_39,QUANT,0.0,0.0,none,-1,-1
+context-26_40,PLACE,5.612,6.353,european union,166,189
+context-26_41,QUANT,2.873,3.034,one,89,95
+context-26_42,PERSON,0.0,0.0,none,-1,-1
+context-26_43,PLACE,0.0,0.0,none,-1,-1
+context-26_44,NORP,0.0,0.0,none,-1,-1
+context-26_45,ORG,9.432,9.992,parliament,240,256
+context-26_46,PERSON,0.0,0.0,none,-1,-1
+context-26_47,NORP,7.649,8.21,europeans,236,253
+context-26_48,ORG,0.0,0.0,none,-1,-1
+context-26_49,NORP,0.0,0.0,none,-1,-1
+context-26_50,PLACE,13.199,13.96,european union,386,407
+context-26_51,WHEN,0.0,3.203,first year,-1,82
+context-26_51,WHEN,2.643,3.203,fifth year,69,82
+context-26_52,PERSON,14.334,14.835,barnier,419,431
+context-26_52,ORG,11.651,12.072,parliament,339,352
+context-26_52,ORG,1.281,1.662,council,34,46
+context-26_53,ORG,2.135,2.619,parliament,58,73
+context-27_0,QUANT,1.165,1.386,first,21,28
+context-27_1,NORP,3.626,3.766,greek,96,102
+context-27_2,NORP,13.357,13.878,european,388,405
+context-27_2,PLACE,8.05,8.291,eu,226,231
+context-27_2,NORP,2.183,2.323,greek,61,67
+context-27_3,WHEN,7.773,8.854,two thousand and sixteen,223,263
+context-27_3,WHEN,5.93,7.011,two thousand and seventeen,165,208
+context-27_4,PLACE,1.165,1.406,europe,35,44
+context-27_4,PLACE,0.703,0.964,poland,22,30
+context-27_5,NORP,4.083,4.864,polish communists,127,154
+context-27_5,WHEN,2.382,3.022,the eighty s,78,96
+context-27_5,ORG,1.041,1.701,solidarity,36,59
+context-27_6,ORG,10.319,10.96,supreme court,303,323
+context-27_6,LAW,6.111,6.872,constitution,178,203
+context-27_7,LAW,0.0,0.0,none,-1,-1
+context-27_8,ORG,0.0,0.0,none,-1,-1
+context-27_9,PLACE,0.0,0.0,none,-1,-1
+context-27_10,QUANT,2.555,2.837,five,76,84
+context-27_11,ORG,0.0,0.0,none,-1,-1
+context-27_12,LAW,0.0,0.0,none,-1,-1
+context-27_13,PLACE,7.211,7.572,eu,190,196
+context-27_13,QUANT,5.569,5.969,billions,136,149
+context-27_14,PLACE,5.051,5.532,eu,131,140
+context-27_14,QUANT,2.646,4.189,gbp forty billion,68,106
+context-27_14,ORG,0.561,0.982,tories,14,27
+context-27_15,PLACE,7.096,7.497,britain,205,213
+context-27_15,WHEN,1.343,1.864,two years,38,49
+context-27_15,NORP,0.521,0.902,tories,12,24
+context-27_16,PLACE,3.494,3.895,uk,106,120
+context-27_17,PLACE,7.288,7.788,africa,197,213
+context-27_17,PLACE,3.103,3.784,nigeria,89,106
+context-27_18,PLACE,2.223,2.784,nigeria,57,71
+context-27_18,QUANT,3.385,3.746,five,90,96
+context-27_18,QUANT,2.985,3.085,one,77,80
+context-27_18,PLACE,10.196,10.657,nigeria,298,311
+context-27_19,QUANT,0.0,0.0,none,-1,-1
+context-27_20,PLACE,28.92,29.36,nigeria,774,785
+context-27_20,NORP,7.965,8.506,nigerian,215,232
+context-27_20,ORG,4.463,5.083,boko haram,107,130
+context-27_21,PLACE,0.441,0.842,europe,7,20
+context-27_22,PLACE,0.0,0.0,none,-1,-1
+context-27_23,PLACE,6.61,7.551,european union,162,187
+context-27_24,QUANT,2.028,2.671,one hundred,40,56
+context-27_24,WHEN,0.502,1.165,two years,15,27
+context-27_25,QUANT,11.235,11.555,two,273,278
+context-27_25,QUANT,4.406,5.407,one hundred million,115,141
+context-27_25,WHEN,0.42,1.121,one hundred years,7,30
+context-27_26,WHEN,0.0,0.0,none,-1,-1
+context-27_27,ORG,6.25,7.152,epp group,159,187
+context-27_28,PERSON,0.0,0.0,none,-1,-1
+context-27_29,WHEN,0.0,0.0,none,-1,-1
+context-27_30,ORG,0.0,0.0,none,-1,-1
+context-27_31,WHEN,0.0,0.0,none,-1,-1
+context-27_32,PERSON,3.229,4.092,dawit isaak,90,117
+context-27_33,QUANT,0.0,0.0,none,-1,-1
+context-27_34,PLACE,8.396,8.676,eu,225,230
+context-27_35,PERSON,0.0,0.0,none,-1,-1
+context-27_36,PLACE,0.0,0.0,none,-1,-1
+context-27_37,QUANT,1.649,1.83,fifth,50,57
+context-27_37,PLACE,0.261,1.186,united kingdom,5,37
+context-27_38,PLACE,6.598,7.099,far east,187,199
+context-27_38,PLACE,2.768,3.429,anglosphere,70,92
+context-27_39,PERSON,0.0,0.0,none,-1,-1
+context-27_40,QUANT,8.171,8.311,two,223,226
+context-27_40,ORG,2.624,3.064,council,80,94
+context-27_41,QUANT,11.256,11.576,million,305,316
+context-27_41,PLACE,8.071,8.452,eu,223,231
+context-27_42,WHEN,0.0,0.0,none,-1,-1
+context-27_43,ORG,6.697,7.539,african union,197,220
+context-27_43,ORG,2.085,3.288,un security council,56,100
+context-27_44,WHEN,4.406,8.051,two thousand and thirty,119,239
+context-27_44,QUANT,5.147,5.487,twenty,142,156
+context-27_44,QUANT,7.39,8.051,thirty,213,239
+context-27_44,WHEN,4.406,5.487,two thousand and twenty,119,156
+context-27_45,WHEN,12.518,13.099,sixty years,341,358
+context-27_45,QUANT,11.436,12.077,four,310,327
+context-27_46,WHEN,7.077,7.659,one whole year,189,202
+context-27_46,WHEN,5.594,6.336,two thousand and fifteen,148,172
+context-27_47,PLACE,15.894,16.174,us,415,423
+context-27_47,ORG,10.349,11.01,ppe group,272,291
+context-27_48,QUANT,8.798,8.898,two,233,234
+context-27_48,ORG,5.01,5.732,wto,137,155
+context-27_49,NORP,0.921,1.782,socialist and democratic,30,61
+context-27_50,ORG,2.193,3.219,uk independence party,68,103
+context-27_51,WHEN,18.454,19.275,end of the year,534,555
+context-27_51,WHEN,9.087,11.749,twenty four november two thousand and fourteen,264,343
+context-27_52,LAW,12.031,16.675,article nineteen of the multiannual financial framework,295,407
+context-27_52,WHEN,8.908,10.79,one may two thousand and fifteen,201,256
+context-27_53,ORG,0.0,0.0,none,-1,-1
+context-28_0,WHEN,0.0,0.0,none,-1,-1
+context-28_1,LAW,18.416,23.42,article nineteen of the multiannual financial framework regulation,483,607
+context-28_1,WHEN,5.945,7.446,two thousand and fourteen,153,188
+context-28_1,WHEN,8.147,9.308,two thousand and fourteen,199,235
+context-28_1,WHEN,4.424,7.446,thirty one december two thousand and fourteen,107,188
+context-28_2,QUANT,0.0,0.0,none,-1,-1
+context-28_3,WHEN,14.479,15.34,end of this year,374,393
+context-28_3,QUANT,10.874,11.415,one hundred,278,290
+context-28_4,ORG,10.658,11.319,parliament,283,304
+context-28_4,ORG,8.715,9.235,council,228,247
+context-28_5,PERSON,0.0,0.0,none,-1,-1
+context-28_6,NORP,8.071,8.551,european,175,190
+context-28_6,QUANT,7.61,7.95,five,169,173
+context-28_6,WHEN,1.121,2.603,two thousand and fourteen,26,61
+context-28_7,WHEN,0.0,0.962,two thousand and fourteen,-1,23
+context-28_8,PLACE,3.349,3.75,union,103,113
+context-28_9,WHEN,0.0,0.0,none,-1,-1
+context-28_10,ORG,0.0,0.0,none,-1,-1
+context-28_11,ORG,0.0,0.0,none,-1,-1
+context-28_12,WHEN,0.0,0.0,none,-1,-1
+context-28_13,QUANT,4.711,5.072,three,140,147
+context-28_14,QUANT,1.623,1.804,four,37,43
+context-28_15,PLACE,0.0,0.0,none,-1,-1
+context-28_16,QUANT,24.336,25.517,one hundred and ten,534,563
+context-28_16,WHEN,22.475,23.035,today,499,511
+context-28_16,LAW,4.583,5.343,ifrs,102,120
+context-28_16,ORG,13.129,14.089,iasb,297,315
+context-28_16,LAW,20.193,20.333,ifrs,451,454
+context-28_17,PLACE,0.0,0.0,none,-1,-1
+context-28_18,ORG,14.759,15.119,imf,457,468
+context-28_18,QUANT,11.214,11.795,a quarter,347,364
+context-28_18,QUANT,9.732,10.293,twenty five,297,315
+context-28_18,WHEN,0.32,1.722,january two thousand and seventeen,11,58
+context-28_19,LAW,0.0,0.0,none,-1,-1
+context-28_20,PLACE,8.018,8.52,moldova,223,238
+context-28_20,WHEN,6.836,7.297,tomorrow,193,204
+context-28_21,QUANT,4.216,4.397,three,139,145
+context-28_22,WHEN,5.774,6.816,two thousand and seventeen,179,214
+context-28_22,QUANT,4.771,4.972,three,142,150
+context-28_22,QUANT,0.0,0.742,eur forty million,-1,26
+context-28_22,QUANT,1.985,2.827,eur sixty million,52,78
+context-28_23,ORG,9.23,9.591,council,295,309
+context-28_23,ORG,8.429,9.05,parliament,266,288
+context-28_23,QUANT,2.222,3.204,one hundred percent,64,99
+context-28_23,QUANT,0.821,0.921,two,18,20
+context-28_24,PLACE,0.0,0.0,none,-1,-1
+context-28_25,PLACE,12.718,13.6,republic of moldova,396,429
+context-28_26,PLACE,0.0,0.0,none,-1,-1
+context-28_27,ORG,5.89,6.591,venice commission,195,222
+context-28_27,NORP,3.767,4.167,moldovan,122,137
+context-28_28,ORG,0.0,0.0,none,-1,-1
+context-28_29,ORG,9.051,10.233,european court of auditors,264,306
+context-28_29,QUANT,5.206,5.447,three,158,165
+context-28_29,QUANT,4.886,4.946,one,147,150
+context-28_30,QUANT,8.638,9.299,eur one hundred million,277,300
+context-28_30,NORP,4.79,5.271,moldovan,163,178
+context-28_31,WHEN,0.0,0.0,none,-1,-1
+context-28_32,QUANT,5.869,6.029,three,187,193
+context-28_33,PLACE,11.236,11.597,moldova,377,392
+context-28_33,PLACE,5.768,6.289,dcft,205,222
+context-28_34,NORP,1.522,1.882,moldovan,42,57
+context-28_35,WHEN,0.0,0.0,none,-1,-1
+context-28_36,NORP,0.0,0.0,none,-1,-1
+context-28_37,ORG,3.022,3.583,ryanair,83,97
+context-28_38,ORG,0.0,0.0,none,-1,-1
+context-28_39,PLACE,2.948,3.289,europe,80,92
+context-28_40,QUANT,0.0,0.0,none,-1,-1
+context-28_41,QUANT,0.42,0.721,one,9,14
+context-28_42,PLACE,0.0,0.0,none,-1,-1
+context-28_43,WHEN,11.972,12.492,twelve months,321,338
+context-28_43,ORG,9.189,9.79,council,250,265
+context-28_44,PERSON,0.941,1.361,harbour,26,34
+context-28_45,LAW,0.0,0.0,none,-1,-1
+context-28_46,WHEN,11.279,11.94,twelve months,322,337
+context-28_47,QUANT,4.014,4.335,three,109,114
+context-28_48,QUANT,4.15,4.451,one,124,130
+context-28_49,LAW,0.0,0.0,none,-1,-1
+context-28_50,PLACE,4.589,4.889,eu,147,154
+context-28_51,WHEN,0.0,0.0,none,-1,-1
+context-28_52,PLACE,10.378,11.019,european union,261,281
+context-28_52,PLACE,7.693,8.214,russia,197,210
+context-28_53,QUANT,21.097,21.437,second,558,569
+context-28_53,ORG,16.213,16.553,nato,429,441
+context-28_53,NORP,9.528,10.108,european,236,255
+context-29_0,NORP,0.0,0.0,none,-1,-1
+context-29_1,PLACE,0.0,0.0,none,-1,-1
+context-29_2,PERSON,0.0,0.0,none,-1,-1
+context-29_3,ORG,0.0,0.0,none,-1,-1
+context-29_4,WHEN,0.0,0.0,none,-1,-1
+context-29_5,WHEN,10.598,10.998,wednesday,308,320
+context-29_5,WHEN,1.322,2.023,few seconds,31,52
+context-29_6,PLACE,10.553,11.174,new york,284,297
+context-29_6,WHEN,9.652,10.333,last september,250,277
+context-29_6,LAW,8.471,9.572,agenda two thousand and thirty,210,247
+context-29_6,PLACE,0.541,1.041,eu,13,19
+context-29_7,PLACE,1.442,1.662,europe,40,47
+context-29_8,PLACE,0.0,0.0,none,-1,-1
+context-29_9,QUANT,0.0,0.0,none,-1,-1
+context-29_10,PLACE,4.725,5.065,europe,118,128
+context-29_11,ORG,17.857,18.857,european council,530,564
+context-29_11,PLACE,11.651,12.091,egypt,355,369
+context-29_11,ORG,4.064,4.684,ebrd,114,133
+context-29_12,ORG,9.411,9.812,ebrd,264,276
+context-29_12,PLACE,8.049,8.31,eu,233,239
+context-29_13,LAW,22.335,24.156,europe two thousand and twenty strategy,588,644
+context-29_13,PLACE,19.673,20.013,eu,518,527
+context-29_13,PLACE,12.128,12.468,union,319,326
+context-29_13,ORG,15.29,15.83,parliament,398,413
+context-29_13,PLACE,17.111,17.512,union,449,460
+context-29_13,ORG,10.767,11.367,erbd,286,305
+context-29_14,WHEN,8.658,9.039,december,254,268
+context-29_14,PERSON,5.912,7.095,sombath somphone,176,210
+context-29_15,PLACE,7.197,7.497,laos,196,205
+context-29_15,WHEN,0.0,1.002,two thousand and twelve,-1,27
+context-29_16,ORG,4.588,7.673,un working group on arbitrary detention,132,234
+context-29_16,WHEN,2.404,3.886,august two thousand and seventeen,65,116
+context-29_17,QUANT,0.0,0.0,none,-1,-1
+context-29_18,LAW,0.0,0.0,none,-1,-1
+context-29_19,QUANT,8.457,8.697,third,226,232
+context-29_20,PERSON,0.0,0.0,none,-1,-1
+context-29_21,NORP,0.842,1.223,european,23,39
+context-29_22,PLACE,12.355,13.237,european union,340,368
+context-29_22,WHEN,1.682,2.263,five months,47,63
+context-29_23,PLACE,4.248,5.27,european union,117,143
+context-29_23,PLACE,9.538,10.3,european union,265,286
+context-29_24,QUANT,0.421,0.541,one,11,15
+context-29_25,NORP,0.0,0.0,none,-1,-1
+context-29_26,NORP,4.273,4.915,european,125,141
+context-29_27,NORP,0.0,0.0,none,-1,-1
+context-29_28,NORP,0.0,0.0,none,-1,-1
+context-29_29,ORG,0.0,0.0,none,-1,-1
+context-29_30,PLACE,22.071,22.351,europe,599,608
+context-29_31,PLACE,1.384,1.705,eu,41,46
+context-29_32,NORP,2.123,3.185,christian democrat,63,95
+context-29_32,NORP,1.522,1.923,liberal,45,56
+context-29_33,QUANT,0.0,0.0,none,-1,-1
+context-29_34,WHEN,0.0,0.0,none,-1,-1
+context-29_35,QUANT,6.537,6.777,three,170,175
+context-29_36,ORG,20.277,23.18,international accounting standards board,461,544
+context-29_36,ORG,14.833,18.956,international financial reporting standards foundation,329,437
+context-29_36,QUANT,1.261,3.823,eur forty three million,34,87
+context-29_37,ORG,20.699,21.74,european commission,510,541
+context-29_37,ORG,13.592,17.856,european financial reporting advisory group,314,435
+context-29_37,ORG,0.56,2.823,public interest oversight board,13,68
+context-29_38,ORG,0.0,0.0,none,-1,-1
+context-29_39,NORP,0.0,0.0,none,-1,-1
+context-29_40,PLACE,0.0,0.0,none,-1,-1
+context-29_41,ORG,2.585,3.207,icb,65,82
+context-29_41,ORG,1.102,2.104,ifrs foundation,25,54
+context-29_42,ORG,0.0,0.0,none,-1,-1
+context-29_43,PLACE,0.0,0.0,none,-1,-1
+context-29_44,PLACE,0.421,0.661,europe,9,18
+context-29_45,QUANT,0.0,0.0,none,-1,-1
+context-29_46,ORG,1.527,1.909,parliament,48,60
+context-29_47,PLACE,8.056,8.337,europe,229,237
+context-29_47,ORG,2.946,3.347,parliament,90,102
+context-29_48,QUANT,0.0,0.0,none,-1,-1
+context-29_49,LAW,0.0,0.0,none,-1,-1
+context-29_50,ORG,5.746,6.166,parliament,173,185
+context-29_50,QUANT,0.48,0.761,second,15,25
+context-29_51,NORP,0.0,0.0,none,-1,-1
+context-29_52,PLACE,3.677,3.918,europe,99,107
+context-29_52,PLACE,2.471,2.913,asia,70,80
+context-29_53,ORG,0.0,0.0,none,-1,-1
+context-30_0,PLACE,0.0,0.0,none,-1,-1
+context-30_1,NORP,0.0,0.0,none,-1,-1
+context-30_2,NORP,0.0,0.0,none,-1,-1
+context-30_3,QUANT,0.04,0.562,first,1,20
+context-30_4,QUANT,0.0,0.0,none,-1,-1
+context-30_5,NORP,0.0,0.0,none,-1,-1
+context-30_6,PLACE,0.0,0.0,none,-1,-1
+context-30_7,PLACE,0.0,0.0,none,-1,-1
+context-30_8,ORG,3.345,4.447,international monetary fund,88,126
+context-30_9,NORP,9.293,9.734,european,252,267
+context-30_9,QUANT,0.2,0.701,third,7,17
+context-30_10,QUANT,0.462,1.567,a trillion dollars,16,50
+context-30_11,ORG,3.795,4.156,parliament,126,139
+context-30_12,ORG,1.103,1.624,world bank,35,52
+context-30_13,NORP,0.0,0.0,none,-1,-1
+context-30_14,PLACE,5.306,5.626,europe,135,145
+context-30_14,WHEN,2.963,4.325,the last sixty years,74,110
+context-30_15,ORG,0.0,0.0,none,-1,-1
+context-30_16,PLACE,4.978,5.279,europe,133,141
+context-30_16,PLACE,1.807,2.128,uk,48,58
+context-30_17,PLACE,2.958,3.259,union,84,94
+context-30_18,PLACE,8.227,8.707,eu,220,227
+context-30_18,PLACE,12.23,12.491,eu,312,318
+context-30_18,PLACE,13.932,14.192,eu,348,353
+context-30_19,WHEN,0.0,0.0,none,-1,-1
+context-30_20,PLACE,3.167,3.487,eu,81,87
+context-30_20,PLACE,6.253,6.614,eu,161,166
+context-30_21,PERSON,0.0,0.0,none,-1,-1
+context-30_22,PLACE,2.145,2.366,eu,53,58
+context-30_23,PERSON,0.0,0.0,none,-1,-1
+context-30_24,WHEN,5.053,5.555,one march,164,178
+context-30_25,PLACE,5.591,5.731,eu,160,164
+context-30_25,PLACE,4.268,4.489,europe,125,132
+context-30_25,PLACE,3.587,3.988,brussels,101,117
+context-30_26,PLACE,7.488,9.33,former yugoslav republic of macedonia,225,286
+context-30_26,WHEN,1.401,1.802,two months,43,55
+context-30_26,WHEN,0.08,0.821,last december,3,26
+context-30_27,NORP,2.494,2.816,european,86,98
+context-30_28,WHEN,3.897,4.379,many weeks,129,147
+context-30_29,QUANT,15.835,16.075,ten,355,362
+context-30_29,PLACE,14.834,15.334,iran,336,346
+context-30_29,WHEN,13.573,14.093,this year,313,324
+context-30_30,WHEN,7.272,8.474,the past six years,176,209
+context-30_30,PLACE,1.022,2.424,bahrain,27,53
+context-30_30,PLACE,0.341,0.741,kuwait,6,18
+context-30_31,NORP,0.0,0.0,none,-1,-1
+context-30_32,WHEN,0.0,0.0,none,-1,-1
+context-30_33,ORG,0.0,0.0,none,-1,-1
+context-30_34,ORG,2.173,3.219,uk independence party,72,111
+context-30_35,WHEN,0.0,0.0,none,-1,-1
+context-30_36,NORP,4.59,5.191,european,120,136
+context-30_37,LAW,0.0,0.0,none,-1,-1
+context-30_38,WHEN,3.617,4.099,tomorrow,88,98
+context-30_39,PLACE,7.127,7.507,europe,175,187
+context-30_39,PLACE,2.082,2.963,european union,47,70
+context-30_40,LAW,0.0,0.0,none,-1,-1
+context-30_41,NORP,4.996,5.578,european,122,135
+context-30_42,WHEN,0.0,0.0,none,-1,-1
+context-30_43,ORG,5.63,6.391,parliament,137,156
+context-30_43,ORG,1.202,1.743,council,29,46
+context-30_44,WHEN,3.449,4.011,two years,89,101
+context-30_45,QUANT,3.283,3.523,first,85,92
+context-30_45,WHEN,0.0,0.921,two thousand and seventeen,-1,30
+context-30_46,WHEN,13.757,14.338,nine march,394,403
+context-30_46,ORG,12.575,13.396,european council,355,386
+context-30_46,WHEN,9.872,10.713,twenty june,279,306
+context-30_46,ORG,4.225,4.606,sherpa,123,132
+context-30_47,QUANT,2.409,2.911,twenty one,77,98
+context-30_48,LAW,7.893,8.174,schengen,219,228
+context-30_49,NORP,0.0,0.0,none,-1,-1
+context-30_50,ORG,19.177,19.597,parliament,492,505
+context-30_50,ORG,16.995,17.676,greens efa,418,442
+context-30_50,NORP,9.649,10.429,european,253,273
+context-30_51,WHEN,0.0,0.0,none,-1,-1
+context-30_52,NORP,6.137,6.498,european,173,187
+context-30_53,NORP,0.0,0.0,none,-1,-1
+context-31_0,PLACE,6.094,6.736,european union,162,176
+context-31_1,ORG,2.425,2.745,council,60,72
+context-31_2,NORP,0.0,0.0,none,-1,-1
+context-31_3,LAW,0.0,0.0,none,-1,-1
+context-31_4,QUANT,1.022,1.303,one,22,26
+context-31_5,LAW,12.433,13.293,marrakesh treaty,328,353
+context-31_5,ORG,14.555,14.935,council,387,400
+context-31_5,LAW,17.678,18.419,marrakesh treaty,464,486
+context-31_5,PLACE,10.891,11.131,eus,285,292
+context-31_6,LAW,0.0,0.0,none,-1,-1
+context-31_7,WHEN,9.417,10.499,monday next week,252,282
+context-31_7,ORG,6.151,7.293,foreign affairs council,162,199
+context-31_7,LAW,2.484,3.406,marrakesh treaty,58,87
+context-31_8,PERSON,0.0,0.0,none,-1,-1
+context-31_9,ORG,0.0,0.0,none,-1,-1
+context-31_10,QUANT,0.0,0.0,none,-1,-1
+context-31_11,NORP,0.0,0.0,none,-1,-1
+context-31_12,ORG,0.0,0.0,none,-1,-1
+context-31_13,PLACE,0.0,0.0,none,-1,-1
+context-31_14,PERSON,0.0,0.0,none,-1,-1
+context-31_15,PERSON,0.0,0.0,none,-1,-1
+context-31_16,WHEN,1.264,2.649,february two thousand and seventeen,36,83
+context-31_17,PLACE,5.033,5.534,china,164,178
+context-31_18,WHEN,8.751,10.233,twenty six september,254,302
+context-31_19,PLACE,0.0,0.0,none,-1,-1
+context-31_20,WHEN,0.0,1.544,three years later,-1,43
+context-31_20,WHEN,0.722,1.544,two years later,23,43
+context-31_21,ORG,0.0,0.0,none,-1,-1
+context-31_22,ORG,0.0,0.0,none,-1,-1
+context-31_23,NORP,5.764,6.164,european,158,173
+context-31_23,NORP,12.509,12.729,roma,346,352
+context-31_23,NORP,20.874,21.355,european,563,576
+context-31_24,QUANT,6.691,6.992,twenty,173,184
+context-31_24,NORP,5.169,5.509,european,120,132
+context-31_24,QUANT,0.1,0.26,second,4,8
+context-31_25,NORP,10.473,10.954,european,273,288
+context-31_25,NORP,2.463,3.204,socialists,81,98
+context-31_26,PLACE,16.956,17.897,european union,390,417
+context-31_26,PERSON,6.906,7.667,macron,176,192
+context-31_27,PLACE,2.464,2.905,europe,57,69
+context-31_27,NORP,4.367,4.848,european,98,114
+context-31_28,PLACE,1.929,2.311,europe,54,64
+context-31_29,NORP,9.976,10.697,european,260,280
+context-31_29,ORG,3.646,4.527,visegrad,96,124
+context-31_29,PLACE,2.284,2.865,hungary,66,77
+context-31_30,PERSON,0.0,0.0,none,-1,-1
+context-31_31,PLACE,7.228,7.748,hungary,209,221
+context-31_31,PLACE,2.202,2.623,europe,63,76
+context-31_31,ORG,8.049,8.569,visegrad,229,249
+context-31_31,PLACE,16.037,16.438,hungary,440,449
+context-31_31,PLACE,10.812,11.192,europe,316,326
+context-31_32,PERSON,15.457,16.158,hugues bayet,439,457
+context-31_32,QUANT,8.669,8.89,three,240,247
+context-31_33,QUANT,0.0,0.0,none,-1,-1
+context-31_34,PLACE,6.571,7.011,eu,188,195
+context-31_35,LAW,4.047,5.83,anti money laundering directive,118,176
+context-31_35,QUANT,0.14,0.381,firstly,5,14
+context-31_36,ORG,16.316,16.877,oecd,466,486
+context-31_36,WHEN,1.441,2.282,two thousand and nine,41,64
+context-31_37,PLACE,6.979,7.219,europe,212,220
+context-31_37,NORP,3.59,3.971,european,113,127
+context-31_38,PLACE,0.0,0.0,none,-1,-1
+context-31_39,NORP,28.118,28.418,african,713,723
+context-31_39,PLACE,21.974,22.314,africa,533,544
+context-31_39,PLACE,21.073,21.394,eu,510,516
+context-31_39,ORG,8.145,9.086,european parliament,114,147
+context-31_40,NORP,9.756,10.096,african,288,299
+context-31_41,ORG,0.0,0.0,none,-1,-1
+context-31_42,QUANT,3.367,3.888,billions,99,114
+context-31_43,ORG,0.881,1.843,european parliament,24,56
+context-31_44,PLACE,6.268,6.648,japan,182,195
+context-31_44,PLACE,8.771,9.492,european union,248,271
+context-31_44,PLACE,9.672,10.073,japan,277,290
+context-31_44,ORG,3.324,3.805,parliament,92,107
+context-31_45,ORG,0.0,0.0,none,-1,-1
+context-31_46,PLACE,2.824,3.185,china,76,87
+context-31_47,PLACE,5.427,6.028,south korea,151,170
+context-31_48,QUANT,5.514,5.855,sixth,163,173
+context-31_48,PLACE,4.452,4.873,japan,129,143
+context-31_49,PLACE,9.214,9.695,japan,255,270
+context-31_49,NORP,7.491,7.912,european,203,217
+context-31_50,PLACE,6.971,7.311,eu,172,176
+context-31_51,PLACE,1.547,1.828,europe,50,57
+context-31_52,WHEN,0.326,0.938,more than a year,3,8
+context-31_53,ORG,3.811,4.312,ecr,111,127
+context-32_0,NORP,3.672,4.133,american,92,105
+context-32_1,PLACE,12.093,12.734,belarus,371,383
+context-32_2,PERSON,12.377,13.298,mnangagwa,324,353
+context-32_2,PERSON,11.636,11.976,mugabe,295,309
+context-32_3,NORP,16.274,16.554,african,462,474
+context-32_3,PLACE,7.887,8.287,africa,232,244
+context-32_4,PLACE,7.058,7.299,europe,175,183
+context-32_4,PLACE,0.321,0.782,zimbabwe,7,26
+context-32_5,ORG,0.0,0.0,none,-1,-1
+context-32_6,PLACE,0.0,0.0,none,-1,-1
+context-32_7,PLACE,0.0,0.0,none,-1,-1
+context-32_8,PLACE,2.597,2.959,hungary,88,97
+context-32_9,PLACE,9.295,9.736,europe,260,274
+context-32_9,PLACE,7.592,8.133,schengen,220,233
+context-32_10,QUANT,0.24,0.441,first,7,14
+context-32_11,QUANT,0.3,0.761,thirdly,10,20
+context-32_12,LAW,0.0,0.0,none,-1,-1
+context-32_13,PLACE,7.938,8.62,banking union,227,247
+context-32_13,PLACE,6.074,6.455,poland,179,188
+context-32_13,PLACE,5.492,5.893,denmark,161,173
+context-32_13,PLACE,5.011,5.432,sweden,147,158
+context-32_13,PERSON,1.924,2.325,giegold,57,65
+context-32_14,WHEN,0.0,0.0,none,-1,-1
+context-32_15,QUANT,0.0,0.0,none,-1,-1
+context-32_16,LAW,3.025,3.987,lisbon treaty,75,102
+context-32_16,PLACE,1.422,1.863,ireland,31,41
+context-32_17,NORP,18.979,19.519,european,498,512
+context-32_17,PLACE,6.326,6.807,ireland,165,177
+context-32_17,PLACE,11.491,11.972,ireland,294,305
+context-32_18,ORG,0.0,0.0,none,-1,-1
+context-32_19,WHEN,0.0,0.0,none,-1,-1
+context-32_20,PLACE,0.361,0.481,eu,8,9
+context-32_21,NORP,0.0,0.0,none,-1,-1
+context-32_22,WHEN,3.771,4.613,last week,101,124
+context-32_23,PLACE,11.291,11.371,eu,333,336
+context-32_24,ORG,0.0,0.0,none,-1,-1

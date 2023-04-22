@@ -15,10 +15,10 @@ from utils import aggregate_dev_result, AOS_scores, Frame_F1_scores
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_dir', default='/home/daniel094144/data_folder/SQA_code', type=str)
-parser.add_argument('--model_path', default=None, type=str)
-parser.add_argument('--output_dir', default='./', type=str)
-parser.add_argument('--output_fname', default=None, type=str)
+parser.add_argument('--data_dir', default='/work/f776655321/DUAL-textless-NER/new-data', type=str)
+parser.add_argument('--model_path', default='/work/f776655321/DUAL-textless-NER/models_5_128_1e-4_warm_500_fp16/checkpoint-3500/', type=str)
+parser.add_argument('--output_dir', default='./evaluate-dev', type=str)
+parser.add_argument('--output_fname', default='result', type=str)
 args = parser.parse_args()
 
 data_dir = args.data_dir
@@ -97,18 +97,18 @@ class SQADevDataset(Dataset):
     def __init__(self, data_dir):
         df = pd.read_csv(os.path.join(data_dir, 'dev_code_answer.csv'))  
         
-        code_dir = os.path.join(data_dir, 'dev-hubert-128-22')
-        code_passage_dir = os.path.join(data_dir, 'dev-hubert-128-22')
+        code_dir = os.path.join(data_dir, 'question-code/')
+        code_passage_dir = os.path.join(data_dir, 'code/dev')
         context_id = df['context_id'].values
-        question = df['question'].values
         code_start = df['code_start'].values
         code_end = df['code_end'].values
-        
+        label = df['label'].values
+
         self.encodings = []
-        for context_id, question_id, start_idx, end_idx in tqdm(zip(context_id, question, code_start, code_end)):
-            context = np.loadtxt(os.path.join(code_passage_dir, 'context-'+context_id+'.code')).astype(int)
-            question = np.loadtxt(os.path.join(code_dir, question_id+'.code')).astype(int)
-            context_cnt = np.loadtxt(os.path.join(code_passage_dir, 'context-'+context_id+'.cnt')).astype(int)
+        for context_id, label, start_idx, end_idx in tqdm(zip(context_id, label, code_start, code_end)):
+            context = np.loadtxt(os.path.join(code_passage_dir, context_id+'.code')).astype(int)
+            question = np.loadtxt(os.path.join(code_dir, label +'.code')).astype(int)
+            context_cnt = np.loadtxt(os.path.join(code_passage_dir, context_id+'.cnt')).astype(int)
             # question_cnt = np.loadtxt(os.path.join(code_dir, question_id+'.cnt')).astype(int)
             # 0~4 index is the special token, so start from index 5
             # the size of discrete token is 128, indexing from 5~132

@@ -5,10 +5,9 @@ import os
 import math
 from tqdm import tqdm
 
-data_name = 'hubert_large_23_128'
-
-file_dir = '/tmp2/b09902111/data/fine-tune/'
-df = pd.read_csv('/tmp2/b09902111/DUAL-textless-NER/new-data/fine-tune_ans.csv')
+mode = 'fine-tune'
+file_dir = '/work/f776655321/DUAL-textless-NER/new-data/code/' + mode +'/'
+df = pd.read_csv('/work/f776655321/DUAL-textless-NER/new-data/' + mode +'_ans_with_n_and_r.csv')
 start = df['start'].values
 end = df['end'].values
 passage = df['context_id'].values
@@ -24,9 +23,6 @@ for start_sec, end_sec, context_id in tqdm(zip(start, end, passage)):
     start_ind = start_sec / 0.02
     end_ind = end_sec / 0.02
     context_cnt_cum = np.cumsum(context_cnt)
-    print()
-    print(context_cnt_cum[0])
-    input()
     new_start_ind, new_end_ind = None, None
     # print(start_ind, end_ind)
     prev = 0
@@ -54,49 +50,4 @@ for start_sec, end_sec, context_id in tqdm(zip(start, end, passage)):
 df['code_start'] = code_start
 df['code_end'] = code_end    
     
-df.to_csv('/tmp2/b09902111/DUAL-textless-NER/new-data/'+ data_name +'/fine-tune_code.csv',index=False)
-
-
-file_dir = '/tmp2/b09902111/data/dev/'
-df = pd.read_csv('/tmp2/b09902111/DUAL-textless-NER/new-data/dev_ans.csv')
-start = df['start'].values
-end = df['end'].values
-passage = df['context_id'].values
-
-code_start = []
-code_end = []
-
-for start_sec, end_sec, context_id in tqdm(zip(start, end, passage)):
-    context_code = np.loadtxt(os.path.join(file_dir, context_id + '.code'))
-    context_cnt = np.loadtxt(os.path.join(file_dir,  context_id + '.cnt'))
-    start_ind = start_sec / 0.02
-    end_ind = end_sec / 0.02
-    context_cnt_cum = np.cumsum(context_cnt)
-    
-    new_start_ind, new_end_ind = None, None
-    prev = 0
-    for idx, cum_idx in enumerate(context_cnt_cum): 
-        
-        if cum_idx >= start_ind and new_start_ind is None:
-            if abs(start_ind - prev) <= abs(cum_idx - start_ind):
-                new_start_ind = idx - 1
-            else:
-                new_start_ind = idx
-        if cum_idx >= end_ind and new_end_ind is None:
-            if abs(end_ind - prev) <= abs(cum_idx - end_ind):
-                new_end_ind = idx - 1
-            else:
-                new_end_ind = idx
-        prev = cum_idx
-    if new_start_ind == None: 
-        new_start_ind = idx
-    if new_end_ind == None: 
-        new_end_ind = idx
-    
-    code_start.append(new_start_ind)
-    code_end.append(new_end_ind)
-
-df['code_start'] = code_start
-df['code_end'] = code_end    
-    
-df.to_csv('/tmp2/b09902111/DUAL-textless-NER/new-data/'+data_name+'/dev_code.csv',index=False)
+df.to_csv('/work/f776655321/DUAL-textless-NER/new-data/' + mode + '_code_ans_with_n_and_r.csv',index=False)

@@ -135,7 +135,7 @@ def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends):
         if no_overlap: 
             if pred_start == gold_start and pred_end == gold_end:
                 F1 = 1
-            else: 
+            else:
                 F1 = 0
         else: 
             Precision = (overlap_end - overlap_start) / (pred_end - pred_start)
