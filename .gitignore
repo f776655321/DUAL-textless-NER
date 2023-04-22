@@ -1,7 +1,7 @@
-wandb/
-slue-voxpopuli/
-new_data/
-evaluate-dev/
-__MACOSX/
-__pycache__/
+wandb
+slue-voxpopuli
+new_data
+evaluate-dev
+__MACOSX
+__pycache__
 slue-voxpopuli.zip
