@@ -156,7 +156,7 @@ if __name__ == '__main__':
     data_dir = '/work/f776655321/DUAL-textless-NER'
 
 
-    mode = 'fine-tune'
+    mode = 'dev'
 
     audio_dir = '/work/f776655321/DUAL-textless-NER/slue-voxpopuli/' + mode + '/'
 
@@ -238,6 +238,8 @@ if __name__ == '__main__':
 
                 if(ner_tag[0] not in NER_Label_dict):
                     n -= 1
+                elif(NER_Label_dict[ner_tag[0]] in exist_label):
+                    n -= 1
                 else:
                     ans_context_id.append(new_context_id[i])
                     label.append(NER_Label_dict[ner_tag[0]])
@@ -314,4 +316,4 @@ if __name__ == '__main__':
     df['end'] = end
     df['label_text'] = label_text
 
-    df.to_csv('./new-data/' + mode +'_ans_with_n_and_r.csv', index=False)
+    df.to_csv('./new-data/' + mode +'_ans_with_n_without_r.csv', index=False)

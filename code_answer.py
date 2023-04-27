@@ -5,9 +5,9 @@ import os
 import math
 from tqdm import tqdm
 
-mode = 'fine-tune'
+mode = 'dev'
 file_dir = '/work/f776655321/DUAL-textless-NER/new-data/code/' + mode +'/'
-df = pd.read_csv('/work/f776655321/DUAL-textless-NER/new-data/' + mode +'_ans_with_n_and_r.csv')
+df = pd.read_csv('/work/f776655321/DUAL-textless-NER/new-data/' + mode +'_ans_with_n_without_r.csv')
 start = df['start'].values
 end = df['end'].values
 passage = df['context_id'].values
@@ -50,4 +50,4 @@ for start_sec, end_sec, context_id in tqdm(zip(start, end, passage)):
 df['code_start'] = code_start
 df['code_end'] = code_end    
     
-df.to_csv('/work/f776655321/DUAL-textless-NER/new-data/' + mode + '_code_ans_with_n_and_r.csv',index=False)
+df.to_csv('/work/f776655321/DUAL-textless-NER/new-data/' + mode + '_code_ans_with_n_without_r.csv',index=False)

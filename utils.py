@@ -162,7 +162,7 @@ def AOS_scores(pred_starts, pred_ends, gold_starts, gold_ends):
     for pred_start, pred_end, gold_start, gold_end in zip(pred_starts, pred_ends, gold_starts, gold_ends):
         overlap_start, overlap_end, Min, Max, no_overlap = compare(pred_start, pred_end, gold_start, gold_end)
 
-        if no_overlap: 
+        if no_overlap:
             AOS = 0
         else: 
             AOS = float((overlap_end - overlap_start) / (Max - Min))
@@ -180,21 +180,10 @@ def AOS_score(pred_start, pred_end, gold_start, gold_end):
         
 
 
-def aggregate_dev_result(dup, metric):
+def aggregate_dev_result(metric):
     aggregate_result = []
-    buff = []
-    for i in range(len(dup)):
-        if not dup[i]:
-            if len(buff) == 0:
-                aggregate_result.append(metric[i])
-            else: 
-                aggregate_result.append(max(buff))
-
-            buff = []  # clear buffer
-
-        else: 
-            buff.append(metric[i])
-    
+    for i in range(len(metric)):
+        aggregate_result.append(metric[i])
     return sum(aggregate_result) / len(aggregate_result)
 
 def calc_overlap(pred_starts, pred_ends, gold_starts, gold_ends):

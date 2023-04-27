@@ -16,7 +16,7 @@ from utils import aggregate_dev_result, AOS_scores, Frame_F1_scores
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default='/work/f776655321/DUAL-textless-NER/new-data', type=str)
-parser.add_argument('--model_path', default='/work/f776655321/DUAL-textless-NER/models_5_128_1e-4_warm_500_fp16_with_n_r/checkpoint-1500/', type=str)
+parser.add_argument('--model_path', default='/work/f776655321/DUAL-textless-NER/models_5_128_1e-4_warm_500_fp16_2:1_with_n_without_r/checkpoint-1500/', type=str)
 parser.add_argument('--output_dir', default='./evaluate-dev', type=str)
 parser.add_argument('--output_fname', default='result', type=str)
 args = parser.parse_args()
@@ -34,15 +34,9 @@ post-processing the answer prediction
 def _get_best_indexes(probs, context_offset, n_best_size):
     # use torch for faster inference
     # do not need to consider indexes for question
-    best_indexes = torch.topk(probs[context_offset:],n_best_size).indices + context_offset
-    return best_indexes
-    """Get the n-best logits from a list."""
-    index_and_score = sorted(enumerate(probs), key=lambda x: x[1], reverse=True)
-    best_indexes = []
-    for i in range(len(index_and_score)):
-        if i >= n_best_size:
-            break
-        best_indexes.append(index_and_score[i][0])
+    
+    best_indexes = torch.topk(probs[context_offset - 1:],n_best_size).indices
+    best_indexes += context_offset - 1
     return best_indexes
     
 
@@ -50,8 +44,6 @@ def post_process_prediction(start_prob, end_prob,context_offset, n_best_size=10,
     prelim_predictions = []
     start_prob = start_prob.squeeze()
     end_prob = end_prob.squeeze()
-    input_id = input_id.squeeze()
-    
     start_indexes = _get_best_indexes(start_prob,context_offset, n_best_size)
     end_indexes = _get_best_indexes(end_prob,context_offset, n_best_size)
     # if we could have irrelevant answers, get the min score of irrelevant
@@ -74,7 +66,7 @@ def post_process_prediction(start_prob, end_prob,context_offset, n_best_size=10,
             predict = {
                         'start_prob': start_prob[start_index],
                         'end_prob': end_prob[end_index],
-                        'start_idx': start_index, 
+                        'start_idx': start_index,
                         'end_idx': end_index, 
                       }
 
@@ -95,7 +87,7 @@ def post_process_prediction(start_prob, end_prob,context_offset, n_best_size=10,
 
 class SQADevDataset(Dataset):
     def __init__(self, data_dir):
-        df = pd.read_csv(os.path.join(data_dir, 'dev_code_ans_with_n_and_r.csv'))  
+        df = pd.read_csv(os.path.join(data_dir, 'dev_code_ans_with_n_without_r.csv'))  
         
         code_dir = os.path.join(data_dir, 'question-code/')
         code_passage_dir = os.path.join(data_dir, 'code/dev')
@@ -148,6 +140,7 @@ class SQADevDataset(Dataset):
                               'end_positions': end_positions,
                               'context_begin': len(question) + 3,  # [0] [2] [2]
                               'context_cnt': context_cnt,
+                              'label':label
                               })
             self.encodings.append(encoding)
 
@@ -173,7 +166,7 @@ def collate_dev_fn(batch):
     end_positions = torch.stack([torch.tensor(example['end_positions'], dtype=torch.long) for example in batch])
     context_begin = torch.stack([torch.tensor(example['context_begin'], dtype=torch.long) for example in batch])
     context_cnt = pad_sequence([torch.tensor(example['context_cnt']) for example in batch], batch_first=True, padding_value=0)  
-
+    label = [ example['label']for example in batch ]
     return {
         'input_ids': input_ids,
         'start_positions': start_positions,
@@ -181,13 +174,22 @@ def collate_dev_fn(batch):
         'attention_mask': attention_mask, 
         'context_begin': context_begin, 
         'context_cnt': context_cnt,
+        'label':label
     }
 
 
 def idx2sec(pred_start_idx, pred_end_idx, context_begin, context_cnt):
     context_cnt = context_cnt.squeeze()
-    start_frame_idx = torch.repeat_interleave(torch.ones(context_cnt[:pred_start_idx - context_begin].size()), context_cnt[:pred_start_idx - context_begin])
-    end_frame_idx = torch.repeat_interleave(torch.ones(context_cnt[:pred_end_idx - context_begin].size()), context_cnt[:pred_end_idx - context_begin])
+    if(pred_start_idx - context_begin != -1):
+        start_frame_idx = torch.repeat_interleave(torch.ones(context_cnt[:pred_start_idx - context_begin].size()), context_cnt[:pred_start_idx - context_begin])
+    else:
+        start_frame_idx = torch.repeat_interleave(torch.ones(context_cnt[:0].size()), context_cnt[:0])
+    
+    if(pred_end_idx - context_begin != -1):
+        end_frame_idx = torch.repeat_interleave(torch.ones(context_cnt[:pred_end_idx - context_begin].size()), context_cnt[:pred_end_idx - context_begin])
+    else:
+        end_frame_idx = torch.repeat_interleave(torch.ones(context_cnt[:0].size()), context_cnt[:0])
+
     start_idx, end_idx = torch.sum(start_frame_idx), torch.sum(end_frame_idx)
 
     return float(start_idx*0.02), float(end_idx*0.02)
@@ -201,32 +203,20 @@ valid_dataset = SQADevDataset(data_dir)
 dataloader = DataLoader(valid_dataset, batch_size=batch_size, collate_fn=collate_dev_fn, shuffle=False)
 
 
-df = pd.read_csv(os.path.join(data_dir, 'dev_code_ans_with_n_and_r.csv'))
+df = pd.read_csv(os.path.join(data_dir, 'dev_code_ans_with_n_without_r.csv'))
 
-# with open(os.path.join(data_dir, 'dev-hash2question.json'), 'r') as f:
-#     h2q = json.load(f)
-# df['question'] = df['hash'].apply(lambda x: h2q[x])
-# # different answer annotators 
-# dup = df.duplicated(subset=['hash'], keep='last').values
 start_secs = df['start'].values
 end_secs = df['end'].values
 
 
-f1s_before = []
-f1s_after = []
-f1s_after_sec = []
-pred_starts = []
-pred_ends = []
-AOSs = []
+f1s_after_sec = {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
+AOSs =  {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
 with torch.no_grad():
     i = 0
     for batch in tqdm(dataloader):
         outputs = model(input_ids=batch['input_ids'].cuda(),
                                       attention_mask=batch['attention_mask'].cuda())
         # start_logits: (B, seq_len)
-        pred_start = torch.argmax(outputs.start_logits, dim=1)
-        pred_end = torch.argmax(outputs.end_logits, dim=1)
-        
         start_prob = softmax(outputs.start_logits, dim=1)
         end_prob = softmax(outputs.end_logits, dim=1)
 
@@ -259,20 +249,41 @@ with torch.no_grad():
                             final_start_secs, final_end_secs)
         
         print(f1_after_sec, AOS_sec)
-        f1s_after_sec += f1_after_sec
-        AOSs += AOS_sec
-        pred_starts += final_start_secs
-        pred_ends += final_end_secs
+        print(start_secs[i:i+batch_size], end_secs[i:i+batch_size])
+
+        n = len(f1_after_sec)
+        
+        for index in range(n):
+            f1s_after_sec[batch['label'][index]].append(f1_after_sec[index])
+            AOSs[batch['label'][index]].append(AOS_sec[index])
 
         i += batch_size
 
-output_df = pd.DataFrame(list(zip(df['question'].values, start_secs, end_secs, pred_starts, pred_ends, f1s_after_sec, AOSs, dup)), 
-                columns=['question', 'gt_start', 'gt_end', 'pred_start', 'pred_end', 'f1', 'AOS', 'dup'])
+agg_f1s_after_sec = []
+agg_AOSs = []
+count = []
+Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
 
-output_df.to_csv(os.path.join(args.output_dir, args.output_fname+'.csv'))
 
-agg_dev_Frame_F1_score_after_sec = aggregate_dev_result(dup, f1s_after_sec)
-agg_dev_AOSs = aggregate_dev_result(dup, AOSs)
+for label in Combined_label:
+    count.append(len(f1s_after_sec[label]))
+    agg_f1s_after_sec.append(aggregate_dev_result(f1s_after_sec[label]))
+    agg_AOSs.append(aggregate_dev_result(AOSs[label]))
+
+
+output_df = pd.DataFrame(list(zip(Combined_label, agg_f1s_after_sec, agg_AOSs,count)),
+                columns=['label', 'f1', 'AOS','number'])
+
+output_df.to_csv(os.path.join(args.output_dir, args.output_fname+'.csv'),index=False)
+
+total_f1s = []
+total_AOSs = []
+for label in Combined_label:
+    total_f1s += f1s_after_sec[label]
+    total_AOSs += AOSs[label]
+
+agg_dev_Frame_F1_score_after_sec = aggregate_dev_result(total_f1s)
+agg_dev_AOSs = aggregate_dev_result(total_AOSs)
 
 print(args.output_fname)
 print('post-processed f1 sec: ', agg_dev_Frame_F1_score_after_sec)
@@ -282,5 +293,3 @@ with open(args.output_fname+'.txt', 'w') as f:
     f.write(args.output_fname)
     f.write('post-processed f1 sec: ' + str(agg_dev_Frame_F1_score_after_sec))
     f.write('post-processed aos sec: ' + str(agg_dev_AOSs))
-
-

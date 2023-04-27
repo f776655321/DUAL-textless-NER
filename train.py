@@ -16,7 +16,7 @@ from torch.utils.data import DataLoader, Dataset
 
 class SQADataset(Dataset):
     def __init__(self, data_dir, mode='fine-tune', idx_offset=5):
-        df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_without_n_without_r.csv'))     
+        df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_with_n_without_r.csv'))     
             
         code_dir = os.path.join(data_dir, 'question-code/')
         code_passage_dir = os.path.join(data_dir, 'code/' + mode + '/')

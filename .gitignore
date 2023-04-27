@@ -1,7 +1,14 @@
 wandb
 slue-voxpopuli
-new_data
+new-data
 evaluate-dev
 __MACOSX
 __pycache__
 slue-voxpopuli.zip
+models_5_128_1e-4_warm_500_fp16_2:1
+models_5_128_1e-4_warm_500_fp16_2:1_with_weight_decay
+models_5_128_1e-4_warm_500_fp16_2:1_with_n_without_r
+models_5_128_1e-4_warm_500_fp16_with_n_r
+result.txt
+question-code-20230419T022715Z-001.zip
+question-prompts-20230419T022709Z-001.zip
