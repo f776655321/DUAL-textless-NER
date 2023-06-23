@@ -1,14 +1,14 @@
 import numpy as np
 import joblib
 import torch
-import torchaudio 
+import torchaudio
 import pandas as pd
 from tqdm import tqdm
 import os 
-import torch
 
 SAMPLE_RATE = 16000
 CHUNK_LENGTH = 250000
+mode = 'test'
 class ApplyKmeans(object):
     def __init__(self, km_path, return_diff=False):
         self.km_model = joblib.load(km_path)
@@ -52,22 +52,24 @@ def reader(fname):
 
 
 # train
-audio_file_dir = '/work/f776655321/DUAL-textless-NER/code-data/question-prompts'
+df = pd.read_csv('/work/f776655321/DUAL-textless-NER/slue-voxpopuli/slue-voxpopuli_'+ mode + '.tsv',sep='\t')
+audio_file_dir = '/work/f776655321/DUAL-textless-NER/slue-voxpopuli/' + mode
 
-output_dir = '/work/f776655321/DUAL-textless-NER/code-data/question-code-km512'
-extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')    
+output_dir = '/work/f776655321/DUAL-textless-NER/code-data/SpecAugment-code-km512/' + mode
+extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
 extractor.eval()
+
 if torch.cuda.is_available():
-    extractor = extractor.cuda()
-apply_kmeans = ApplyKmeans('/work/f776655321/DUAL-textless-NER/speeech-content-encoder/km_100h_c500/km_feat_layer_22')
+        extractor = extractor.cuda()
 
-Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
+count_prefix = 0
+count_latefix = 0
+apply_kmeans = ApplyKmeans('/work/f776655321/DUAL-textless-NER/speeech-content-encoder/km_100h_c128/km_feat_layer_22')
 
-for label in tqdm(Combined_label, desc='transforming passage to discrete code'):
+for file in tqdm(df['id'].values, desc='transforming lxt data to discrete code'):
     
-
-    output_file = label
-    audio_file = os.path.join(audio_file_dir, label+'.mp3')
+    output_file = f"context-{count_prefix}_{count_latefix}"
+    audio_file = os.path.join(audio_file_dir, file+'.ogg')
     wavs = reader(audio_file)
     wavs = wavs.cuda()
 
@@ -84,10 +86,14 @@ for label in tqdm(Combined_label, desc='transforming passage to discrete code'):
                 feature = torch.cat([feature, feat], dim = 0)
 
         code = apply_kmeans(feature.cuda())
+        
+        
     else:
         feature = extractor([wavs])
 
-        code = apply_kmeans(feature['hidden_state_22'].squeeze().cuda())
+        feature = feature['hidden_state_22']
+
+        code = apply_kmeans(feature.squeeze().cuda())
 
     code = torch.tensor(code)
 
@@ -97,3 +103,8 @@ for label in tqdm(Combined_label, desc='transforming passage to discrete code'):
     np.savetxt(os.path.join(output_dir, output_file+'.cnt'), counts.long(), fmt='%i')
 
 
+    if(count_latefix < 53):
+        count_latefix += 1
+    else:
+        count_prefix += 1
+        count_latefix = 0

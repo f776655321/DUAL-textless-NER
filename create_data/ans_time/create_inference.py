@@ -3,7 +3,7 @@ import numpy as np
 import os
 import torch
 from tqdm import tqdm
- 
+
 def add_result(result,label2index,label,code):
     if(code != -1):
         result[label2index[label]].append(code)
@@ -103,7 +103,7 @@ def idx2frame(start_frame_idx, end_frame_idx,context_cnt):
     return start_idx.item(),end_idx.item()
 
 
-if __name__ == '__main__':
+def main():
     count = 0
     context_ids,starts,ends = merge_answer()
     mode = 'dev'
@@ -125,4 +125,7 @@ if __name__ == '__main__':
     NewDf['end'] = ends
 
     NewDf.to_csv(os.path.join(data_dir,mode +'_frame_inference.csv'), index=False)
+
+if __name__ == '__main__':
+    main()
 

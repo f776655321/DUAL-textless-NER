@@ -10,6 +10,7 @@ import os
 SAMPLE_RATE = 16000
 CHUNK_LENGTH = 250000
 mode = 'test'
+
 class ApplyKmeans(object):
     def __init__(self, km_path, return_diff=False):
         self.km_model = joblib.load(km_path)
