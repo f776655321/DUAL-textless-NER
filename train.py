@@ -16,16 +16,19 @@ from torch.utils.data import DataLoader, Dataset
 
 class SQADataset(Dataset):
     def __init__(self, data_dir, mode='fine-tune', idx_offset=5):
-        df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_with_n_without_r.csv'))     
-            
+        if(mode == 'fine-tune'):
+            df = pd.read_csv(os.path.join(data_dir, mode + '_code_aug_ans.csv'))     
+        else:
+            df = pd.read_csv(os.path.join(data_dir, mode + '_code_aug_ans.csv'))
         code_dir = os.path.join(data_dir, 'question-code/')
-        code_passage_dir = os.path.join(data_dir, 'code/' + mode + '/')
+        code_passage_dir = os.path.join(data_dir, 'SpecAugment-code/' + mode + '/')
         context_id = df['context_id'].values
         code_start = df['code_start'].values
         code_end = df['code_end'].values
-        label = df['label'].values
+        labels = df['label'].values
         self.encodings = []
-        for context_id, label, start_idx, end_idx in tqdm(zip(context_id, label, code_start, code_end), total=len(context_id)):
+
+        for context_id, label, start_idx, end_idx in tqdm(zip(context_id, labels, code_start, code_end), total=len(context_id)):
             context = np.loadtxt(os.path.join(code_passage_dir, context_id+'.code')).astype(int)
             question = np.loadtxt(os.path.join(code_dir, label+'.code')).astype(int)
             if context.shape == ():
@@ -38,28 +41,35 @@ class SQADataset(Dataset):
             question += idx_offset
 
             '''
-            <s> question</s></s> context</s>
+            <s> question</s></s> context</s><unk>.
             ---------------------------------
             <s>: 0
             </s>: 2
-
+            <unk>: 3
+            .: 4
             '''
             tot_len = len(question) + len(context) + 4 
             
-            start_positions = 1 + len(question) + 1 + 1 + start_idx
-            end_positions = 1 + len(question) + 1 + 1 + end_idx
+            if(start_idx >= 0):
+                start_positions = 1 + len(question) + 1 + 1 + start_idx
+                end_positions = 1 + len(question) + 1 + 1 + end_idx
+
+            else:
+                start_positions = tot_len
+                end_positions = tot_len + 1
+
             if end_positions > 4096:
                 print('end position: ', end_positions)
                 start_positions, end_positions = 0, 0
                 code_pair = [0]+list(question)+[2]+[2]+list(context)
-                code_pair = code_pair[:4095] + [2]
+                code_pair = code_pair[:4093] + [2] + [3] + [4]
             
             elif tot_len > 4096 and end_positions <= 4096:
                 print('length longer than 4096: ', tot_len)
                 code_pair = [0]+list(question)+[2]+[2]+list(context)
-                code_pair = code_pair[:4095] + [2]
+                code_pair = code_pair[:4094] + [2] + [3] + [4]
             else:
-                code_pair = [0]+list(question)+[2]+[2]+list(context)+[2]
+                code_pair = [0]+list(question)+[2]+[2]+list(context)+[2] + [3] + [4]
             
 
             encoding = {}
@@ -185,21 +195,23 @@ def main():
     set_seed(training_args.seed)
 
     # Load pretrained model and tokenizer
-    tokenizer = LongformerTokenizerFast.from_pretrained(
-        model_args.tokenizer_name if model_args.tokenizer_name else model_args.model_name_or_path,
-        cache_dir=model_args.cache_dir,
-    )
+    # tokenizer = LongformerTokenizerFast.from_pretrained(
+    #     model_args.tokenizer_name if model_args.tokenizer_name else model_args.model_name_or_path,
+    #     cache_dir=model_args.cache_dir,
+    # )
     model = LongformerForQuestionAnswering.from_pretrained(
         model_args.model_name_or_path,
         cache_dir=model_args.cache_dir,
     )
+
+    # model.load_state_dict(torch.load('./checkpoint-4000/pytorch_model.bin'),False)
     # reset input embedding
 #     selected_emb = model.longformer.embeddings.word_embeddings.weight[:128+5, :]
 #     embedding = torch.nn.Embedding.from_pretrained(selected_emb)
 #     model.longformer.set_input_embeddings(embedding)
     # if train from scratch
-#     print('train from scratch!')
-#     model.init_weights()
+    # print('train from scratch!')
+    # model.init_weights()
     # Get datasets
     print('[INFO]    loading data')
     

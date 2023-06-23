@@ -52,50 +52,28 @@ def reader(fname):
 
 
 # train
-df = pd.read_csv('/home/daniel094144/E2E-SpokenQA/meta-train.csv')
-audio_file_dir = '/home/daniel094144/E2E-SpokenQA/train_audios/'
+audio_file_dir = '/work/f776655321/DUAL-textless-NER/code-data/question-prompts'
 
-output_dir = '/home/daniel094144/data/SQA_code/hubert_large_128/train_code'
+output_dir = '/work/f776655321/DUAL-textless-NER/code-data/question-code-km512'
 extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')    
 extractor.eval()
 if torch.cuda.is_available():
     extractor = extractor.cuda()
-apply_kmeans = ApplyKmeans('/home/daniel094144/Daniel/DUAL-textless-SQA/hubert-cluster-code/km_100h_c128/km_feat_layer_22')
+apply_kmeans = ApplyKmeans('/work/f776655321/DUAL-textless-NER/speeech-content-encoder/km_100h_c500/km_feat_layer_22')
 
+Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
 
-for file in tqdm(df['id'].values, desc='transforming passage to discrete code'):
-    audio_file = os.path.join(audio_file_dir, file+'.mp3')
-    wavs = reader(audio_file)
-
-    if len(wavs) > 20 * SAMPLE_RATE: 
-        continue
+for label in tqdm(Combined_label, desc='transforming passage to discrete code'):
     
-    wavs = wavs.cuda()    
-    feature = extractor([wavs])    
 
-    
-    code = apply_kmeans(feature['hidden_state_22'].squeeze().cuda())
-    code = torch.tensor(code)
-
-    merged_code, counts = torch.unique_consecutive(code, return_counts=True)
-    np.savetxt(os.path.join(output_dir, file+'.code'), merged_code.long(), fmt='%i')    
-    np.savetxt(os.path.join(output_dir, file+'.cnt'), counts.long(), fmt='%i')
-
-# dev
-df = pd.read_csv('/home/daniel094144/E2E-SpokenQA/meta-dev.csv')
-audio_file_dir = '/home/daniel094144/E2E-SpokenQA/dev_audios/'
-
-output_dir = '/home/daniel094144/data/SQA_code/hubert_large_128/dev_code'
-
-
-for file in tqdm(df['id'].values, desc='transforming passage to discrete code'):
-    audio_file = os.path.join(audio_file_dir, file+'.mp3')
+    output_file = label
+    audio_file = os.path.join(audio_file_dir, label+'.mp3')
     wavs = reader(audio_file)
-    wavs = wavs.cuda()   
+    wavs = wavs.cuda()
 
-    if len(wavs) > 20 * SAMPLE_RATE: 
+    if len(wavs) > 20 * SAMPLE_RATE:
         print(f'{file} too long')
-        chunks = torch.split(wavs, CHUNK_LENGTH) 
+        chunks = torch.split(wavs, CHUNK_LENGTH)
         for i, chunk in enumerate(chunks): 
             feat = extractor([chunk])
             feat = feat['hidden_state_22'].squeeze()
@@ -106,14 +84,16 @@ for file in tqdm(df['id'].values, desc='transforming passage to discrete code'):
                 feature = torch.cat([feature, feat], dim = 0)
 
         code = apply_kmeans(feature.cuda())
-
     else:
-        feature = extractor([wavs])    
+        feature = extractor([wavs])
 
         code = apply_kmeans(feature['hidden_state_22'].squeeze().cuda())
 
     code = torch.tensor(code)
 
     merged_code, counts = torch.unique_consecutive(code, return_counts=True)
-    np.savetxt(os.path.join(output_dir, file+'.code'), merged_code.long(), fmt='%i')    
-    np.savetxt(os.path.join(output_dir, file+'.cnt'), counts.long(), fmt='%i')
+
+    np.savetxt(os.path.join(output_dir, output_file+'.code'), merged_code.long(), fmt='%i')    
+    np.savetxt(os.path.join(output_dir, output_file+'.cnt'), counts.long(), fmt='%i')
+
+

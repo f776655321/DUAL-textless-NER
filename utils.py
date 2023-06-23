@@ -2,6 +2,8 @@
 # +
 import re
 from builtins import str as unicode
+import heapq
+import ast
 
 def text_preprocess(text):
     text = unicode(text)
@@ -128,22 +130,6 @@ def compare(pred_start, pred_end, gold_start, gold_end):
         
     return overlap_start, overlap_end, Min, Max, no_overlap
 
-def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends):
-    F1s = []
-    for pred_start, pred_end, gold_start, gold_end in zip(pred_starts, pred_ends, gold_starts, gold_ends):
-        overlap_start, overlap_end, Min, Max, no_overlap = compare(pred_start, pred_end, gold_start, gold_end)
-        if no_overlap: 
-            if pred_start == gold_start and pred_end == gold_end:
-                F1 = 1
-            else:
-                F1 = 0
-        else: 
-            Precision = (overlap_end - overlap_start) / (pred_end - pred_start)
-            Recall = (overlap_end - overlap_start) / (gold_end - gold_start)
-            F1 = float(2 * Precision * Recall / (Precision + Recall))
-        F1s.append(F1)
-    return F1s
-
 def Frame_F1_score(pred_start, pred_end, gold_start, gold_end):
     overlap_start, overlap_end, Min, Max, no_overlap = compare(pred_start, pred_end, gold_start, gold_end)
     if no_overlap: 
@@ -156,28 +142,100 @@ def Frame_F1_score(pred_start, pred_end, gold_start, gold_end):
         Recall = (overlap_end - overlap_start) / (gold_end - gold_start)
         F1 = 2 * Precision * Recall / (Precision + Recall)
     return F1
+#pred_starts is the ground true
+def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
+    F1s = dict()
+    total_diff = 0
 
-def AOS_scores(pred_starts, pred_ends, gold_starts, gold_ends):
-    AOSs = []
-    for pred_start, pred_end, gold_start, gold_end in zip(pred_starts, pred_ends, gold_starts, gold_ends):
-        overlap_start, overlap_end, Min, Max, no_overlap = compare(pred_start, pred_end, gold_start, gold_end)
+    # print(labels)
+    for label in labels:
+        F1s[label] = []
 
-        if no_overlap:
-            AOS = 0
-        else: 
-            AOS = float((overlap_end - overlap_start) / (Max - Min))
-        AOSs.append(AOS)
-    return AOSs
+    for pred_start, pred_end, gold_start, gold_end,label in zip(ast.literal_eval(pred_starts), ast.literal_eval(pred_ends), gold_starts, gold_ends,labels):
+        #ignore the model correct answer negative example
+        
+        if(pred_start[0] == 0 and pred_end[0] == 0 and gold_start[0] == 0 and gold_end[0] == 0 ):
+            continue
+
+        temp_F1 = []
+        min_len = min( len(pred_start),len(gold_start) )
+        max_len = max( len(pred_start),len(gold_start) )
+        F1_score = []
+        #give all the combination between pred and gold pair
+        for start_sec,end_sec in zip(gold_start, gold_end):
+            for ground_start_sec,ground_end_sec in zip(pred_start,pred_end):
+                F1 = Frame_F1_score(ground_start_sec,ground_end_sec,start_sec,end_sec)
+                heapq.heappush( temp_F1,(-F1,start_sec,end_sec,ground_start_sec,ground_end_sec) )
+        
+        #select the overlap number between pred and gold
+        exsit = set()
+        count = 0
+        while count != min_len:
+            element = heapq.heappop(temp_F1)
+
+            if( element[1:3] not in exsit):
+                F1_score.append( -element[0] )
+                exsit.add(element[1:3])
+                count += 1
+
+        #F1 score is 0 if there are excessive pair in pred or gold
+
+        diff =  max_len - min_len
+        total_diff += diff
+        for i in range(diff):
+            F1_score.append(0)
+        
+        F1s[label] += F1_score
+    return F1s,total_diff
 
 def AOS_score(pred_start, pred_end, gold_start, gold_end):
     overlap_start, overlap_end, Min, Max, no_overlap = compare(pred_start, pred_end, gold_start, gold_end)
 
-    if no_overlap: 
-        AOS = 0
+    if no_overlap:
+        if(pred_start == gold_start and pred_end == gold_end):
+            AOS = 1
+        else:
+            AOS = 0
     else: 
         AOS = (overlap_end - overlap_start) / (Max - Min)
     return AOS
+
+def AOS_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
+    AOSs = dict()
+    for label in labels:
+        AOSs[label] = []
+    for pred_start, pred_end, gold_start, gold_end,label in zip(ast.literal_eval(pred_starts), ast.literal_eval(pred_ends), gold_starts, gold_ends,labels):
+        if(pred_start[0] == 0 and pred_end[0] == 0 and gold_start[0] == 0 and gold_end[0] == 0 ):
+            continue
+        temp_AOS = []
+        min_len = min( len(pred_start),len(gold_start) )
+        max_len = max( len(pred_start),len(gold_start) )
+        AOSscore = []
+
+        #give all the combination between pred and gold pair
+        for start_sec,end_sec in zip(gold_start, gold_end):
+            for ground_start_sec,ground_end_sec in zip(pred_start,pred_end):
+                AOS = AOS_score(ground_start_sec,ground_end_sec,start_sec,end_sec)
+                heapq.heappush( temp_AOS,(-AOS,start_sec,end_sec,ground_start_sec,ground_end_sec) )
         
+        #select the overlap number between pred and gold
+        exsit = set()
+        count = 0
+        while count != min_len:
+            element = heapq.heappop(temp_AOS)
+            if( element[1:3] not in exsit):
+                AOSscore.append( -element[0] )
+                exsit.add(element[1:3])
+                count += 1
+
+        #F1 score is 0 if there are excessive pair in pred or gold
+        diff =  max_len - min_len
+
+        for i in range(diff):
+            AOSscore.append(0)
+
+        AOSs[label] += AOSscore
+    return AOSs
 
 
 def aggregate_dev_result(metric):
