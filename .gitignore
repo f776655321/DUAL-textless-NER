@@ -1,3 +1,14 @@
 __MACOSX
 __pycache__
 .DS_Store
+SQA_Pretrain*
+slue-voxpopuli
+checkpoint-4000.zip
+L22500.bin
+slue-sqa-model.ckpt
+slue-voxpopuli.zip
+wandb
+temp_store
+evaluate-dev
+code-data
+checkpoint-4000

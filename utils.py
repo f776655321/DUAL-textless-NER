@@ -4,7 +4,8 @@ import re
 from builtins import str as unicode
 import heapq
 import ast
-
+import torch
+from pandas import Interval
 def text_preprocess(text):
     text = unicode(text)
     
@@ -146,7 +147,7 @@ def Frame_F1_score(pred_start, pred_end, gold_start, gold_end):
 def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
     F1s = dict()
     total_diff = 0
-
+    
     # print(labels)
     for label in labels:
         F1s[label] = []
@@ -186,6 +187,7 @@ def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
             F1_score.append(0)
         
         F1s[label] += F1_score
+    
     return F1s,total_diff
 
 def AOS_score(pred_start, pred_end, gold_start, gold_end):
@@ -259,3 +261,148 @@ def calc_overlap(pred_starts, pred_ends, gold_starts, gold_ends):
     except:
         print(right, left, maxest, minest)
     return f1, aos
+
+def _get_best_indexes(probs, context_offset,k):
+    # use torch for faster inference
+    # do not need to consider indexes for question
+    probs = probs[context_offset:]
+
+    #threshold method
+    # mask = probs > threshold
+    # best_indexes = torch.nonzero(mask)
+    # best_indexes = best_indexes.reshape(-1)
+    # best_indexes += context_offset - 1
+
+    #top-k method
+    if(k < len(probs)):
+        top_values, top_indices = torch.topk(probs, k)
+    else:
+        top_values, top_indices = torch.topk(probs, len(probs))
+
+    best_indexes = top_indices + context_offset
+
+    return best_indexes
+
+def post_process_prediction(start_prob, end_prob,context_offset,context_id,context_len,threshold,max_answer_length,weight = 0.6):
+        
+    start_prob = start_prob.squeeze()
+    end_prob = end_prob.squeeze()
+
+    start_indexes = _get_best_indexes(start_prob,context_offset,10)
+    end_indexes = _get_best_indexes(end_prob,context_offset,10)
+
+    final_start_indexes = []
+    final_end_indexes = []
+   
+    negative_score = start_prob[0] + end_prob[0]
+
+    prelim_predictions = []
+
+    for start_index in start_indexes:
+        for end_index in end_indexes:
+            
+            if end_index < start_index:
+                continue
+            length = end_index - start_index + 1
+            if length > max_answer_length:
+                continue
+
+            predict = {
+                        'start_prob': start_prob[start_index],
+                        'end_prob': end_prob[end_index],
+                        'start_idx': start_index, 
+                        'end_idx': end_index,
+                        'score': start_prob[start_index] + end_prob[end_index]
+                      }
+
+            prelim_predictions.append(predict)
+
+    prelim_predictions = sorted(prelim_predictions, 
+                                key=lambda x: x['score'],
+                                reverse=True)
+    
+    for candidate in prelim_predictions:
+        if(candidate['score'] >= threshold and candidate['score'] >= negative_score):
+            final_start_indexes.append(candidate['start_idx'].item())
+            final_end_indexes.append(candidate['end_idx'].item())
+    
+    if(len(final_start_indexes) == 0):
+        final_start_indexes.append(0)
+        final_end_indexes.append(0)
+    
+    output_start = []
+    output_end = []
+
+    for start,end in zip(final_start_indexes,final_end_indexes):
+        candidate_pair = Interval(start,end,closed='both')
+
+        overlapping = False
+
+        for start_,end_ in zip(output_start,output_end):
+            decide_pair = Interval(start_,end_,closed='both')
+
+            if decide_pair.overlaps(candidate_pair):
+                overlapping = True
+                break
+        
+        if overlapping == False:
+            output_start.append(start)
+            output_end.append(end)
+
+    return output_start,output_end
+
+def process_overlapping(start_probs,end_probs,starts,ends,context_begins,weight = 0.6):
+    total = []
+    i = 0
+
+    #gather model output
+    for start,end in zip(starts,ends):
+        for start_index,end_index in zip(start,end):
+            if start_index == 0 and end_index == 0:
+                break
+            else:
+                score = start_probs[i][start_index] + end_probs[i][end_index]
+                total.append((start_index - context_begins[i],end_index - context_begins[i], i,score))
+
+        i += 1
+
+    total.sort(key = lambda x:x[3])
+
+    outputs = []
+
+    # filter
+    for answer in total:
+        candidate_pair = Interval(answer[0].item(),answer[1].item(),closed='both')
+
+        overlap = False
+        for output in outputs:
+            output_pair = Interval(output[0].item(),output[1].item(),closed='both')
+
+            if output_pair.overlaps(candidate_pair):
+                overlap = True
+                break
+        
+        if overlap == False:
+            outputs.append(answer)
+    
+    #output
+    final_starts = [[] for _ in range(7)]
+    final_ends = [[] for _ in range(7)]
+
+    for output in outputs:
+        label_index = output[2]
+
+        start_ = output[0] + context_begins[label_index]
+        end_ = output[1] + context_begins[label_index]
+
+        final_starts[label_index].append(start_.item())
+        final_ends[label_index].append(end_.item())
+    
+    for final_start,final_end in zip(final_starts,final_ends):
+        if not final_start:
+            final_start.append(0)
+            final_end.append(0)
+    
+    return final_starts, final_ends 
+
+    

@@ -4,12 +4,12 @@ import numpy as np
 import os
 import math
 from tqdm import tqdm
-from .utils import find_code_answer
+from utils import find_code_answer
 
 def main():
     mode = 'fine-tune'
-    file_dir = '/work/f776655321/DUAL-textless-NER/code-data/SpecAugment-code-km512/' + mode +'/'
-    df = pd.read_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode +'_ans_with_n_and_r.csv')
+    file_dir = '/work/f776655321/DUAL-textless-NER/code-data/code/' + mode +'/'
+    df = pd.read_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode +'_ans_FullNegative.csv')
     start = df['start'].values
     end = df['end'].values
     passage = df['context_id'].values
@@ -43,7 +43,7 @@ def main():
     NewDf['code_end'] = code_end
 
 
-    NewDf.to_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode + '_code_aug_km512_ans.csv',index=False)
+    NewDf.to_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode + '_code_ans_FullNegative.csv',index=False)
 
 if __name__ == "__main__":
     main()

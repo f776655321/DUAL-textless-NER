@@ -9,7 +9,8 @@ import random
 from tqdm import tqdm
 import ast
 
-from .utils import force_align,get_ans_time,random_choice_without_repeat
+from utils import force_align,get_ans_time,random_choice_without_repeat
+
 
 
 def main():
@@ -32,10 +33,10 @@ def main():
 
     data_dir = '/work/f776655321/DUAL-textless-NER'
 
+    mode = 'fine-tune'
+    
     with open(os.path.join(data_dir, mode+'-hash2context.json')) as f:
         h2q = json.load(f)
-
-    mode = 'fine-tune'
 
     audio_dir = '/work/f776655321/DUAL-textless-NER/slue-voxpopuli/' + mode + '/'
 
@@ -57,7 +58,7 @@ def main():
     end = []
     label_text = []
     output_dir = '../../code-data/'
-    output_file = mode + '_ans.csv'
+    output_file = mode + '_ans_FullNegative.csv'
 
     #WAV2VEC2 need words to be separated by '|'
     length = len(normalize_text)
@@ -76,12 +77,15 @@ def main():
         
         # ner_tags is none
         if(isinstance(ner_tags, float) == True):
-            tag = random.choice(Combined_label)
-            label_text.append("none")
-            ans_context_id.append(new_context_id[i])
-            label.append(tag)
-            start.append(0)
-            end.append(0)
+            
+            if mode == 'fine-tune':
+                for tag in Combined_label:
+
+                    label_text.append("none")
+                    ans_context_id.append(new_context_id[i])
+                    label.append(tag)
+                    start.append(0)
+                    end.append(0)
         else:
         
             SPEECH_FILE = old_context_id[i]
@@ -134,15 +138,24 @@ def main():
 
             notexist_label = [tag for tag in Combined_label if tag not in exist_label]
 
-            n = 0 if mode == "dev" else int(n/2)
-            tags = random_choice_without_repeat(notexist_label,n)
+            if mode == 'fine-tune':
+                for tag in notexist_label:
+                    label_text.append("none")
+                    ans_context_id.append(new_context_id[i])
+                    label.append(tag)
+                    start.append(0)
+                    end.append(0)
 
-            for tag in tags:
-                ans_context_id.append(new_context_id[i])
-                label_text.append("none")
-                label.append(tag)
-                start.append(0)
-                end.append(0)
+            # n = 0 if mode == "dev" else int(n/2)
+            # tags = random_choice_without_repeat(notexist_label,n)
+
+            # for tag in tags:
+            #     ans_context_id.append(new_context_id[i])
+            #     label_text.append("none")
+            #     label.append(tag)
+            #     start.append(0)
+            #     end.append(0)
+
 
     df = pd.DataFrame()
     df['context_id'] = ans_context_id

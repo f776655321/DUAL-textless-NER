@@ -17,11 +17,11 @@ from torch.utils.data import DataLoader, Dataset
 class SQADataset(Dataset):
     def __init__(self, data_dir, mode='fine-tune', idx_offset=5):
         if(mode == 'fine-tune'):
-            df = pd.read_csv(os.path.join(data_dir, mode + '_code_aug_ans.csv'))     
+            df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_FullNegative.csv'))     
         else:
-            df = pd.read_csv(os.path.join(data_dir, mode + '_code_aug_ans.csv'))
-        code_dir = os.path.join(data_dir, 'question-code/')
-        code_passage_dir = os.path.join(data_dir, 'SpecAugment-code/' + mode + '/')
+            df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans.csv'))
+        code_dir = os.path.join(data_dir, 'question-code-c128/')
+        code_passage_dir = os.path.join(data_dir, 'code/' + mode + '/')
         context_id = df['context_id'].values
         code_start = df['code_start'].values
         code_end = df['code_end'].values
@@ -41,37 +41,34 @@ class SQADataset(Dataset):
             question += idx_offset
 
             '''
-            <s> question</s></s> context</s><unk>.
+            <s> question</s></s> context</s>.
             ---------------------------------
             <s>: 0
             </s>: 2
-            <unk>: 3
-            .: 4
             '''
-            tot_len = len(question) + len(context) + 4 
+            tot_len = len(question) + len(context) + 4
             
             if(start_idx >= 0):
                 start_positions = 1 + len(question) + 1 + 1 + start_idx
                 end_positions = 1 + len(question) + 1 + 1 + end_idx
 
             else:
-                start_positions = tot_len
-                end_positions = tot_len + 1
+                start_positions = 0
+                end_positions = 0
 
             if end_positions > 4096:
                 print('end position: ', end_positions)
                 start_positions, end_positions = 0, 0
                 code_pair = [0]+list(question)+[2]+[2]+list(context)
-                code_pair = code_pair[:4093] + [2] + [3] + [4]
+                code_pair = code_pair[:4095] + [2]
             
             elif tot_len > 4096 and end_positions <= 4096:
                 print('length longer than 4096: ', tot_len)
                 code_pair = [0]+list(question)+[2]+[2]+list(context)
-                code_pair = code_pair[:4094] + [2] + [3] + [4]
+                code_pair = code_pair[:4095] + [2]
             else:
-                code_pair = [0]+list(question)+[2]+[2]+list(context)+[2] + [3] + [4]
+                code_pair = [0]+list(question)+[2]+[2]+list(context) + [2]
             
-
             encoding = {}
 
             encoding.update({'input_ids': torch.LongTensor(code_pair), 

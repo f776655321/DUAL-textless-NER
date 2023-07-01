@@ -8,7 +8,8 @@ import os
 
 SAMPLE_RATE = 16000
 CHUNK_LENGTH = 250000
-mode = 'test'
+mode = 'fine-tune'
+
 class ApplyKmeans(object):
     def __init__(self, km_path, return_diff=False):
         self.km_model = joblib.load(km_path)
@@ -55,7 +56,7 @@ def reader(fname):
 df = pd.read_csv('/work/f776655321/DUAL-textless-NER/slue-voxpopuli/slue-voxpopuli_'+ mode + '.tsv',sep='\t')
 audio_file_dir = '/work/f776655321/DUAL-textless-NER/slue-voxpopuli/' + mode
 
-output_dir = '/work/f776655321/DUAL-textless-NER/code-data/SpecAugment-code-km512/' + mode
+output_dir = '/work/f776655321/DUAL-textless-NER/code-data/code/' + mode
 extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
 extractor.eval()
 

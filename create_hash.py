@@ -3,7 +3,8 @@ from tqdm import tqdm
 import numpy as np
 import joblib
 import json
-df = pd.read_csv('/tmp2/b09902111/slue-voxpopuli/slue-voxpopuli_dev.tsv',sep='\t')
+mode = "fine-tune"
+df = pd.read_csv('/work/f776655321/DUAL-textless-NER/slue-voxpopuli/slue-voxpopuli_'+ mode +'.tsv',sep='\t')
 
 hashed = {}
 count_prefix = 0
@@ -20,7 +21,7 @@ for file in tqdm(df['id'].values, desc='hashing file name to context_id'):
         count_prefix += 1
         count_latefix = 0
 
-with open("dev-hash2context.json", "w") as file:
+with open(mode + "-hash2context.json", "w") as file:
     json.dump(hashed, file)
 
 

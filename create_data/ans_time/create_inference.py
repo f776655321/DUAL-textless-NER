@@ -12,10 +12,9 @@ def add_result(result,label2index,label,code):
 
 # merge the answer of the same context_id
 def merge_answer():
-    global count
-    data_dir = '../code-data'
-    mode = 'dev'
-    input_file = mode + '_code_ans_with_n_and_r.csv'
+    data_dir = '../../code-data'
+    mode = 'fine-tune'
+    input_file = mode + '_code_ans.csv'
 
     df = pd.read_csv(os.path.join(data_dir,input_file))
 
@@ -43,11 +42,6 @@ def merge_answer():
             add_result(start_result,label2index,label,code_start)
             add_result(end_result,label2index,label,code_end)
 
-            if(code_start == -1 and code_end != -1):
-                count += 1
-            elif(code_start != -1 and code_end == -1):
-                count += 1
-
             prev = context_id
         elif(prev != context_id):
             final_context_id.append(context_id)
@@ -66,18 +60,9 @@ def merge_answer():
             add_result(start_result,label2index,label,code_start)
             add_result(end_result,label2index,label,code_end)
 
-            if(code_start == -1 and code_end != -1):
-                count += 1
-            elif(code_start != -1 and code_end == -1):
-                count += 1
-
             prev = context_id
         else:
-            if(code_start == -1 and code_end != -1):
-                count += 1
-            elif(code_start != -1 and code_end == -1):
-                count += 1
-
+    
             add_result(start_result,label2index,label,code_start)
             add_result(end_result,label2index,label,code_end)
 
@@ -87,8 +72,6 @@ def merge_answer():
             end.append(0)
     final_starts.append(start_result)
     final_ends.append(end_result)
-
-    print('count: ',count)
 
     return final_context_id,final_starts,final_ends
 
@@ -104,10 +87,9 @@ def idx2frame(start_frame_idx, end_frame_idx,context_cnt):
 
 
 def main():
-    count = 0
     context_ids,starts,ends = merge_answer()
-    mode = 'dev'
-    data_dir = '../code-data'
+    mode = 'fine-tune'
+    data_dir = '../../code-data'
     code_passage_dir = os.path.join(data_dir, 'code',mode)
 
     for context_id,start_array,end_array in tqdm(zip(context_ids,starts,ends)):
