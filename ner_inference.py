@@ -265,5 +265,7 @@ print('best_ans_length: ',best_ans_length)
 
 with open( os.path.join(args.output_dir,args.output_fname+'.txt'), 'w') as f:
     f.write(args.output_fname + '\n')
-    f.write('post-processed f1 sec: ' + str(max_ff1)+ '\n')
-    f.write('post-processed aos sec: ' + str(max_aos))
+    f.write('post-processed f1 sec: ' + str(max_ff1) + '\n')
+    f.write('post-processed aos sec: ' + str(max_aos) + '\n')
+    f.write('best_threshold: ' + str(best_threshold) + '\n')
+    f.write('best_ans_length: ' + str(best_ans_length))
