@@ -5,6 +5,7 @@ import torchaudio
 import pandas as pd
 from tqdm import tqdm
 import os 
+from transformers import HubertModel
 
 SAMPLE_RATE = 16000
 CHUNK_LENGTH = 250000
@@ -49,23 +50,25 @@ def reader(fname):
     wav, ori_sr = torchaudio.load(fname)
     if ori_sr != SAMPLE_RATE:
         wav = torchaudio.transforms.Resample(ori_sr, SAMPLE_RATE)(wav)
-    return wav.squeeze()
+    return wav
 
 
 # train
 df = pd.read_csv('/work/f776655321/DUAL-textless-NER/slue-voxpopuli/slue-voxpopuli_'+ mode + '.tsv',sep='\t')
 audio_file_dir = '/work/f776655321/DUAL-textless-NER/slue-voxpopuli/' + mode
 
-output_dir = '/work/f776655321/DUAL-textless-NER/code-data/code/' + mode
-extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
+output_dir = '/work/f776655321/DUAL-textless-NER/code-data/code-NewSqa/' + mode
+
+extractor = HubertModel.from_pretrained('facebook/hubert-large-ll60k',output_hidden_states=True)
+
 extractor.eval()
 
 if torch.cuda.is_available():
-        extractor = extractor.cuda()
+    extractor = extractor.cuda()
 
 count_prefix = 0
 count_latefix = 0
-apply_kmeans = ApplyKmeans('/work/f776655321/DUAL-textless-NER/speeech-content-encoder/km_100h_c128/km_feat_layer_22')
+apply_kmeans = ApplyKmeans('/work/f776655321/DUAL-textless-NER/speeech-content-encoder/L22500.bin')
 
 for file in tqdm(df['id'].values, desc='transforming lxt data to discrete code'):
     
@@ -74,12 +77,14 @@ for file in tqdm(df['id'].values, desc='transforming lxt data to discrete code')
     wavs = reader(audio_file)
     wavs = wavs.cuda()
 
-    if len(wavs) > 20 * SAMPLE_RATE:
+    if wavs.shape[1] > 20 * SAMPLE_RATE:
         print(f'{file} too long')
-        chunks = torch.split(wavs, CHUNK_LENGTH)
+        chunks = torch.split(wavs, CHUNK_LENGTH,dim=1)
+
         for i, chunk in enumerate(chunks): 
-            feat = extractor([chunk])
-            feat = feat['hidden_state_22'].squeeze()
+            
+            feat = extractor(chunk)
+            feat = feat.hidden_states[22].squeeze()
             
             if i == 0:
                 feature = feat
@@ -88,13 +93,12 @@ for file in tqdm(df['id'].values, desc='transforming lxt data to discrete code')
 
         code = apply_kmeans(feature.cuda())
         
-        
     else:
-        feature = extractor([wavs])
+        feature = extractor(wavs)
 
-        feature = feature['hidden_state_22']
+        feature = feature.hidden_states[22].squeeze()
 
-        code = apply_kmeans(feature.squeeze().cuda())
+        code = apply_kmeans(feature.cuda())
 
     code = torch.tensor(code)
 
@@ -102,7 +106,6 @@ for file in tqdm(df['id'].values, desc='transforming lxt data to discrete code')
 
     np.savetxt(os.path.join(output_dir, output_file+'.code'), merged_code.long(), fmt='%i')    
     np.savetxt(os.path.join(output_dir, output_file+'.cnt'), counts.long(), fmt='%i')
-
 
     if(count_latefix < 53):
         count_latefix += 1

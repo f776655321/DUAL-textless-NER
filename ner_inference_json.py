@@ -39,13 +39,15 @@ k = 10
 class SQADevDataset(Dataset):
     def __init__(self, data_dir):
         df = pd.read_csv(os.path.join(data_dir, mode + '_frame_inference.csv'))
-        
+        # df = pd.read_csv(os.path.join(data_dir, mode + '_context_id.csv'))
         code_dir = os.path.join(data_dir, 'question-code-c128/')
         code_passage_dir = os.path.join(data_dir, 'code',mode)
         context_ids = df['context_id'].values
         Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
         self.encodings = []
         for context_id in tqdm(context_ids):
+            print(context_id)
+            input()
             context = np.loadtxt(os.path.join(code_passage_dir, context_id+'.code')).astype(int)
             context_cnt = np.loadtxt(os.path.join(code_passage_dir, context_id+'.cnt')).astype(int)
             for label in Combined_label:
@@ -69,7 +71,7 @@ class SQADevDataset(Dataset):
                 if tot_len > 4096 :
                     print('length longer than 4096: ', tot_len)
                     code_pair = [0]+list(question)+[2]+[2]+list(context)
-                    code_pair = code_pair[:4094] + [2]
+                    code_pair = code_pair[:4094] + [133,2]
                 else:
                     code_pair = [0]+list(question)+[2]+[2]+list(context) + [133,2]
                 
@@ -132,26 +134,23 @@ def idx2sec(pred_start_idx, pred_end_idx, context_begin, context_cnt,negative_st
 
     start_idx, end_idx = torch.sum(start_frame_idx), torch.sum(end_frame_idx)
     
-    # return float(start_idx*0.02), float(end_idx*0.02)
-    return start_idx.item(), end_idx.item()
+    # output milliseconds
+    return float(start_idx.item()*0.02*1000), float(end_idx.item()*0.02*1000)
 
 Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
 batch_size = 7
 valid_dataset = SQADevDataset(data_dir)
 dataloader = DataLoader(valid_dataset, batch_size=batch_size, collate_fn=collate_dev_fn, shuffle=False)
 
-df = pd.read_csv(os.path.join(data_dir, mode + '_frame_inference.csv'))
+original_id = pd.read_csv('/work/f776655321/DUAL-textless-NER/slue-voxpopuli/slue-voxpopuli_' + mode  +'.tsv', delimiter='\t', usecols=[0])
+original_id = original_id['id'].tolist()
 
-start_secs = df['start'].values
-end_secs = df['end'].values
+print(original_id)
+input()
 
-overlap_frame = {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
-predict_frame =  {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
-groundtruth_frame =  {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
+output = dict()
 
-Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
-
-thresholds = [-4.2, -4.2, -4.2, -4.2, -4.2, -4.2, -4.2]
+thresholds = [-5.5, -5, -3.8, -5.5, -5, -1.5, -1.1]
 answer_length = 80
 
 with torch.no_grad():
@@ -207,15 +206,11 @@ with torch.no_grad():
 
             iterate += 1
 
-        #collect overlap 
-        find_overlapframe(start_secs[i], end_secs[i],final_start_secs, final_end_secs,Combined_label,overlap_frame,predict_frame,groundtruth_frame)
+        result = [(a[0], b[0]) for a, b in zip(final_start_secs, final_end_secs) if a[0] != 0.0 or b[0] != 0.0]
+        
+        output[original_id[i]] = result
 
         i += 1
 
-TotalPrecision, TotalRecall, TotalFF1, Precision, Recall, FF1s = calculate_FF1(overlap_frame, predict_frame, groundtruth_frame, Combined_label)
-
-with open( os.path.join(args.output_dir,args.output_fname+'.txt'), 'w') as f:
-    f.write(args.output_fname + '\n')
-    f.write('FF1: ' + str(TotalFF1) + '\n')
-    f.write('Precision: ' + str(TotalPrecision) + '\n')
-    f.write('Recall: ' + str(TotalRecall) + '\n')
+with open( mode + '.json', 'w') as file:
+    json.dump(output, file)

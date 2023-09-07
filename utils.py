@@ -112,7 +112,7 @@ def compare(pred_start, pred_end, gold_start, gold_end):
         overlap_end = 0
         Max = 0
         Min = 0
-        no_overlap = True    
+        no_overlap = True
     else:
         no_overlap = False
         if pred_start <= gold_start:
@@ -143,6 +143,7 @@ def Frame_F1_score(pred_start, pred_end, gold_start, gold_end):
         Recall = (overlap_end - overlap_start) / (gold_end - gold_start)
         F1 = 2 * Precision * Recall / (Precision + Recall)
     return F1
+
 #pred_starts is the ground true
 def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
     F1s = dict()
@@ -152,21 +153,23 @@ def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
     for label in labels:
         F1s[label] = []
 
-    for pred_start, pred_end, gold_start, gold_end,label in zip(ast.literal_eval(pred_starts), ast.literal_eval(pred_ends), gold_starts, gold_ends,labels):
+    for GroundTruth_start, GroundTruth_end, gold_start, gold_end,label in zip(ast.literal_eval(pred_starts), ast.literal_eval(pred_ends), gold_starts, gold_ends,labels):
         #ignore the model correct answer negative example
         
-        if(pred_start[0] == 0 and pred_end[0] == 0 and gold_start[0] == 0 and gold_end[0] == 0 ):
+        if(GroundTruth_start[0] == 0 and GroundTruth_end[0] == 0 and gold_start[0] == 0 and gold_end[0] == 0 ):
             continue
 
         temp_F1 = []
-        min_len = min( len(pred_start),len(gold_start) )
-        max_len = max( len(pred_start),len(gold_start) )
+        min_len = min( len(GroundTruth_start),len(gold_start) )
+        max_len = max( len(GroundTruth_start),len(gold_start) )
         F1_score = []
+
         #give all the combination between pred and gold pair
         for start_sec,end_sec in zip(gold_start, gold_end):
-            for ground_start_sec,ground_end_sec in zip(pred_start,pred_end):
-                F1 = Frame_F1_score(ground_start_sec,ground_end_sec,start_sec,end_sec)
-                heapq.heappush( temp_F1,(-F1,start_sec,end_sec,ground_start_sec,ground_end_sec) )
+            for GroundTruth_start_sec,GroundTruth_end_sec in zip(GroundTruth_start,GroundTruth_end):
+                F1 = Frame_F1_score(GroundTruth_start_sec,GroundTruth_end_sec,start_sec,end_sec)
+
+                heapq.heappush( temp_F1,(-F1,start_sec,end_sec,GroundTruth_start_sec,GroundTruth_end_sec) )
         
         #select the overlap number between pred and gold
         exsit = set()
@@ -190,56 +193,6 @@ def Frame_F1_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
     
     return F1s,total_diff
 
-def AOS_score(pred_start, pred_end, gold_start, gold_end):
-    overlap_start, overlap_end, Min, Max, no_overlap = compare(pred_start, pred_end, gold_start, gold_end)
-
-    if no_overlap:
-        if(pred_start == gold_start and pred_end == gold_end):
-            AOS = 1
-        else:
-            AOS = 0
-    else: 
-        AOS = (overlap_end - overlap_start) / (Max - Min)
-    return AOS
-
-def AOS_scores(pred_starts, pred_ends, gold_starts, gold_ends,labels):
-    AOSs = dict()
-    for label in labels:
-        AOSs[label] = []
-    for pred_start, pred_end, gold_start, gold_end,label in zip(ast.literal_eval(pred_starts), ast.literal_eval(pred_ends), gold_starts, gold_ends,labels):
-        if(pred_start[0] == 0 and pred_end[0] == 0 and gold_start[0] == 0 and gold_end[0] == 0 ):
-            continue
-        temp_AOS = []
-        min_len = min( len(pred_start),len(gold_start) )
-        max_len = max( len(pred_start),len(gold_start) )
-        AOSscore = []
-
-        #give all the combination between pred and gold pair
-        for start_sec,end_sec in zip(gold_start, gold_end):
-            for ground_start_sec,ground_end_sec in zip(pred_start,pred_end):
-                AOS = AOS_score(ground_start_sec,ground_end_sec,start_sec,end_sec)
-                heapq.heappush( temp_AOS,(-AOS,start_sec,end_sec,ground_start_sec,ground_end_sec) )
-        
-        #select the overlap number between pred and gold
-        exsit = set()
-        count = 0
-        while count != min_len:
-            element = heapq.heappop(temp_AOS)
-            if( element[1:3] not in exsit):
-                AOSscore.append( -element[0] )
-                exsit.add(element[1:3])
-                count += 1
-
-        #F1 score is 0 if there are excessive pair in pred or gold
-        diff =  max_len - min_len
-
-        for i in range(diff):
-            AOSscore.append(0)
-
-        AOSs[label] += AOSscore
-    return AOSs
-
-
 def aggregate_dev_result(metric):
     aggregate_result = []
     for i in range(len(metric)):
@@ -262,16 +215,10 @@ def calc_overlap(pred_starts, pred_ends, gold_starts, gold_ends):
         print(right, left, maxest, minest)
     return f1, aos
 
-def _get_best_indexes(probs, context_offset,k):
-    # use torch for faster inference
-    # do not need to consider indexes for question
-    probs = probs[context_offset:]
-
-    #threshold method
-    # mask = probs > threshold
-    # best_indexes = torch.nonzero(mask)
-    # best_indexes = best_indexes.reshape(-1)
-    # best_indexes += context_offset - 1
+#Carefully check your context_end. You may want different context_end.
+def _get_best_indexes(probs, context_offset,context_end,k):
+    # do not need to consider indexes for question and determine the end of consideration.
+    probs = probs[context_offset:context_offset + context_end]
 
     #top-k method
     if(k < len(probs)):
@@ -283,18 +230,19 @@ def _get_best_indexes(probs, context_offset,k):
 
     return best_indexes
 
-def post_process_prediction(start_prob, end_prob,context_offset,context_id,context_len,threshold,max_answer_length,weight = 0.6):
-        
+def post_process_prediction(start_prob, end_prob,context_offset,context_len,negative_start,negative_end,threshold,max_answer_length,weight = 0.6):
+    
     start_prob = start_prob.squeeze()
     end_prob = end_prob.squeeze()
-
-    start_indexes = _get_best_indexes(start_prob,context_offset,10)
-    end_indexes = _get_best_indexes(end_prob,context_offset,10)
+    
+    #Carefully check your context_end
+    start_indexes = _get_best_indexes(start_prob,context_offset,context_len,10)
+    end_indexes = _get_best_indexes(end_prob,context_offset,context_len,10)
 
     final_start_indexes = []
     final_end_indexes = []
-   
-    negative_score = start_prob[0] + end_prob[0]
+
+    negative_score = start_prob[negative_start] + end_prob[negative_end]
 
     prelim_predictions = []
 
@@ -310,8 +258,8 @@ def post_process_prediction(start_prob, end_prob,context_offset,context_id,conte
             predict = {
                         'start_prob': start_prob[start_index],
                         'end_prob': end_prob[end_index],
-                        'start_idx': start_index, 
-                        'end_idx': end_index,
+                        'start_idx': start_index.item(), 
+                        'end_idx': end_index.item(),
                         'score': start_prob[start_index] + end_prob[end_index]
                       }
 
@@ -323,12 +271,12 @@ def post_process_prediction(start_prob, end_prob,context_offset,context_id,conte
     
     for candidate in prelim_predictions:
         if(candidate['score'] >= threshold and candidate['score'] >= negative_score):
-            final_start_indexes.append(candidate['start_idx'].item())
-            final_end_indexes.append(candidate['end_idx'].item())
-    
+            final_start_indexes.append(candidate['start_idx'])
+            final_end_indexes.append(candidate['end_idx'])
+
     if(len(final_start_indexes) == 0):
-        final_start_indexes.append(0)
-        final_end_indexes.append(0)
+        final_start_indexes.append(negative_start)
+        final_end_indexes.append(negative_end)
     
     output_start = []
     output_end = []
@@ -403,6 +351,76 @@ def process_overlapping(start_probs,end_probs,starts,ends,context_begins,weight 
             final_start.append(0)
             final_end.append(0)
     
-    return final_starts, final_ends 
+    return final_starts, final_ends
+
+def find_overlapframe(pred_starts, pred_ends, gold_starts, gold_ends,labels,overlap_frame,predict_frame,groundtruth_frame):
+
+    for pred_start, pred_end, gold_start, gold_end,label in zip(ast.literal_eval(pred_starts), ast.literal_eval(pred_ends), gold_starts, gold_ends,labels):
+        
+        candidate_overlap = []
+        for start_sec,end_sec in zip(gold_start, gold_end):
+            for GroundTruth_start_sec,GroundTruth_end_sec in zip(pred_start,pred_end):
+                
+                overlap_start, overlap_end, Min, Max, no_overlap = compare(GroundTruth_start_sec,GroundTruth_end_sec,start_sec,end_sec)
+                heapq.heappush( candidate_overlap,(-(overlap_end - overlap_start),start_sec,end_sec))
+        
+        count = 0
+        exist = set()
+        final_overlap = []
+
+        while count != len(gold_start):
+            element = heapq.heappop(candidate_overlap)
+
+            if element[1:3] not in exist:
+                exist.add(element[1:3])
+                count += 1
+                final_overlap.append(-element[0])
+        
+        overlap_frame[label] += final_overlap
+
+        for start_sec,end_sec in zip(gold_start, gold_end):
+            predict_frame[label].append(end_sec - start_sec)
+        
+        for GroundTruth_start_sec,GroundTruth_end_sec in zip(pred_start,pred_end):
+            groundtruth_frame[label].append(GroundTruth_end_sec - GroundTruth_start_sec)
+    
+    return
+
+def calculate_FF1(overlap_frame, predict_frame, groundtruth_frame, Combined_label):
+    
+    Precision = []
+    Recall = []
+    FF1 = []
+
+    total_overlapframe = 0
+    total_predict_frame = 0
+    total_groundtruth_frame = 0
+
+    for idx,label in enumerate(Combined_label):
+        sum_overlap_frame = sum(overlap_frame[label])
+        sum_predict_frame = sum(predict_frame[label])
+        sum_groundtruth_frame = sum(groundtruth_frame[label])
+
+        total_overlapframe += sum_overlap_frame
+        total_predict_frame += sum_predict_frame
+        total_groundtruth_frame += sum_groundtruth_frame
+
+        Precision.append(sum_overlap_frame /  sum_groundtruth_frame)
+        Recall.append(sum_overlap_frame /  sum_predict_frame)
+        FF1.append(2 * Precision[idx] * Recall[idx] / (Precision[idx] + Recall[idx]))
+    
+    TotalPrecision = total_overlapframe / total_groundtruth_frame
+    TotalRecall = total_overlapframe / total_predict_frame
+    TotalFF1 = 2 * TotalPrecision * TotalRecall / (TotalPrecision + TotalRecall)
+
+    return TotalPrecision, TotalRecall, TotalFF1, Precision, Recall, FF1
+    
+    
+
+
+
+
+
+    
 
     

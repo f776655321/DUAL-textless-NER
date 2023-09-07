@@ -9,7 +9,7 @@ from utils import find_code_answer
 def main():
     mode = 'fine-tune'
     file_dir = '/work/f776655321/DUAL-textless-NER/code-data/code/' + mode +'/'
-    df = pd.read_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode +'_ans_FullNegative.csv')
+    df = pd.read_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode +'_ans.csv')
     start = df['start'].values
     end = df['end'].values
     passage = df['context_id'].values
@@ -43,7 +43,7 @@ def main():
     NewDf['code_end'] = code_end
 
 
-    NewDf.to_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode + '_code_ans_FullNegative.csv',index=False)
+    NewDf.to_csv('/work/f776655321/DUAL-textless-NER/code-data/' + mode + '_code_ans.csv',index=False)
 
 if __name__ == "__main__":
     main()

@@ -13,7 +13,7 @@ def add_result(result,label2index,label,code):
 # merge the answer of the same context_id
 def merge_answer():
     data_dir = '../../code-data'
-    mode = 'fine-tune'
+    mode = 'dev'
     input_file = mode + '_code_ans.csv'
 
     df = pd.read_csv(os.path.join(data_dir,input_file))
@@ -70,6 +70,7 @@ def merge_answer():
         if(len(start) == 0 and len(end) == 0):
             start.append(0)
             end.append(0)
+
     final_starts.append(start_result)
     final_ends.append(end_result)
 
@@ -100,6 +101,7 @@ def main():
             else:
                 for i in range(len(start)):
                     start[i],end[i]= idx2frame(start[i],end[i],context_cnt)
+                    
     NewDf = pd.DataFrame()
 
     NewDf['context_id'] = context_ids

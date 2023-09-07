@@ -17,7 +17,7 @@ from utils import post_process_prediction, process_overlapping, find_overlapfram
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default='/work/f776655321/DUAL-textless-NER/code-data', type=str)
-parser.add_argument('--model_path', default='/work/f776655321/DUAL-textless-NER/SQAPretrain_simple_hubert_nowarp/checkpoint-11000', type=str)
+parser.add_argument('--model_path', default='/work/f776655321/DUAL-textless-NER/NoSQA_specific_noaugment/checkpoint-11000', type=str)
 parser.add_argument('--output_dir', default='./output', type=str)
 parser.add_argument('--output_fname', default='result', type=str)
 args = parser.parse_args()
@@ -28,6 +28,11 @@ if not os.path.exists(args.output_dir):
 
 model = LongformerForQuestionAnswering.from_pretrained(args.model_path).cuda()
 model.eval()
+
+threshold_search_space = [-5]
+
+# threshold_search_space = [-0.6,-1.1,-1.5,-1.8,-2,-2.5,-2.8,-3.3,-3.8,-4.2,-4.5,-5,-5.5,-6]
+answer_length_search_space = [80]
 
 '''
 post-processing the answer prediction
@@ -69,7 +74,7 @@ class SQADevDataset(Dataset):
                 if tot_len > 4096 :
                     print('length longer than 4096: ', tot_len)
                     code_pair = [0]+list(question)+[2]+[2]+list(context)
-                    code_pair = code_pair[:4094] + [2]
+                    code_pair = code_pair[:4094] + [133,2]
                 else:
                     code_pair = [0]+list(question)+[2]+[2]+list(context) + [133,2]
                 
@@ -135,87 +140,117 @@ def idx2sec(pred_start_idx, pred_end_idx, context_begin, context_cnt,negative_st
     # return float(start_idx*0.02), float(end_idx*0.02)
     return start_idx.item(), end_idx.item()
 
-Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
-batch_size = 7
-valid_dataset = SQADevDataset(data_dir)
-dataloader = DataLoader(valid_dataset, batch_size=batch_size, collate_fn=collate_dev_fn, shuffle=False)
 
-df = pd.read_csv(os.path.join(data_dir, mode + '_frame_inference.csv'))
+#some parameter to store the result
+best_TotalFF1 = -1
 
-start_secs = df['start'].values
-end_secs = df['end'].values
+best_TotalPrecision = None
+best_TotalRecall = None
 
-overlap_frame = {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
-predict_frame =  {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
-groundtruth_frame =  {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
+BestFF1ThersholdForTags = []
 
 Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
 
-thresholds = [-4.2, -4.2, -4.2, -4.2, -4.2, -4.2, -4.2]
-answer_length = 80
+# (tag,threshold, answer_length, precision, recall ,FF1)
+for tag in Combined_label:
+    BestFF1ThersholdForTags.append((tag, 0, 0, 0, 0, -1))
 
-with torch.no_grad():
-    total_diff = 0
-    i = 0
-    for batch in tqdm(dataloader):
-        
-        outputs = model(input_ids=batch['input_ids'].cuda(),
-                                    attention_mask=batch['attention_mask'].cuda())
-        # start_logits: (B, seq_len)
-        logsoftmax = LogSoftmax(dim=1)
-        start_logprob = logsoftmax(outputs.start_logits)
-        end_logprob = logsoftmax(outputs.end_logits)
-    
-        final_starts, final_ends = [], []
 
-        #postprocess the output
-        if batch_size == 1:
-            final_starts, final_ends = post_process_prediction(start_logprob, end_logprob, 
-                                                        batch['context_begin'], 275)
-        else: 
-            for j in range(start_logprob.shape[0]):
+for threshold in threshold_search_space:
+    for answer_length in answer_length_search_space:
+        batch_size = 7
+        valid_dataset = SQADevDataset(data_dir)
+        dataloader = DataLoader(valid_dataset, batch_size=batch_size, collate_fn=collate_dev_fn, shuffle=False)
+
+        df = pd.read_csv(os.path.join(data_dir, mode + '_frame_inference.csv'))
+
+        start_secs = df['start'].values
+        end_secs = df['end'].values
+
+        overlap_frame = {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
+        predict_frame =  {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
+        groundtruth_frame =  {'PLACE':[],'QUANT':[],'ORG':[],'WHEN':[],'NORP':[],'PERSON':[],'LAW':[]}
+
+        Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
+
+        with torch.no_grad():
+            total_diff = 0
+            i = 0
+            for batch in tqdm(dataloader):
                 
-                #negative index
-                negative_start = batch['context_begin'][j].item() + batch['context_len'][0]
-                # negative_start = 0
-                negative_end = batch['context_begin'][j].item() + batch['context_len'][0]
-                # negative_end = 0
+                outputs = model(input_ids=batch['input_ids'].cuda(),
+                                            attention_mask=batch['attention_mask'].cuda())
+                # start_logits: (B, seq_len)
+                logsoftmax = LogSoftmax(dim=1)
+                start_logprob = logsoftmax(outputs.start_logits)
+                end_logprob = logsoftmax(outputs.end_logits)
+            
+                final_starts, final_ends = [], []
 
-                # final_start and end is an array which contains the pairs of ( start_index,end_index )
-                final_start, final_end = post_process_prediction(start_logprob[j], end_logprob[j], 
-                                                            batch['context_begin'][j],batch['context_len'][0],negative_start,negative_end,thresholds[j],answer_length)
-                final_starts.append(final_start)
-                final_ends.append(final_end)
+                #postprocess the output
+                if batch_size == 1:
+                    final_starts, final_ends = post_process_prediction(start_logprob, end_logprob, 
+                                                                batch['context_begin'], 275)
+                else: 
+                    for j in range(start_logprob.shape[0]):
+                        
+                        
+                        #negative index
+                        negative_start = batch['context_begin'][j].item() + batch['context_len'][0]
+                        # negative_start = 0
+                        negative_end = batch['context_begin'][j].item() + batch['context_len'][0]
+                        # negative_end = 0
 
-        # transform the output index to frame index
-        final_start_secs, final_end_secs = [], []
-        iterate = 0
-        for final_start, final_end, context_begin, context_cnt  in zip(final_starts, final_ends, batch['context_begin'].cpu(), batch['context_cnt'].cpu()):
-            final_start_secs.append([])
-            final_end_secs.append([])
+                        # final_start and end is an array which contains the pairs of ( start_index,end_index )
+                        final_start, final_end = post_process_prediction(start_logprob[j], end_logprob[j], 
+                                                                    batch['context_begin'][j],batch['context_len'][0],negative_start,negative_end,threshold,answer_length)
+                        final_starts.append(final_start)
+                        final_ends.append(final_end)
 
-            #negative index
-            negative_start = context_begin.item() + batch['context_len'][0]
-            # negative_start = 0
-            negative_end = context_begin.item() + batch['context_len'][0]
-            # negative_end = 0
+                # transform the output index to frame index
+                final_start_secs, final_end_secs = [], []
+                iterate = 0
+                for final_start, final_end, context_begin, context_cnt  in zip(final_starts, final_ends, batch['context_begin'].cpu(), batch['context_cnt'].cpu()):
+                    final_start_secs.append([])
+                    final_end_secs.append([])
 
-            for start_index,end_index in zip(final_start,final_end):
-                final_start_sec, final_end_sec = idx2sec(start_index, end_index, context_begin, context_cnt,negative_start,negative_end)
-                final_start_secs[iterate].append(final_start_sec)
-                final_end_secs[iterate].append(final_end_sec)
+                    #negative index
+                    negative_start = context_begin.item() + batch['context_len'][0]
+                    # negative_start = 0
+                    negative_end = context_begin.item() + batch['context_len'][0]
+                    # negative_end = 0
 
-            iterate += 1
+                    for start_index,end_index in zip(final_start,final_end):
+                        final_start_sec, final_end_sec = idx2sec(start_index, end_index, context_begin, context_cnt,negative_start,negative_end)
+                        final_start_secs[iterate].append(final_start_sec)
+                        final_end_secs[iterate].append(final_end_sec)
 
-        #collect overlap 
-        find_overlapframe(start_secs[i], end_secs[i],final_start_secs, final_end_secs,Combined_label,overlap_frame,predict_frame,groundtruth_frame)
+                    iterate += 1
 
-        i += 1
+                #collect overlap 
+                find_overlapframe(start_secs[i], end_secs[i],final_start_secs, final_end_secs,Combined_label,overlap_frame,predict_frame,groundtruth_frame)
 
-TotalPrecision, TotalRecall, TotalFF1, Precision, Recall, FF1s = calculate_FF1(overlap_frame, predict_frame, groundtruth_frame, Combined_label)
+                i += 1
+
+        TotalPrecision, TotalRecall, TotalFF1, Precision, Recall, FF1s = calculate_FF1(overlap_frame, predict_frame, groundtruth_frame, Combined_label)
+        
+        if TotalFF1 > best_TotalFF1:
+            best_TotalFF1 = TotalFF1
+            best_TotalPrecision = TotalPrecision
+            best_TotalRecall = TotalRecall
+            for index, FF1 in enumerate(FF1s):
+                BestFF1ThersholdForTags[index] = ( Combined_label[index],threshold,answer_length, Precision[index],  Recall[index] ,FF1)
+
+output_df = pd.DataFrame(BestFF1ThersholdForTags,
+                        columns=['label', 'threshold', 'answer_length','precision', 'recall','frame-f1'])
+
+output_df.to_csv(os.path.join(args.output_dir,'search_' + args.output_fname),index=False)
 
 with open( os.path.join(args.output_dir,args.output_fname+'.txt'), 'w') as f:
-    f.write(args.output_fname + '\n')
-    f.write('FF1: ' + str(TotalFF1) + '\n')
-    f.write('Precision: ' + str(TotalPrecision) + '\n')
-    f.write('Recall: ' + str(TotalRecall) + '\n')
+    f.write('FF1: ' + str(best_TotalFF1) + '\n')
+    f.write('Precision: ' + str(best_TotalPrecision) + '\n')
+    f.write('Recall: ' + str(best_TotalRecall) + '\n')
+
+
+
+
