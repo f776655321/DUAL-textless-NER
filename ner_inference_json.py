@@ -46,8 +46,6 @@ class SQADevDataset(Dataset):
         Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
         self.encodings = []
         for context_id in tqdm(context_ids):
-            print(context_id)
-            input()
             context = np.loadtxt(os.path.join(code_passage_dir, context_id+'.code')).astype(int)
             context_cnt = np.loadtxt(os.path.join(code_passage_dir, context_id+'.cnt')).astype(int)
             for label in Combined_label:
@@ -145,9 +143,6 @@ dataloader = DataLoader(valid_dataset, batch_size=batch_size, collate_fn=collate
 original_id = pd.read_csv('/work/f776655321/DUAL-textless-NER/slue-voxpopuli/slue-voxpopuli_' + mode  +'.tsv', delimiter='\t', usecols=[0])
 original_id = original_id['id'].tolist()
 
-print(original_id)
-input()
-
 output = dict()
 
 thresholds = [-5.5, -5, -3.8, -5.5, -5, -1.5, -1.1]
@@ -206,7 +201,15 @@ with torch.no_grad():
 
             iterate += 1
 
-        result = [(a[0], b[0]) for a, b in zip(final_start_secs, final_end_secs) if a[0] != 0.0 or b[0] != 0.0]
+        #collect answer into an array
+        result = []
+
+        for start_sec_array, end_sec_array in zip(final_start_secs, final_end_secs):
+            for start_sec, end_sec in zip(start_sec_array, end_sec_array):
+                if start_sec == 0 and end_sec == 0:
+                    continue
+                else:
+                    result.append((start_sec,end_sec))
         
         output[original_id[i]] = result
 
