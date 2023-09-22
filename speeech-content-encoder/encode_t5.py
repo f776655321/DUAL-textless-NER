@@ -1,3 +1,6 @@
+
+
+
 import numpy as np
 import joblib
 import torch
@@ -8,11 +11,18 @@ import os
 from transformers import AutoModel
 from datasets import load_dataset, Dataset, load_from_disk
 from collections import defaultdict
+import asrp
+import nlp2
+import torch
+import numpy as np
+import os
 
 SAMPLE_RATE = 16000
 CHUNK_LENGTH = 250000
 # mode = 'dev'
-
+hc = asrp.HubertCode("voidful/mhubert-base", './mhubert_base_vp_en_es_fr_it3_L11_km1000.bin', 11,
+                     chunk_sec=30,
+                     worker=4)
 class ApplyKmeans(object):
     def __init__(self, km_path, return_diff=False):
         self.km_model = joblib.load(km_path)
@@ -56,19 +66,19 @@ def reader(fname):
 
 for mode in ["train", "validation", "test"]:
     ds = load_from_disk(f"/work/yuxiang1234/backup/slue-dac/{mode}.hf")
-    output_dir = '/work/yuxiang1234/DUAL-textless-DAC-2/code-data/code/' + mode
+    output_dir = '/work/yuxiang1234/DUAL-textless-DAC-2/code-data/code-t5/' + mode
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 
-    extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
+    # extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
     # extractor = AutoModel.from_pretrained("facebook/hubert-large-ll60k", output_hidden_states = True)
-    extractor.eval()
+    # extractor.eval()
 
-    if torch.cuda.is_available():
-        extractor = extractor.cuda()
+    # if torch.cuda.is_available():
+        # extractor = extractor.cuda()
 
-    titles = defaultdict(int)
-    apply_kmeans = ApplyKmeans('/home/yuxiang1234/DUAL-textless-NER/speeech-content-encoder/km_100h_c128/km_feat_layer_22')
+    # titles = defaultdict(int)
+    # apply_kmeans = ApplyKmeans('/home/yuxiang1234/DUAL-textless-NER/speeech-content-encoder/km_100h_c128/km_feat_layer_22')
     # apply_kmeans = ApplyKmeans('/home/yuxiang1234/DUAL-textless-NER/slue-sqa-model/L22500.bin')
 
     for line in tqdm(ds):
@@ -80,33 +90,33 @@ for mode in ["train", "validation", "test"]:
         output_file = f"{issue_id }_{utt_index}"
         # try:
 
-        if len(wavs) > 20 * SAMPLE_RATE:
-            print(f'{issue_id }-{utt_index} is too long')
-            chunks = torch.split(wavs, CHUNK_LENGTH)
-            for i, chunk in enumerate(chunks): 
-                feat = extractor([chunk])
-                feat = feat['hidden_state_22'].squeeze()
+        # if len(wavs) > 20 * SAMPLE_RATE:
+        #     print(f'{issue_id }-{utt_index} is too long')
+        #     chunks = torch.split(wavs, CHUNK_LENGTH)
+        #     for i, chunk in enumerate(chunks): 
+        #         # feat = extractor([chunk])
+        #         # feat = feat['hidden_state_22'].squeeze()
                 
-                # feat = extractor(chunk.unsqueeze(0))
-                # feat = feat['hidden_states'][22].squeeze()
+        #         feat = extractor(chunk.unsqueeze(0))
+        #         feat = feat['hidden_states'][22].squeeze()
                 
-                if i == 0:
-                    feature = feat
-                else: 
-                    feature = torch.cat([feature, feat], dim = 0)
-            code = apply_kmeans(feature.cuda())
+        #         if i == 0:
+        #             feature = feat
+        #         else: 
+        #             feature = torch.cat([feature, feat], dim = 0)
+        #     code = apply_kmeans(feature.cuda())
             
             
-        else:
-            feature = extractor([wavs])
-            # feature = extractor(wavs.unsqueeze(0))
+        # else:
+        #     # feature = extractor([wavs])
+        #     feature = extractor(wavs.unsqueeze(0))
 
-            feature = feature['hidden_state_22']
-            # feature = feature['hidden_states'][22]
+        #     # feature = feature['hidden_state_22']
+        #     feature = feature['hidden_states'][22]
 
-            code = apply_kmeans(feature.squeeze().cuda())
-
-        code = torch.tensor(code)
+        #     code = apply_kmeans(feature.squeeze().cuda())
+        code = torch.tensor(hc(input_values = [wavs])["code"])
+        # code = torch.tensor(code)
 
         merged_code, counts = torch.unique_consecutive(code, return_counts=True)
 

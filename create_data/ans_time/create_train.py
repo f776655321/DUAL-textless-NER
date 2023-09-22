@@ -1,17 +1,20 @@
 import pandas as pd
 import os
 import json
+from collections import defaultdict
 
 import torch
 import torchaudio
+import string
+import mutagen
 
 import random
 from tqdm import tqdm
 import ast
+from datasets import load_from_disk
+from mutagen.mp3 import MP3
 
-from utils import force_align,get_ans_time,random_choice_without_repeat
-
-
+from utils import force_align_from_data, get_ans_time, random_choice_without_repeat, remove_punctuation
 
 def main():
 
@@ -31,142 +34,113 @@ def main():
 
     ######################################################
 
-    data_dir = '/work/f776655321/DUAL-textless-NER'
 
-    mode = 'fine-tune'
-    
-    with open(os.path.join(data_dir, mode+'-hash2context.json')) as f:
-        h2q = json.load(f)
+    random.seed(0)
+    for mode in ["train", "validation", "test"]:
+        positive_cnt = defaultdict(int)
+        negative_cnt = defaultdict(int)
+        ds = load_from_disk(f"/work/yuxiang1234/backup/slue-dac/{mode}.hf")
 
-    audio_dir = '/work/f776655321/DUAL-textless-NER/slue-voxpopuli/' + mode + '/'
-
-    #import slue data
-    sluedf = pd.read_csv('/work/f776655321/DUAL-textless-NER/slue-voxpopuli/slue-voxpopuli_' + mode +'.tsv',sep='\t')
-
-    normalize_text = sluedf['normalized_text'].values
-    normalized_ner = sluedf['normalized_ner'].values
-
-    old_context_id = sluedf['id'].values
-
-    new_context_id = sluedf['id'].apply(lambda x: h2q[x]).values
-
-
-    #for output csv
-    ans_context_id = []
-    label = []
-    start = []
-    end = []
-    label_text = []
-    output_dir = '../../code-data/'
-    output_file = mode + '_ans_FullNegative.csv'
-
-    #WAV2VEC2 need words to be separated by '|'
-    length = len(normalize_text)
-    for i in range(length):
-        normalize_text[i] =  normalize_text[i].replace(' ', '|')
-
-    #for New label
-    NER_Label_dict = {'GPE':'PLACE','LOC':'PLACE','CARDINAL': 'QUANT','ORDINAL':'QUANT','MONEY':'QUANT','PERCENT':'QUANT','QUANTITY':'QUANT','ORG':'ORG','DATE':'WHEN','TIME':'WHEN','NORP':'NORP','PERSON':'PERSON','LAW':'LAW'}
-
-    Combined_label = ['PLACE','QUANT','ORG','WHEN','NORP','PERSON','LAW']
-
-    #used to check if force alignment fail
-    not_alignable = []
-
-    for i , ner_tags in enumerate(tqdm(normalized_ner)):
+        #for output csv
+        ids = []
+        actions = []
+        start_seconds = []
+        end_seconds = []
+        action_text = []
+        output_dir = '/work/yuxiang1234/DUAL-textless-DAC-2/code-data/'
         
-        # ner_tags is none
-        if(isinstance(ner_tags, float) == True):
-            
-            if mode == 'fine-tune':
-                for tag in Combined_label:
+        K = 5
+        if mode == 'train':
+            output_file = mode + f'_ans_sampling_positive_{K}.csv'
+            # output_file = mode + f'_ans_sampling_negative_{K}.csv'
+            # output_file = mode + f'_ans_sampling_negative_slue_{K}.csv'
+        else: 
+            output_file = mode + "_ans.csv"
+            # output_file = mode + "_ans_slue.csv"
 
-                    label_text.append("none")
-                    ans_context_id.append(new_context_id[i])
-                    label.append(tag)
-                    start.append(0)
-                    end.append(0)
-        else:
+        #for New label
+        action_list = ["question_check", "question_repeat", "question_general", "answer_agree", "answer_dis", "answer_general", "apology", "thanks", "acknowledge", "statement_open", "statement_close", "statement_problem", "statement_instruct", "statement_general", "backchannel", "disfluency", "self", "other"]
+        cumulative_time = []
+        root_path = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-prompts-DAC"
+        # root_path = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-prompts-dac-slue"
+        for idx, action in enumerate(action_list):
+            wav = MP3(os.path.join(root_path, action + ".mp3")).info
+            if idx == 0:
+                cumulative_time.append(wav.length)
+            else: 
+                cumulative_time.append(wav.length + cumulative_time[idx - 1])
+
+        double_action = ["answer_agree", "question_repeat"]
+        K_action = ["backchannel", 'statement_instruct', "self", "apology"]
+        # measure the percentage of positive_example
+        for line in tqdm(ds):
+            labels = line["dialog_acts"]
+            for label in labels:
+                positive_cnt[label] += 1
+
+        positive_ratio = {key: value / len(ds)  for key, value in positive_cnt.items()}
         
-            SPEECH_FILE = old_context_id[i]
+        print(positive_ratio)
+        
+        for line in tqdm(ds):
+            title = line["issue_id"]
+            utt_index = line["utt_index"]
+            text = line["text"]            
+            duration = line["duration_ms"]
 
-            new_normalize_text = normalize_text[i].replace(';','').replace('.','').replace('?','').replace('!','')
-
-            word_segments,waveform_size,trellis_size = force_align(model,audio_dir,SPEECH_FILE,dictionary,new_normalize_text)
-
-            ner_tags = ast.literal_eval(ner_tags)
-
-            find_time= set()
+            labels = line["dialog_acts"]
+            id = f"{title}_{utt_index}"
             
-            n = len(ner_tags)
-
-            exist_label = set()
-
-            for ner_tag in ner_tags:
-
-                if(ner_tag[0] not in NER_Label_dict):
-                    n -= 1
-                else:
-
-                    ans_context_id.append(new_context_id[i])
-
-                    label.append(NER_Label_dict[ner_tag[0]])
-
-                    exist_label.add(NER_Label_dict[ner_tag[0]])
-                    
-                    while(ner_tag[1] != 0 and normalize_text[i][ner_tag[1] - 1] != '|'):
-                        ner_tag[1] -= 1
-
-                    target = normalize_text[i][ner_tag[1]:ner_tag[1] + ner_tag[2]]
-
-                    target = target.strip('|')
-
-                    change_target = target.replace('|',' ')
-
-                    label_text.append(change_target)
-
-                    target = target.split('|')
-
-                    start_time,end_time = get_ans_time(target, word_segments,waveform_size,trellis_size,find_time,sample_rate)
-
-                    start.append(round(start_time,3))
-
-                    end.append(round(end_time,3))
-
-                    if start_time == 0 and end_time == 0:
-                        not_alignable.append(change_target)
-
-            notexist_label = [tag for tag in Combined_label if tag not in exist_label]
-
-            if mode == 'fine-tune':
-                for tag in notexist_label:
-                    label_text.append("none")
-                    ans_context_id.append(new_context_id[i])
-                    label.append(tag)
-                    start.append(0)
-                    end.append(0)
-
-            # n = 0 if mode == "dev" else int(n/2)
-            # tags = random_choice_without_repeat(notexist_label,n)
-
-            # for tag in tags:
-            #     ans_context_id.append(new_context_id[i])
-            #     label_text.append("none")
-            #     label.append(tag)
-            #     start.append(0)
-            #     end.append(0)
+            for i, action in enumerate(action_list):
+                
+                # ner_tags is none
+                if action in labels:
+                    ids.append(id)
+                    action_text.append(text)
+                    actions.append(action)
+                    start_seconds.append(0)
+                    end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])
+                    # end_second.append(float(duration) / 1000.0)
+                    if mode == "train" and action_text in double_action:
+                        for i in range(3):
+                            ids.append(id)
+                            action_text.append(text)
+                            actions.append(action)
+                            start_seconds.append(0)
+                            end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])
+                    if mode == "train" and action_text in K_action:
+                        for i in range(10):
+                            ids.append(id)
+                            action_text.append(text)
+                            actions.append(action)
+                            start_seconds.append(0)
+                            end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])                    
+                # else: 
+                    # if mode == 'train':
+                    #     select = random.random()
+                    #     if select < positive_ratio[action] * K:
+                    #         ids.append(id)
+                    #         action_text.append(text)
+                    #         actions.append(action)
+                    #         start_seconds.append(0)
+                    #         end_seconds.append(0)
+                    #         negative_cnt[action] += 1
 
 
-    df = pd.DataFrame()
-    df['context_id'] = ans_context_id
-    df['label'] = label
-    df['label_text'] = label_text
-    df['start'] = start
-    df['end'] = end
+        negative_ratio = {key: value / len(ds)  for key, value in negative_cnt.items()}
 
-    df.to_csv(os.path.join(output_dir,output_file), index=False)
+        for key in negative_ratio:
+            print(f"pos: {positive_ratio[key]}, neg: {negative_ratio[key]}")
 
-    print(not_alignable)
+        df = pd.DataFrame()
+        df['context_id'] = ids
+        df['label'] = actions
+        df['label_text'] = action_text
+        df['start'] = start_seconds
+        df['end'] = end_seconds
+
+        df.to_csv(os.path.join(output_dir,output_file), index=False)
+
 
 if __name__ == "__main__":
     main()

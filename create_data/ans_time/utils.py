@@ -4,8 +4,16 @@ from dataclasses import dataclass
 
 import torchaudio
 import random
+import string
 
+def remove_punctuation(input_string):
+    # Make a translation table that maps all punctuation characters to None
+    translator = str.maketrans("", "", string.punctuation)
 
+    # Apply the translation table to the input string
+    result = input_string.translate(translator)
+
+    return result
 
 #From the emission matrix, next we generate the trellis which represents the probability of transcript labels occur at each time frame.
 def get_trellis(emission, tokens, blank_id=0):
@@ -120,13 +128,37 @@ def merge_words(segments, separator="|"):
             i2 += 1
     return words
 
-def force_align(model,audio_dir,SPEECH_FILE,dictionary,text):
+def force_align(model, audio_dir, SPEECH_FILE, dictionary, text):
     torch.random.manual_seed(0)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     #extract wave feature
     with torch.inference_mode():
         waveform, _ = torchaudio.load( audio_dir + SPEECH_FILE + '.ogg')
+        emissions, _ = model(waveform.to(device))
+        emissions = torch.log_softmax(emissions, dim=-1)
+
+    emission = emissions[0].cpu().detach()
+    #tokenize transcript
+    tokens = [dictionary[c] for c in text]
+
+    trellis = get_trellis(emission, tokens)
+
+    #determine where the tokens come from
+    path = backtrack(trellis, emission, tokens)
+
+    segments = merge_repeats(path,text)
+
+    word_segments = merge_words(segments)
+
+    return word_segments,waveform.size(1),trellis.size(0)
+
+def force_align_from_data(model, waveform, dictionary, text):
+    torch.random.manual_seed(0)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    #extract wave feature
+    with torch.inference_mode():
         emissions, _ = model(waveform.to(device))
         emissions = torch.log_softmax(emissions, dim=-1)
 
