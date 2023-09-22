@@ -65,8 +65,8 @@ def reader(fname):
     return wav.squeeze()
 
 for mode in ["train", "validation", "test"]:
-    ds = load_from_disk(f"/work/yuxiang1234/backup/slue-dac/{mode}.hf")
-    output_dir = '/work/yuxiang1234/DUAL-textless-DAC-2/code-data/code-t5/' + mode
+    ds = load_from_disk(f"slue-dac/{mode}.hf")
+    output_dir = 'code-data/code-t5/' + mode
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
 

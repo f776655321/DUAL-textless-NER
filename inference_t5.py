@@ -26,8 +26,8 @@ from transformers import AutoConfig, AutoTokenizer
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_dir', default='/work/yuxiang1234/DUAL-textless-DAC-2/code-data', type=str)
-parser.add_argument('--model_path', default='/work/yuxiang1234/DUAL-textless-DAC-2/QADAC-t5/checkpoint-5380', type=str)
+parser.add_argument('--data_dir', default='code-data', type=str)
+parser.add_argument('--model_path', default='QADAC-t5/checkpoint-1000', type=str)
 parser.add_argument('--save_dir', default='./evaluate-store/t5', type=str)
 parser.add_argument('--output_dir', default='./evaluate-results', type=str)
 parser.add_argument('--dist_dir', default='./evaluate-distribution', type=str)
@@ -82,7 +82,7 @@ class SQADevDataset(Dataset):
         action_code = {}
         action_cnt = {}
         cumulative_cnt = []
-        root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-DAC"
+        root_dir = "code-data/question-code-DAC"
         for idx, action in enumerate(action_list):
             code = np.loadtxt(os.path.join(root_dir, action + '.code')).astype(int)
             cnt = len(code)
@@ -107,11 +107,7 @@ class SQADevDataset(Dataset):
         self.encodings = []
         for context_id, gt in tqdm(zip(context_ids, ground_truth)):
             context = np.loadtxt(os.path.join(code_passage_dir, context_id + '.code')).astype(int)
-            # for idx, action in enumerate(action_list):
             question = np.loadtxt(os.path.join(code_dir, "question" + '.code')).astype(int)
-            # question_cnt = np.loadtxt(os.path.join(code_dir, question_id+'.cnt')).astype(int)
-            # 0~4 index is the special token, so start from index 5
-            # the size of discrete token is 128, indexing from 5~132
             context += 3
             question += 3
 

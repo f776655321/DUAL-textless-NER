@@ -9,18 +9,19 @@ from collections import defaultdict
 from utils import find_code_answer
 
 def main():
-    K = 5
+    K = 2
     random.seed(0)
     for mode in ["train", "validation", "test"]:
-        file_dir = '/work/yuxiang1234/DUAL-textless-DAC-2/code-data/code/' + mode + '/'
-        # file_dir = '/work/yuxiang1234/DUAL-textless-DAC-2/code-data/code-slue/' + mode + '/'
+        file_dir = 'code-data/code/' + mode + '/'
+        # file_dir = 'code-data/code-slue/' + mode + '/'
         # TODO
         if mode == 'train':
-            df = pd.read_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_ans_sampling_positive_{K}.csv')
-            # df = pd.read_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_ans_sampling_negative_{K}.csv')
-            # df = pd.read_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_ans_sampling_negative_slue_{K}.csv')
+            # df = pd.read_csv('code-data/' + mode + f'_ans_sampling_positive_{K}.csv')
+            df = pd.read_csv('code-data/' + mode + f'_ans_negative.csv')
+            # df = pd.read_csv('code-data/' + mode + f'_ans_sampling_negative_{K}.csv')
+            # df = pd.read_csv('code-data/' + mode + f'_ans_sampling_negative_slue_{K}.csv')
         else: 
-            df = pd.read_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_ans.csv')
+            df = pd.read_csv('code-data/' + mode + f'_ans.csv')
             # df = pd.read_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_ans_slue.csv')
 
         start = df['start'].values
@@ -40,8 +41,8 @@ def main():
         action_code = {}
         action_cnt = {}
         cumulative_cnt = []
-        # root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-dac-slue"
-        root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-DAC"
+        # root_dir = "code-data/question-code-dac-slue"
+        root_dir = "code-data/question-code-DAC"
         for idx, action in enumerate(action_list):
             code = np.loadtxt(os.path.join(root_dir, action + '.code'))
             cnt = len(code)
@@ -101,11 +102,12 @@ def main():
         NewDf['context_len'] = context_len
         # TODO
         if mode == "train":
-            NewDf.to_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_code_ans_sampling_positive_{K}.csv',index=False)
-            # NewDf.to_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_code_ans_sampling_negative_slue_{K}.csv',index=False)
+            # NewDf.to_csv('code-data/' + mode + f'_code_ans_sampling_positive_{K}.csv',index=False)
+            # NewDf.to_csv('code-data/' + mode + f'_code_ans_sampling_positive_{K}.csv',index=False)
+            NewDf.to_csv('code-data/' + mode + f'_code_ans_negative.csv',index=False)
         else: 
-            # NewDf.to_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_code_ans_slue.csv',index=False)
-            NewDf.to_csv('/work/yuxiang1234/DUAL-textless-DAC-2/code-data/' + mode + f'_code_ans.csv',index=False)
+            # NewDf.to_csv('code-data/' + mode + f'_code_ans_slue.csv',index=False)
+            NewDf.to_csv('code-data/' + mode + f'_code_ans.csv',index=False)
 
 
 if __name__ == "__main__":

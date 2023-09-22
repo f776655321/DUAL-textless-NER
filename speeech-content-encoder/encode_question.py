@@ -62,24 +62,24 @@
 
 
 NER = {
-       "question_check" : "It refers to questions that check or verify information unique to a listener?",
-       "question_repeat": "It refers to requests for someone to repeat what they said in order to clarify or understand?",
-       "question_general": "It refers to questions?",
-       "answer_agree": "It refers to answers indicating a positive response or acceptance?",
-       "answer_dis": "It refers to answers indicating a negative response or denial?",
-       "answer_general" : "It refers to answers to questions?",
-       "apology": "It refers to a number of often-templated utterances indicating a speaker is appologetic?",
-       "thanks": "It refers to a number of often-templated utterances indicating a speaker is appreciative?",
-       "acknowledge": "It refers to a response indicating that a speaker has heard, or is empathizing with, what another speaker has said?",
-       "statement_open": "It refers to formulaic opening statements that might contain a greeting, introduction, or some other pleasantries?",
-        "statement_close" : "It refers to formulaic closing statements indicating that the conversation is coming to an end?",
-       "statement_problem": "It refers to an utterance that contains a user's primary reason for calling in?",
-       "statement_instruct": "It refers to an imperative utterance that indicates the speaker wants the listener to do something?",
-       "statement_general": "It refers to a statement?",
-       "backchannel": "It refers to Verbal or non-verbal expressions indicating the listener's attention, agreement, or understanding, while not having much significant meaning on their own?",
-        "disfluency" : "It refers to filler, reparandum, interregnum?",
-       "self": "It refers to essentially rhetorical utterances, or utterances where a speaker is not expecting a response from the listener?",
-       "other": "It refers to utterances including noise, gibberish, or otherwise uninterpretable speech?",
+       "question_check" : "It refers to questions that check or verify information unique to a listener.",
+       "question_repeat": "It refers to requests for someone to repeat what they said in order to clarify or understand.",
+       "question_general": "It refers to questions.",
+       "answer_agree": "It refers to answers indicating a positive response or acceptance.",
+       "answer_dis": "It refers to answers indicating a negative response or denial.",
+       "answer_general" : "It refers to answers to questions.",
+       "apology": "It refers to a number of often-templated utterances indicating a speaker is appologetic.",
+       "thanks": "It refers to a number of often-templated utterances indicating a speaker is appreciative.",
+       "acknowledge": "It refers to a response indicating that a speaker has heard, or is empathizing with, what another speaker has said.",
+       "statement_open": "It refers to formulaic opening statements that might contain a greeting, introduction, or some other pleasantries.",
+        "statement_close" : "It refers to formulaic closing statements indicating that the conversation is coming to an end.",
+       "statement_problem": "It refers to an utterance that contains a user's primary reason for calling in.",
+       "statement_instruct": "It refers to an imperative utterance that indicates the speaker wants the listener to do something.",
+       "statement_general": "It refers to a statement.",
+       "backchannel": "It refers to Verbal or non-verbal expressions indicating the listener's attention, agreement, or understanding, while not having much significant meaning on their own.",
+        "disfluency" : "It refers to filler, reparandum, interregnum.",
+       "self": "It refers to essentially rhetorical utterances, or utterances where a speaker is not expecting a response from the listener.",
+       "other": "It refers to utterances including noise, gibberish, or otherwise uninterpretable speech.",
        }
 
 
@@ -112,7 +112,7 @@ for ner, prompt in NER.items():
        # speech.play(sox_effects)
 
        # save the speech to an MP3 file (no effect is applied)
-       audio_path = f"/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-prompts-DAC/{ner}.mp3"
+       audio_path = f"code-data/question-prompts-DAC/{ner}.mp3"
        speech.save(audio_path)
 
 import numpy as np
@@ -171,7 +171,7 @@ extractor = torch.hub.load('s3prl/s3prl', 'hubert_large_ll60k')
 extractor.eval()
 if torch.cuda.is_available():
     extractor = extractor.cuda()
-apply_kmeans = ApplyKmeans('/work/yuxiang1234/DUAL-textless-DAC-2/speeech-content-encoder/km_100h_c128/km_feat_layer_22')
+apply_kmeans = ApplyKmeans('speeech-content-encoder/km_100h_c128/km_feat_layer_22')
 # apply_kmeans = ApplyKmeans('/content/L22500.bin')
 
 def reader(fname):
@@ -181,9 +181,9 @@ def reader(fname):
     return wav.squeeze()
 
 
-output_dir =  f"/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-DAC"
+output_dir =  f"code-data/question-code-DAC"
 for ner, prompt in NER.items():
-    audio_file_path = f"/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-prompts-DAC/{ner}.mp3"
+    audio_file_path = f"code-data/question-prompts-DAC/{ner}.mp3"
     audio_file = os.path.join(audio_file_path)
     wavs = reader(audio_file)
 

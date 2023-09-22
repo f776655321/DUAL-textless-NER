@@ -39,7 +39,7 @@ def main():
     for mode in ["train", "validation", "test"]:
         positive_cnt = defaultdict(int)
         negative_cnt = defaultdict(int)
-        ds = load_from_disk(f"/work/yuxiang1234/backup/slue-dac/{mode}.hf")
+        ds = load_from_disk(f"slue-dac/{mode}.hf")
 
         #for output csv
         ids = []
@@ -47,11 +47,12 @@ def main():
         start_seconds = []
         end_seconds = []
         action_text = []
-        output_dir = '/work/yuxiang1234/DUAL-textless-DAC-2/code-data/'
+        output_dir = 'code-data/'
         
-        K = 5
+        K = 2
         if mode == 'train':
-            output_file = mode + f'_ans_sampling_positive_{K}.csv'
+            # output_file = mode + f'_ans_sampling_positive_{K}.csv'
+            output_file = mode + f'_ans_negative.csv'
             # output_file = mode + f'_ans_sampling_negative_{K}.csv'
             # output_file = mode + f'_ans_sampling_negative_slue_{K}.csv'
         else: 
@@ -61,7 +62,7 @@ def main():
         #for New label
         action_list = ["question_check", "question_repeat", "question_general", "answer_agree", "answer_dis", "answer_general", "apology", "thanks", "acknowledge", "statement_open", "statement_close", "statement_problem", "statement_instruct", "statement_general", "backchannel", "disfluency", "self", "other"]
         cumulative_time = []
-        root_path = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-prompts-DAC"
+        root_path = "code-data/question-prompts-DAC"
         # root_path = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-prompts-dac-slue"
         for idx, action in enumerate(action_list):
             wav = MP3(os.path.join(root_path, action + ".mp3")).info
@@ -101,30 +102,31 @@ def main():
                     start_seconds.append(0)
                     end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])
                     # end_second.append(float(duration) / 1000.0)
-                    if mode == "train" and action_text in double_action:
-                        for i in range(3):
-                            ids.append(id)
-                            action_text.append(text)
-                            actions.append(action)
-                            start_seconds.append(0)
-                            end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])
-                    if mode == "train" and action_text in K_action:
-                        for i in range(10):
-                            ids.append(id)
-                            action_text.append(text)
-                            actions.append(action)
-                            start_seconds.append(0)
-                            end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])                    
-                # else: 
-                    # if mode == 'train':
-                    #     select = random.random()
-                    #     if select < positive_ratio[action] * K:
+                    # if mode == "train" and action_text in double_action:
+                    #     for i in range(3):
                     #         ids.append(id)
                     #         action_text.append(text)
                     #         actions.append(action)
                     #         start_seconds.append(0)
-                    #         end_seconds.append(0)
-                    #         negative_cnt[action] += 1
+                    #         end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])
+                    # if mode == "train" and action_text in K_action:
+                    #     for i in range(10):
+                    #         ids.append(id)
+                    #         action_text.append(text)
+                    #         actions.append(action)
+                    #         start_seconds.append(0)
+                    #         end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])                    
+                else: 
+                    if mode == 'train':
+                        select = random.random()
+                        # if select < positive_ratio[action] * K:
+                        if True:
+                            ids.append(id)
+                            action_text.append(text)
+                            actions.append(action)
+                            start_seconds.append(0)
+                            end_seconds.append(0)
+                            negative_cnt[action] += 1
 
 
         negative_ratio = {key: value / len(ds)  for key, value in negative_cnt.items()}

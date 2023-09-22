@@ -26,8 +26,8 @@ from typing import Optional
 import torch
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # Cannot find token
-os.environ['TRANSFORMERS_CACHE'] = '/work/yuxiang1234/cache'
-os.environ['HF_DATASETS_CACHE']="/work/yuxiang1234/cache"
+# os.environ['TRANSFORMERS_CACHE'] = '/work/yuxiang1234/cache'
+# os.environ['HF_DATASETS_CACHE']="/work/yuxiang1234/cache"
 #os.environ["HF_HOME"] = "/work/yuxiang1234/cache"
 
 import datasets
@@ -295,13 +295,15 @@ def main():
 	if True:
 		for mode in ["train", "validation"]:
 			if mode == "train":
-				df = pd.read_csv("/work/yuxiang1234/DUAL-textless-DAC-2/code-data/train_code_ans_sampling_positive_5.csv")    
+				# df = pd.read_csv("code-data/train_code_ans_sampling_positive_5.csv")    
+				df = pd.read_csv("code-data/train_code_ans_negative.csv")    
+				# df = pd.read_csv("code-data/train_code_ans_sampling_negative_2.csv")    
 			elif mode == "validation":
-				df = pd.read_csv("/work/yuxiang1234/DUAL-textless-DAC-2/code-data/validation_code_ans.csv")   
+				df = pd.read_csv("code-data/validation_code_ans.csv")   
 				
-			code_dir = os.path.join("/work/yuxiang1234/DUAL-textless-DAC-2/code-data", 'question-code-DAC')
+			code_dir = os.path.join("code-data", 'question-code-DAC')
 			# TODO
-			code_passage_dir = os.path.join("/work/yuxiang1234/DUAL-textless-DAC-2/code-data", 'code/' + mode + '/')
+			code_passage_dir = os.path.join("code-data", 'code/' + mode + '/')
 			context_ids = df['context_id'].values
 			code_starts = df['code_start'].values
 			code_ends = df['code_end'].values
@@ -311,7 +313,7 @@ def main():
 			action_list = ["question_check", "question_repeat", "question_general", "answer_agree", "answer_dis", "answer_general", "apology", "thanks", "acknowledge", "statement_open", "statement_close", "statement_problem", "statement_instruct", "statement_general", "backchannel", "disfluency", "self", "other"]
 			action_code = {}
 			candidate_code = []
-			root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-DAC"
+			root_dir = "code-data/question-code-DAC"
 			for idx, action in enumerate(action_list):
 				code = np.loadtxt(os.path.join(root_dir, action + '.code')).astype(int)
 				action_code[action] = code 
@@ -437,15 +439,6 @@ def main():
 			revision=model_args.model_revision,
 			use_auth_token=True if model_args.use_auth_token else None,
 		)
-
-	# Tokenizer check: this script requires a fast tokenizer. => Not anymore :)
-	if not isinstance(tokenizer, PreTrainedTokenizerFast):
-		pass
-		#raise ValueError(
-		#    "This example script only works for models that have a fast tokenizer. Checkout the big table of models at"
-		#    " https://huggingface.co/transformers/index.html#supported-frameworks to find the model types that meet"
-		#    " this requirement"
-		#)
 
 	# Preprocessing the datasets.
 	# Preprocessing is slighlty different for training and evaluation.

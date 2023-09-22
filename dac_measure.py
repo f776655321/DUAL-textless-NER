@@ -29,7 +29,7 @@ parser.add_argument('--save_dir', default='./evaluate-store/t5', type=str)
 parser.add_argument('--dist_dir', default='./evaluate-distribution', type=str)
 # parser.add_argument('--output_fname', default='result', type=str)
 parser.add_argument('--mode', default='validation', type=str)
-parser.add_argument('--threshold', default=-5, type=float)
+parser.add_argument('--threshold', default=-11, type=float)
 
 parser.add_argument('--range', default="all", type=str)
 args = parser.parse_args()
@@ -56,17 +56,17 @@ action_threshold = {action: args.threshold for action in action_list}
 # action_threshold["answer_general"] = 16
 # action_threshold["statement_close"] = 16
 # action_threshold["answer_general"] = 18
-action_threshold["answer_dis"] = -4
-# action_threshold["answer_general"] = 6
-action_threshold["backchannel"] = -6
-action_threshold["statement_instruct"] = -8
-action_threshold["self"] = -10
-action_threshold["question_repeat"] = -7
-action_threshold["apology"] = -7
-action_threshold["answer_agree"] = -8
-# action_threshold["statement_general"] = -5
-action_threshold["disfluency"] = -7
-action_threshold["other"] = -10
+# action_threshold["answer_dis"] = -4
+# # action_threshold["answer_general"] = 6
+# action_threshold["backchannel"] = -6
+# action_threshold["statement_instruct"] = -8
+# action_threshold["self"] = -10
+# action_threshold["question_repeat"] = -7
+# action_threshold["apology"] = -7
+# action_threshold["answer_agree"] = -8
+# # action_threshold["statement_general"] = -5
+# action_threshold["disfluency"] = -7
+# action_threshold["other"] = -10
 
 
 prediction_results = defaultdict(set)
