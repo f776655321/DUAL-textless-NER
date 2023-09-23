@@ -68,7 +68,7 @@ for mode in ["train", "validation", "test"]:
         extractor = extractor.cuda()
 
     titles = defaultdict(int)
-    apply_kmeans = ApplyKmeans('km_feat_layer_22')
+    apply_kmeans = ApplyKmeans('speeech-content-encoder/km_100h_c128/km_feat_layer_22')
     # apply_kmeans = ApplyKmeans('/home/yuxiang1234/DUAL-textless-NER/slue-sqa-model/L22500.bin')
 
     for line in tqdm(ds):
