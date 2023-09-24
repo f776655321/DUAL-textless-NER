@@ -17,7 +17,7 @@ def main():
         # TODO
         if mode == 'train':
             # df = pd.read_csv('code-data/' + mode + f'_ans_sampling_positive_{K}.csv')
-            df = pd.read_csv('code-data/' + mode + f'_ans_negative.csv')
+            df = pd.read_csv('code-data/' + mode + f'_ans.csv')
             # df = pd.read_csv('code-data/' + mode + f'_ans_sampling_negative_{K}.csv')
             # df = pd.read_csv('code-data/' + mode + f'_ans_sampling_negative_slue_{K}.csv')
         else: 
@@ -104,7 +104,7 @@ def main():
         if mode == "train":
             # NewDf.to_csv('code-data/' + mode + f'_code_ans_sampling_positive_{K}.csv',index=False)
             # NewDf.to_csv('code-data/' + mode + f'_code_ans_sampling_positive_{K}.csv',index=False)
-            NewDf.to_csv('code-data/' + mode + f'_code_ans_negative.csv',index=False)
+            NewDf.to_csv('code-data/' + mode + f'_code_ans.csv',index=False)
         else: 
             # NewDf.to_csv('code-data/' + mode + f'_code_ans_slue.csv',index=False)
             NewDf.to_csv('code-data/' + mode + f'_code_ans.csv',index=False)

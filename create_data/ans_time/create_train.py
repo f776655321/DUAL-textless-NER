@@ -52,7 +52,7 @@ def main():
         K = 2
         if mode == 'train':
             # output_file = mode + f'_ans_sampling_positive_{K}.csv'
-            output_file = mode + f'_ans_negative.csv'
+            output_file = mode + f'_ans.csv'
             # output_file = mode + f'_ans_sampling_negative_{K}.csv'
             # output_file = mode + f'_ans_sampling_negative_slue_{K}.csv'
         else: 
@@ -116,17 +116,17 @@ def main():
                     #         actions.append(action)
                     #         start_seconds.append(0)
                     #         end_seconds.append(float(duration) / 1000.0 + cumulative_time[action_list.index(action)])                    
-                else: 
-                    if mode == 'train':
-                        select = random.random()
-                        # if select < positive_ratio[action] * K:
-                        if True:
-                            ids.append(id)
-                            action_text.append(text)
-                            actions.append(action)
-                            start_seconds.append(0)
-                            end_seconds.append(0)
-                            negative_cnt[action] += 1
+                # else: 
+                #     if mode == 'train':
+                #         select = random.random()
+                #         # if select < positive_ratio[action] * K:
+                #         if True:
+                #             ids.append(id)
+                #             action_text.append(text)
+                #             actions.append(action)
+                #             start_seconds.append(0)
+                #             end_seconds.append(0)
+                #             negative_cnt[action] += 1
 
 
         negative_ratio = {key: value / len(ds)  for key, value in negative_cnt.items()}
