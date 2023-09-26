@@ -34,10 +34,10 @@ metric = load_metric('accuracy')
 class SQADataset(Dataset):
     def __init__(self, data_dir, mode='train', idx_offset=5):   
         if(mode == 'train'):
-            # df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_sampling_negative_slue_2.csv'))     
-            df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_sampling_positive_5.csv'))     
+            # df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans.csv'))     
+            df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans.csv'))     
         else:
-            # df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans_slue.csv'))
+            # df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans.csv'))
             df = pd.read_csv(os.path.join(data_dir, mode + '_code_ans.csv'))
         # TODO
         code_dir = os.path.join(data_dir, 'question-code-DAC')
@@ -54,8 +54,7 @@ class SQADataset(Dataset):
         action_list = ["question_check", "question_repeat", "question_general", "answer_agree", "answer_dis", "answer_general", "apology", "thanks", "acknowledge", "statement_open", "statement_close", "statement_problem", "statement_instruct", "statement_general", "backchannel", "disfluency", "self", "other"]
         action_code = {}
         candidate_code = []
-        root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-DAC"
-        # root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-dac-slue"
+        root_dir = "code-data/question-code-DAC"
         for idx, action in enumerate(action_list):
             code = np.loadtxt(os.path.join(root_dir, action + '.code')).astype(int)
             action_code[action] = code 
