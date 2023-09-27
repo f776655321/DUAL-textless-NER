@@ -296,7 +296,7 @@ def main():
 		for mode in ["train", "validation"]:
 			if mode == "train":
 				# df = pd.read_csv("code-data/train_code_ans_sampling_positive_5.csv")    
-				df = pd.read_csv("code-data/train_code_ans_negative.csv")    
+				df = pd.read_csv("code-data/train_code_ans.csv")    
 				# df = pd.read_csv("code-data/train_code_ans_sampling_negative_2.csv")    
 			elif mode == "validation":
 				df = pd.read_csv("code-data/validation_code_ans.csv")   
