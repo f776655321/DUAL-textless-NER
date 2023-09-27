@@ -22,7 +22,7 @@ from torch.nn import LogSoftmax
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default='code-data', type=str)
-parser.add_argument('--model_path', default='QADAC/checkpoint-12000', type=str)
+parser.add_argument('--model_path', default='QADAC/checkpoint-36000', type=str)
 parser.add_argument('--save_dir', default='./evaluate-store/longformer', type=str)
 parser.add_argument('--output_dir', default='./evaluate-results', type=str)
 parser.add_argument('--dist_dir', default='./evaluate-distribution', type=str)
@@ -208,14 +208,12 @@ with torch.no_grad():
                                     attention_mask=batch['attention_mask'].cuda(),)
                                     #   global_attention_mask=batch['global_attention_mask'].cuda())
         # start_logits: (B, seq_len)
-        # logsoftmax = LogSoftmax(dim=1)
-        start_logprob = outputs.start_logits
-        end_logprob = outputs.end_logits
-        # start_logprob = logsoftmax(outputs.start_logits)
-        # end_logprob = logsoftmax(outputs.end_logits)
+        logsoftmax = LogSoftmax(dim=1)
+        #start_logprob = outputs.start_logits
+        #end_logprob = outputs.end_logits
+        start_logprob = logsoftmax(outputs.start_logits)
+        end_logprob = logsoftmax(outputs.end_logits)
     
-        # start_logprob = outputs.start_logits
-        # end_logprob = outputs.end_logits
 
 
         all_confidence = []
