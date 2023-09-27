@@ -185,7 +185,6 @@ from transformers import (
 )
 from accelerate import Accelerator
 
-from utils import get_position_training_data
 
 logger = logging.getLogger(__name__)
 
