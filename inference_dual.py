@@ -22,9 +22,9 @@ from utils import post_process_prediction, process_overlapping, find_overlapfram
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_dir', default='/work/yuxiang1234/DUAL-textless-DAC-2/code-data', type=str)
-parser.add_argument('--model_path', default='/work/yuxiang1234/DUAL-textless-DAC-2/QADAC/checkpoint-12000', type=str)
-parser.add_argument('--save_dir', default='./evaluate-store/12000', type=str)
+parser.add_argument('--data_dir', default='code-data', type=str)
+parser.add_argument('--model_path', default='QADAC/checkpoint-12000', type=str)
+parser.add_argument('--save_dir', default='./evaluate-store/longformer', type=str)
 parser.add_argument('--output_dir', default='./evaluate-results', type=str)
 parser.add_argument('--dist_dir', default='./evaluate-distribution', type=str)
 # parser.add_argument('--output_fname', default='result', type=str)
@@ -48,7 +48,7 @@ action_prob_distribution = {action:[] for action in action_list}
 class SQADevDataset(Dataset):
     def __init__(self, data_dir):
         if args.mode == "train":
-            df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans_sampling_negative_0.csv'))
+            df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans.csv'))
             # df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans_sampling_negative_slue_2.csv'))
         else: 
             df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans.csv'))
@@ -65,7 +65,7 @@ class SQADevDataset(Dataset):
         action_code = {}
         action_cnt = {}
         cumulative_cnt = []
-        root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-DAC"
+        root_dir = "code-data/question-code-DAC"
         # root_dir = "/work/yuxiang1234/DUAL-textless-DAC-2/code-data/question-code-dac-slue"
         for idx, action in enumerate(action_list):
             code = np.loadtxt(os.path.join(root_dir, action + '.code')).astype(int)
@@ -194,7 +194,7 @@ dataloader = DataLoader(valid_dataset, batch_size=batch_size, collate_fn=collate
 
 if args.mode == "train":
     # df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans_sampling_negative_slue_2.csv'))
-    df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans_sampling_negative_2.csv'))
+    df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans.csv'))
 else:
     df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans.csv'))
     # df = pd.read_csv(os.path.join(data_dir, args.mode + '_code_ans_slue.csv'))
