@@ -20,7 +20,6 @@ from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import DataLoader, Dataset
 from torch.nn.functional import softmax
 from torch.nn import LogSoftmax
-from utils import post_process_prediction, process_overlapping, find_overlapframe, calculate_FF1
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -29,7 +28,7 @@ parser.add_argument('--save_dir', default='./evaluate-store/t5', type=str)
 parser.add_argument('--dist_dir', default='./evaluate-distribution', type=str)
 # parser.add_argument('--output_fname', default='result', type=str)
 parser.add_argument('--mode', default='validation', type=str)
-parser.add_argument('--threshold', default=-11, type=float)
+parser.add_argument('--threshold', default=-3, type=float)
 
 parser.add_argument('--range', default="all", type=str)
 args = parser.parse_args()
@@ -101,10 +100,10 @@ for context_id in all_context_id:
     # print(start_prob_region)
     # print(end_prob_region)
     # print("=" * 20)
-    start_prob_region = [prob[0] for prob in start_prob_region]
-    end_prob_region = [prob[-1] for prob in end_prob_region]
-    # start_prob_region = [max(prob) for prob in start_prob_region]
-    # end_prob_region = [max(prob) for prob in end_prob_region]
+    #start_prob_region = [prob[0] for prob in start_prob_region]
+    #end_prob_region = [prob[-1] for prob in end_prob_region]
+    start_prob_region = [max(prob) for prob in start_prob_region]
+    end_prob_region = [max(prob) for prob in end_prob_region]
     
     # print(start_prob_region)
     # print(end_prob_region)
