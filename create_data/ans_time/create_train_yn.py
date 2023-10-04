@@ -22,7 +22,7 @@ def main():
     for mode in ["train", "validation", "test"]:
         positive_cnt = defaultdict(int)
         negative_cnt = defaultdict(int)
-        ds = load_from_disk(f"/work/yuxiang1234/backup/slue-dac/{mode}.hf")
+        ds = load_from_disk(f"slue-dac/{mode}.hf")
 
         #for output csv
         ids = []
