@@ -76,60 +76,62 @@ threshold = args.threshold
 
 acc = []
 cnt = 0
-all_context_id = set()
+keys = set()
 predictions = None
 all_pred = []
 all_gt = []
 with open(os.path.join(args.save_dir, f"{args.mode}.pickle"), "rb") as f: 
     predictions = pickle.load(f)
     for key in predictions.keys():
-        all_context_id.add(key)
+        keys.add(key)
       
-for context_id in all_context_id: 
-    for action in action_list:
-        label = predictions[context_id + "^" + action]["label"]
-        cls_position = predictions[context_id + "^" + action]['cls_position']
-        # all_confidence = []
-        # max_confidence = -100000
-        start_prob = predictions[context_id + "^" + action]["start_prob"]
-        end_prob = predictions[context_id + "^" + action]["end_prob"]
-        action = predictions[context_id + "^" + action]["action"]
+for key in keys: 
+    key = key.split("^")
+    context_id = key[0]
+    action = key[1]
+    label = predictions[context_id + "^" + action]["label"]
+    cls_position = predictions[context_id + "^" + action]['cls_position']
+    # all_confidence = []
+    # max_confidence = -100000
+    start_prob = predictions[context_id + "^" + action]["start_prob"]
+    end_prob = predictions[context_id + "^" + action]["end_prob"]
+    action = predictions[context_id + "^" + action]["action"]
+
+    start_prob_region = [start_prob[cls_position[idx] : cls_position[idx + 1]] if idx < len(cls_position) - 1 else start_prob[cls_position[idx]:] for idx in range(len(cls_position))]
+    end_prob_region = [end_prob[cls_position[idx] : cls_position[idx + 1]] if idx < len(cls_position) - 1 else end_prob[cls_position[idx]:] for idx in range(len(cls_position))]
+    # print(start_prob_region)
+    # print(end_prob_region)
+    # print("=" * 20)
+    #start_prob_region = [prob[0] for prob in start_prob_region]
+    #end_prob_region = [prob[-1] for prob in end_prob_region]
+    start_prob_region = [max(prob) for prob in start_prob_region]
+    end_prob_region = [max(prob) for prob in end_prob_region]
     
-        start_prob_region = [start_prob[cls_position[idx] : cls_position[idx + 1]] if idx < len(cls_position) - 1 else start_prob[cls_position[idx]:] for idx in range(len(cls_position))]
-        end_prob_region = [end_prob[cls_position[idx] : cls_position[idx + 1]] if idx < len(cls_position) - 1 else end_prob[cls_position[idx]:] for idx in range(len(cls_position))]
-        # print(start_prob_region)
-        # print(end_prob_region)
-        # print("=" * 20)
-        #start_prob_region = [prob[0] for prob in start_prob_region]
-        #end_prob_region = [prob[-1] for prob in end_prob_region]
-        start_prob_region = [max(prob) for prob in start_prob_region]
-        end_prob_region = [max(prob) for prob in end_prob_region]
-        
-        # print(start_prob_region)
-        # print(end_prob_region)
-        confidence = np.array([start + end for start, end in zip(start_prob_region, end_prob_region)])
-        # confidence = softmax_stable(confidence)
-        print(action, confidence) 
-        # answer = np.argmax(confidence)
-        # answer = action_list[answer]
-        # answer = answer_list[answer]
-        # print(answer, label)
-        if confidence[0] > confidence[1]:
-        #if confidence[0] > -15:
-            prediction_results[context_id].add(action)
-        
-        if label:
-            assert label == action
-            ground_truth[context_id].add(label)
-        print(label)
-        print(prediction_results[context_id])
-        print(ground_truth[context_id])
-        print("=" * 20)
-        all_pred.append(sorted(list(prediction_results[context_id])))
-        all_gt.append(sorted(list(ground_truth[context_id])))
-        # print(max(start_prob))
-        # print(start_prob[cls_position[0] - 1: cls_position[-1] + 1])
-        # print(end_prob[cls_position[0] - 1: cls_position[-1] + 1])
+    # print(start_prob_region)
+    # print(end_prob_region)
+    confidence = np.array([start + end for start, end in zip(start_prob_region, end_prob_region)])
+    # confidence = softmax_stable(confidence)
+    print(action, confidence) 
+    # answer = np.argmax(confidence)
+    # answer = action_list[answer]
+    # answer = answer_list[answer]
+    # print(answer, label)
+    if confidence[0] > confidence[1]:
+    #if confidence[0] > -15:
+        prediction_results[context_id].add(action)
+    
+    if label:
+        assert label == action
+        ground_truth[context_id].add(label)
+    print(label)
+    print(prediction_results[context_id])
+    print(ground_truth[context_id])
+    print("=" * 20)
+    all_pred.append(sorted(list(prediction_results[context_id])))
+    all_gt.append(sorted(list(ground_truth[context_id])))
+    # print(max(start_prob))
+    # print(start_prob[cls_position[0] - 1: cls_position[-1] + 1])
+    # print(end_prob[cls_position[0] - 1: cls_position[-1] + 1])
 
 recall = []
 precision = []
