@@ -107,10 +107,7 @@ class SQADevDataset(Dataset):
         
         answer_by_context = defaultdict(set)
         for context_id, gt, a in tqdm(zip(context_ids, ground_truth, answers)):
-            if a == "yes":
-                answer_by_context[context_id].add(gt)
 
-        for context_id, gt in tqdm(zip(context_ids, ground_truth)):
             context = np.loadtxt(os.path.join(code_passage_dir, context_id + '.code')).astype(int)
             context += 3
             if context.shape == ():
@@ -148,16 +145,28 @@ class SQADevDataset(Dataset):
                 # cls_position = [cumulative_cnt[idx - 1] + len(question) + len(context) + 2 if idx > 0 else  len(question) + len(context) + 2 for idx in range(len(cumulative_cnt))]
                 cls_position = [cumulative_cnt[idx - 1] + len(question) + len(context) + 1 if idx > 0 else  len(question) + len(context) + 1 for idx in range(len(cumulative_cnt))]
                 encoding = {}
-                encoding.update({
-                                'context_id': context_id,
-                                'input_ids': torch.LongTensor(code_pair), 
-                                # 'context_begin': len(question) + 2,  # [0] [2] 
-                                'context_begin': len(question) + 1,  # [0] [2] [2]
-                                'cls_position': cls_position,
-                                'label': answer_by_context[context_id],
-                                'context_len': len(context),
-                                "action": action
-                            })
+                if a == "yes":
+                    encoding.update({
+                                    'context_id': context_id,
+                                    'input_ids': torch.LongTensor(code_pair), 
+                                    # 'context_begin': len(question) + 2,  # [0] [2] 
+                                    'context_begin': len(question) + 1,  # [0] [2] [2]
+                                    'cls_position': cls_position,
+                                    'label': action,
+                                    'context_len': len(context),
+                                    "action": action
+                                })
+                else:
+                    encoding.update({
+                                    'context_id': context_id,
+                                    'input_ids': torch.LongTensor(code_pair), 
+                                    # 'context_begin': len(question) + 2,  # [0] [2] 
+                                    'context_begin': len(question) + 1,  # [0] [2] [2]
+                                    'cls_position': cls_position,
+                                    'label': None,
+                                    'context_len': len(context),
+                                    "action": action
+                                })
                 self.encodings.append(encoding)
 
     def __len__(self):
@@ -202,7 +211,7 @@ all_prediction = defaultdict(dict)
 prediction_results = defaultdict(set)
 prediction_confidence = defaultdict(dict)
 ground_truth = defaultdict(set)
-batch_size = 32
+batch_size = 128
 valid_dataset = SQADevDataset(data_dir)
 dataloader = DataLoader(valid_dataset, batch_size=batch_size, collate_fn=collate_dev_fn, shuffle=False)
 
@@ -236,13 +245,13 @@ with torch.no_grad():
             gt = batch['label'][i]
             cls_position = batch['cls_position'][i]
             action = batch['action'][i]
-            all_prediction[context_id]["context_begin"] = batch['context_begin'][i]
-            all_prediction[context_id]["context_len"] = batch['context_len'][i]
-            all_prediction[context_id]["start_prob"] = start_logprob[i].detach().cpu().tolist()
-            all_prediction[context_id]["end_prob"] = end_logprob[i].detach().cpu().tolist()
-            all_prediction[context_id]["cls_position"] = cls_position
-            all_prediction[context_id]["label"] = gt
-            all_prediction[context_id]["action"] = action
+            all_prediction[context_id + "^" + action]["context_begin"] = batch['context_begin'][i]
+            all_prediction[context_id + "^" + action]["context_len"] = batch['context_len'][i]
+            all_prediction[context_id + "^" + action]["start_prob"] = start_logprob[i].detach().cpu().tolist()
+            all_prediction[context_id + "^" + action]["end_prob"] = end_logprob[i].detach().cpu().tolist()
+            all_prediction[context_id + "^" + action]["cls_position"] = cls_position
+            all_prediction[context_id + "^" + action]["label"] = gt
+            all_prediction[context_id + "^" + action]["action"] = action
 
 with open(os.path.join(args.save_dir, f"{args.mode}.pickle"), "wb") as f:
         pickle.dump(all_prediction, f)

@@ -20,7 +20,6 @@ from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import DataLoader, Dataset
 from torch.nn.functional import softmax
 from torch.nn import LogSoftmax
-from utils import post_process_prediction, process_overlapping, find_overlapframe, calculate_FF1
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -77,23 +76,26 @@ threshold = args.threshold
 
 acc = []
 cnt = 0
-all_context_id = set()
+keys = set()
 predictions = None
 all_pred = []
 all_gt = []
 with open(os.path.join(args.save_dir, f"{args.mode}.pickle"), "rb") as f: 
     predictions = pickle.load(f)
     for key in predictions.keys():
-        all_context_id.add(key)
+        keys.add(key)
       
-for context_id in all_context_id: 
-    label = predictions[context_id]["label"]
-    cls_position = predictions[context_id]['cls_position']
+for key in keys: 
+    key = key.split("^")
+    context_id = key[0]
+    action = key[1]
+    label = predictions[context_id + "^" + action]["label"]
+    cls_position = predictions[context_id + "^" + action]['cls_position']
     # all_confidence = []
     # max_confidence = -100000
-    start_prob = predictions[context_id]["start_prob"]
-    end_prob = predictions[context_id]["end_prob"]
-    action = predictions[context_id]["action"]
+    start_prob = predictions[context_id + "^" + action]["start_prob"]
+    end_prob = predictions[context_id + "^" + action]["end_prob"]
+    action = predictions[context_id + "^" + action]["action"]
 
     start_prob_region = [start_prob[cls_position[idx] : cls_position[idx + 1]] if idx < len(cls_position) - 1 else start_prob[cls_position[idx]:] for idx in range(len(cls_position))]
     end_prob_region = [end_prob[cls_position[idx] : cls_position[idx + 1]] if idx < len(cls_position) - 1 else end_prob[cls_position[idx]:] for idx in range(len(cls_position))]
@@ -114,12 +116,13 @@ for context_id in all_context_id:
     # answer = action_list[answer]
     # answer = answer_list[answer]
     # print(answer, label)
-    # if confidence[0] > confidence[1]:
-    if confidence[0] > -15:
+    if confidence[0] > confidence[1]:
+    #if confidence[0] > -15:
         prediction_results[context_id].add(action)
     
-    for l in label:
-        ground_truth[context_id].add(l)
+    if label:
+        assert label == action
+        ground_truth[context_id].add(label)
     print(label)
     print(prediction_results[context_id])
     print(ground_truth[context_id])
