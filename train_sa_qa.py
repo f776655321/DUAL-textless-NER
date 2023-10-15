@@ -26,8 +26,8 @@ from typing import Optional
 import torch
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # Cannot find token
-os.environ['TRANSFORMERS_CACHE'] = '/work/yuxiang1234/cache'
-os.environ['HF_DATASETS_CACHE']="/work/yuxiang1234/cache"
+#os.environ['TRANSFORMERS_CACHE'] = '/work/yuxiang1234/cache'
+#os.environ['HF_DATASETS_CACHE']="/work/yuxiang1234/cache"
 #os.environ["HF_HOME"] = "/work/yuxiang1234/cache"
 
 import datasets
